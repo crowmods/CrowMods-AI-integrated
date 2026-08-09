@@ -42,6 +42,16 @@ export default function Home() {
       <h1>CrowMods AI</h1>
       <p>Unified 300-phase integration gateway.</p>
 
+      <div style={{
+        display: "inline-block",
+        padding: "8px 12px",
+        marginBottom: "20px",
+        borderRadius: "6px",
+        background: error ? "#3a1515" : "#12351f",
+      }}>
+        {error ? "● API Offline" : loading ? "● Connecting..." : "● API Connected"}
+      </div>
+
       {loading && <p>Loading phases...</p>}
 
       {error && <p>API Error: {error}</p>}
