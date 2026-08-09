@@ -128,6 +128,16 @@ export default function Home() {
             </button>
           )}
 
+          <div style={{ marginBottom: "14px", opacity: 0.7 }}>
+            Showing{" "}
+            {data.phases.filter((phase) =>
+              `${phase.phase} ${phase.title} ${phase.package_names?.join(" ")}`
+                .toLowerCase()
+                .includes(query.toLowerCase())
+            ).length}{" "}
+            of {data.count} phases
+          </div>
+
           <div style={{ display: "grid", gap: "12px" }}>
             {data.phases
               .filter((phase) =>
