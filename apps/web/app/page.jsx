@@ -10,7 +10,9 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [health, setHealth] = useState({});
 
-  useEffect(() => {
+  const loadPhases = () => {
+    setError("");
+
     fetch(`${API}/api/phases`)
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -18,6 +20,10 @@ export default function Home() {
       })
       .then(setData)
       .catch((err) => setError(err.message));
+  };
+
+  useEffect(() => {
+    loadPhases();
   }, []);
 
   return (
@@ -37,7 +43,21 @@ export default function Home() {
 
       {data && (
         <>
-          <h2>Phases: {data.count}</h2>
+          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            <h2>Phases: {data.count}</h2>
+
+            <button
+              onClick={loadPhases}
+              style={{
+                padding: "8px 14px",
+                borderRadius: "6px",
+                border: "0",
+                cursor: "pointer",
+              }}
+            >
+              Refresh
+            </button>
+          </div>
 
           <div
             style={{
