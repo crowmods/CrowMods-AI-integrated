@@ -107,7 +107,25 @@ export default function Home() {
 
                 {health[phase.phase] && (
                   <div style={{ marginTop: "8px" }}>
-                    {health[phase.phase].ok ? "✓ Healthy" : "✗ Failed"}
+                    <strong>
+                      {health[phase.phase].ok ? "✓ Healthy" : "✗ Failed"}
+                    </strong>
+
+                    <pre
+                      style={{
+                        marginTop: "8px",
+                        padding: "10px",
+                        background: "#080b12",
+                        borderRadius: "6px",
+                        overflowX: "auto",
+                      }}
+                    >
+                      {JSON.stringify(
+                        health[phase.phase].result,
+                        null,
+                        2
+                      )}
+                    </pre>
                   </div>
                 )}
               </div>
