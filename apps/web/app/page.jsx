@@ -113,6 +113,21 @@ export default function Home() {
             }}
           />
 
+          {query && (
+            <button
+              onClick={() => setQuery("")}
+              style={{
+                marginBottom: "20px",
+                padding: "8px 14px",
+                borderRadius: "6px",
+                border: "0",
+                cursor: "pointer",
+              }}
+            >
+              Clear Search
+            </button>
+          )}
+
           <div style={{ display: "grid", gap: "12px" }}>
             {data.phases
               .filter((phase) =>
