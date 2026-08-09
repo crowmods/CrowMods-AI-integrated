@@ -1,0 +1,16 @@
+{
+  "name":"crowmods-phase119-production-governance",
+  "private":true,
+  "version":"1.19.0",
+  "scripts":{
+    "dev":"node src/server.js",
+    "start":"node src/server.js",
+    "test":"node --test"
+  },
+  "dependencies":{
+    "express":"latest",
+    "helmet":"latest",
+    "cors":"latest",
+    "pg":"latest"
+  }
+}

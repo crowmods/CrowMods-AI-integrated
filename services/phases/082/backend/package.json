@@ -1,0 +1,16 @@
+{
+  "name":"crowmods-dr-gameday",
+  "private":true,
+  "version":"0.82.0",
+  "scripts":{
+    "dev":"node src/server.js",
+    "start":"node src/server.js",
+    "test":"node --test"
+  },
+  "dependencies":{
+    "express":"latest",
+    "helmet":"latest",
+    "cors":"latest",
+    "pg":"latest"
+  }
+}

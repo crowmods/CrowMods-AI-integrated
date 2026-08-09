@@ -1,0 +1,17 @@
+{
+  "name":"crowmods-continuous-assurance",
+  "private":true,
+  "version":"1.1.0",
+  "scripts":{
+    "dev":"node src/server.js",
+    "start":"node src/server.js",
+    "test":"node --test",
+    "assurance:check":"node src/assurance.js"
+  },
+  "dependencies":{
+    "express":"latest",
+    "helmet":"latest",
+    "cors":"latest",
+    "pg":"latest"
+  }
+}

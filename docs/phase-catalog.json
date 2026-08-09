@@ -1,0 +1,2402 @@
+[
+  {
+    "phase": 1,
+    "archive": "CrowMods-AI-Phase1.zip",
+    "title": "CrowMods AI",
+    "package_names": [
+      "crowmods-frontend",
+      "crowmods-backend"
+    ]
+  },
+  {
+    "phase": 2,
+    "archive": "CrowMods-AI-Phase2-Secure-APK-Upload.zip",
+    "title": "CrowMods AI \u2014 Phase 2",
+    "package_names": [
+      "crowmods-backend"
+    ]
+  },
+  {
+    "phase": 3,
+    "archive": "CrowMods-AI-Phase3-Crow-AI-Engine.zip",
+    "title": "CrowMods AI \u2014 Phase 3: Metadata + AI Engine",
+    "package_names": [
+      "crowmods-backend"
+    ]
+  },
+  {
+    "phase": 4,
+    "archive": "CrowMods-AI-Phase4-Approval-Center.zip",
+    "title": "CrowMods AI \u2014 Phase 4: Approval Center",
+    "package_names": [
+      "crowmods-backend"
+    ]
+  },
+  {
+    "phase": 5,
+    "archive": "CrowMods-AI-Phase5-Website-Publisher.zip",
+    "title": "CrowMods AI \u2014 Phase 5: Website Publisher",
+    "package_names": [
+      "crowmods-backend"
+    ]
+  },
+  {
+    "phase": 6,
+    "archive": "CrowMods-AI-Phase6-Telegram-Publisher.zip",
+    "title": "CrowMods AI \u2014 Phase 6: Telegram Publisher",
+    "package_names": [
+      "crowmods-backend"
+    ]
+  },
+  {
+    "phase": 7,
+    "archive": "CrowMods-AI-Phase7-Telegram-Campaign-Engine.zip",
+    "title": "CrowMods AI \u2014 Phase 7: Telegram Campaign Engine",
+    "package_names": [
+      "crowmods-backend"
+    ]
+  },
+  {
+    "phase": 8,
+    "archive": "CrowMods-AI-Phase8-Discord-Community-AI.zip",
+    "title": "CrowMods AI \u2014 Phase 8: Discord Community AI",
+    "package_names": [
+      "crowmods-backend"
+    ]
+  },
+  {
+    "phase": 9,
+    "archive": "CrowMods-AI-Phase9-Multi-Social-Distribution.zip",
+    "title": "CrowMods AI \u2014 Phase 9: Multi-Social Distribution Engine",
+    "package_names": [
+      "crowmods-backend"
+    ]
+  },
+  {
+    "phase": 10,
+    "archive": "CrowMods-AI-Phase10-CrowShield-Security.zip",
+    "title": "CrowMods AI \u2014 Phase 10: CrowShield Production Security Foundation",
+    "package_names": [
+      "crowmods-backend"
+    ]
+  },
+  {
+    "phase": 11,
+    "archive": "CrowMods-AI-Phase11-PostgreSQL-Infrastructure.zip",
+    "title": "CrowMods AI \u2014 Phase 11: PostgreSQL Infrastructure",
+    "package_names": [
+      "crowmods-db-layer"
+    ]
+  },
+  {
+    "phase": 12,
+    "archive": "CrowMods-AI-Phase12-Analytics-Growth.zip",
+    "title": "CrowMods AI \u2014 Phase 12: Analytics & Growth Engine",
+    "package_names": [
+      "crowmods-analytics"
+    ]
+  },
+  {
+    "phase": 13,
+    "archive": "CrowMods-AI-Phase13-Monetization-Foundation.zip",
+    "title": "CrowMods AI \u2014 Phase 13: Monetization Foundation",
+    "package_names": [
+      "crowmods-monetization"
+    ]
+  },
+  {
+    "phase": 14,
+    "archive": "CrowMods-AI-Phase14-User-Accounts-Premium.zip",
+    "title": "CrowMods AI \u2014 Phase 14: User Accounts + Premium Foundation",
+    "package_names": [
+      "crowmods-users"
+    ]
+  },
+  {
+    "phase": 15,
+    "archive": "CrowMods-AI-Phase15-Authentication-Security.zip",
+    "title": "CrowMods AI \u2014 Phase 15: Authentication & Admin Security Foundation",
+    "package_names": [
+      "crowmods-auth"
+    ]
+  },
+  {
+    "phase": 16,
+    "archive": "CrowMods-AI-Phase16-Unified-Admin-Control-Center.zip",
+    "title": "CrowMods AI \u2014 Phase 16: Unified Admin Control Center",
+    "package_names": [
+      "crowmods-admin"
+    ]
+  },
+  {
+    "phase": 17,
+    "archive": "CrowMods-AI-Phase17-Background-Job-Queue.zip",
+    "title": "CrowMods AI \u2014 Phase 17: Background Job Queue",
+    "package_names": [
+      "crowmods-jobs"
+    ]
+  },
+  {
+    "phase": 18,
+    "archive": "CrowMods-AI-Phase18-Crow-AI-Orchestrator.zip",
+    "title": "CrowMods AI \u2014 Phase 18: Crow AI Orchestrator",
+    "package_names": [
+      "crowmods-orchestrator"
+    ]
+  },
+  {
+    "phase": 19,
+    "archive": "CrowMods-AI-Phase19-AI-Content-Engine.zip",
+    "title": "CrowMods AI \u2014 Phase 19: AI Content Engine",
+    "package_names": [
+      "crowmods-ai-content"
+    ]
+  },
+  {
+    "phase": 20,
+    "archive": "CrowMods-AI-Phase20-APK-Intake-Security.zip",
+    "title": "CrowMods AI \u2014 Phase 20: Automated APK Intake & Security Pipeline",
+    "package_names": [
+      "crowmods-intake"
+    ]
+  },
+  {
+    "phase": 21,
+    "archive": "CrowMods-AI-Phase21-Public-Release-Website.zip",
+    "title": "CrowMods AI \u2014 Phase 21: Public Release Website",
+    "package_names": [
+      "crowmods-public-site"
+    ]
+  },
+  {
+    "phase": 22,
+    "archive": "CrowMods-AI-Phase22-Search-Discovery.zip",
+    "title": "CrowMods AI \u2014 Phase 22: Search & Discovery AI",
+    "package_names": [
+      "crowmods-discovery"
+    ]
+  },
+  {
+    "phase": 23,
+    "archive": "CrowMods-AI-Phase23-Media-Asset-Pipeline.zip",
+    "title": "CrowMods AI \u2014 Phase 23: Media & Asset Pipeline",
+    "package_names": [
+      "crowmods-media"
+    ]
+  },
+  {
+    "phase": 24,
+    "archive": "CrowMods-AI-Phase24-Telegram-Automation.zip",
+    "title": "CrowMods AI \u2014 Phase 24: Telegram Automation Engine",
+    "package_names": [
+      "crowmods-telegram"
+    ]
+  },
+  {
+    "phase": 25,
+    "archive": "CrowMods-AI-Phase25-Discord-Automation.zip",
+    "title": "CrowMods AI \u2014 Phase 25: Discord Automation Engine",
+    "package_names": [
+      "crowmods-discord"
+    ]
+  },
+  {
+    "phase": 26,
+    "archive": "CrowMods-AI-Phase26-Multi-Social-Campaigns.zip",
+    "title": "CrowMods AI \u2014 Phase 26: Multi-Social Campaign Engine",
+    "package_names": [
+      "crowmods-social-campaigns"
+    ]
+  },
+  {
+    "phase": 27,
+    "archive": "CrowMods-AI-Phase27-Social-Strategy.zip",
+    "title": "CrowMods AI \u2014 Phase 27: AI Social Strategy Engine",
+    "package_names": [
+      "crowmods-social-strategy"
+    ]
+  },
+  {
+    "phase": 28,
+    "archive": "CrowMods-AI-Phase28-AI-Community-Manager.zip",
+    "title": "CrowMods AI \u2014 Phase 28: AI Community Manager",
+    "package_names": [
+      "crowmods-community-ai"
+    ]
+  },
+  {
+    "phase": 29,
+    "archive": "CrowMods-AI-Phase29-AI-Support-Knowledge-Base.zip",
+    "title": "CrowMods AI \u2014 Phase 29: AI Support & Knowledge Base",
+    "package_names": [
+      "crowmods-knowledge-ai"
+    ]
+  },
+  {
+    "phase": 30,
+    "archive": "CrowMods-AI-Phase30-Analytics-Growth-Center.zip",
+    "title": "CrowMods AI \u2014 Phase 30: Analytics & AI Growth Center",
+    "package_names": [
+      "crowmods-analytics-growth"
+    ]
+  },
+  {
+    "phase": 31,
+    "archive": "CrowMods-AI-Phase31-Revenue-Monetization.zip",
+    "title": "CrowMods AI \u2014 Phase 31: Revenue & Monetization Engine",
+    "package_names": [
+      "crowmods-monetization"
+    ]
+  },
+  {
+    "phase": 32,
+    "archive": "CrowMods-AI-Phase32-User-Accounts-Premium.zip",
+    "title": "CrowMods AI \u2014 Phase 32: User Accounts & Premium Access",
+    "package_names": [
+      "crowmods-accounts"
+    ]
+  },
+  {
+    "phase": 33,
+    "archive": "CrowMods-AI-Phase33-Admin-Command-Center.zip",
+    "title": "CrowMods AI \u2014 Phase 33: Admin Command Center",
+    "package_names": [
+      "crowmods-admin-center"
+    ]
+  },
+  {
+    "phase": 34,
+    "archive": "CrowMods-AI-Phase34-Security-Hardening.zip",
+    "title": "CrowMods AI \u2014 Phase 34: Security & Hardening Center",
+    "package_names": [
+      "crowmods-security-center"
+    ]
+  },
+  {
+    "phase": 35,
+    "archive": "CrowMods-AI-Phase35-AI-Orchestrator.zip",
+    "title": "CrowMods AI \u2014 Phase 35: AI Operations Orchestrator",
+    "package_names": [
+      "crowmods-ai-orchestrator"
+    ]
+  },
+  {
+    "phase": 36,
+    "archive": "CrowMods-AI-Phase36-Monitoring-Incident-Response.zip",
+    "title": "CrowMods AI \u2014 Phase 36: Monitoring, Alerts & Incident Response",
+    "package_names": [
+      "crowmods-monitoring"
+    ]
+  },
+  {
+    "phase": 37,
+    "archive": "CrowMods-AI-Phase37-Production-Infrastructure.zip",
+    "title": "CrowMods AI \u2014 Phase 37: Production Deployment & Infrastructure",
+    "package_names": [
+      "crowmods-production-frontend",
+      "crowmods-production-backend"
+    ]
+  },
+  {
+    "phase": 38,
+    "archive": "CrowMods-AI-Phase38-Secure-Upload-Pipeline.zip",
+    "title": "CrowMods AI \u2014 Phase 38: Secure APK/File Upload Pipeline",
+    "package_names": [
+      "crowmods-upload-pipeline"
+    ]
+  },
+  {
+    "phase": 39,
+    "archive": "CrowMods-AI-Phase39-Release-Intelligence.zip",
+    "title": "CrowMods AI \u2014 Phase 39: AI Release Intelligence",
+    "package_names": [
+      "crowmods-release-intelligence"
+    ]
+  },
+  {
+    "phase": 40,
+    "archive": "CrowMods-AI-Phase40-Media-Asset-Studio.zip",
+    "title": "CrowMods AI \u2014 Phase 40: Media Intelligence & Asset Studio",
+    "package_names": [
+      "crowmods-media-studio"
+    ]
+  },
+  {
+    "phase": 41,
+    "archive": "CrowMods-AI-Phase41-AI-Website-Release-Builder.zip",
+    "title": "CrowMods AI \u2014 Phase 41: AI Website Release Builder",
+    "package_names": [
+      "crowmods-release-page-builder"
+    ]
+  },
+  {
+    "phase": 42,
+    "archive": "CrowMods-AI-Phase42-Multi-Platform-Campaign-Engine.zip",
+    "title": "CrowMods AI \u2014 Phase 42: Multi-Platform Campaign Engine",
+    "package_names": [
+      "crowmods-campaign-engine"
+    ]
+  },
+  {
+    "phase": 43,
+    "archive": "CrowMods-AI-Phase43-Official-Connector-Hub.zip",
+    "title": "CrowMods AI \u2014 Phase 43: Official Platform Connector Hub",
+    "package_names": [
+      "crowmods-connector-hub"
+    ]
+  },
+  {
+    "phase": 44,
+    "archive": "CrowMods-AI-Phase44-AI-Community-Manager.zip",
+    "title": "CrowMods AI \u2014 Phase 44: AI Community Manager",
+    "package_names": [
+      "crowmods-community-manager"
+    ]
+  },
+  {
+    "phase": 45,
+    "archive": "CrowMods-AI-Phase45-Knowledge-Base-RAG.zip",
+    "title": "CrowMods AI \u2014 Phase 45: Knowledge Base & RAG Foundation",
+    "package_names": [
+      "crowmods-knowledge-rag"
+    ]
+  },
+  {
+    "phase": 46,
+    "archive": "CrowMods-AI-Phase46-Analytics-Growth-Intelligence.zip",
+    "title": "CrowMods AI \u2014 Phase 46: Analytics & Growth Intelligence",
+    "package_names": [
+      "crowmods-growth-analytics"
+    ]
+  },
+  {
+    "phase": 47,
+    "archive": "CrowMods-AI-Phase47-Revenue-Monetization.zip",
+    "title": "CrowMods AI \u2014 Phase 47: Revenue & Monetization Engine",
+    "package_names": [
+      "crowmods-monetization"
+    ]
+  },
+  {
+    "phase": 48,
+    "archive": "CrowMods-AI-Phase48-Subscription-Lifecycle.zip",
+    "title": "CrowMods AI \u2014 Phase 48: Subscription & Customer Lifecycle",
+    "package_names": [
+      "crowmods-subscription-lifecycle"
+    ]
+  },
+  {
+    "phase": 49,
+    "archive": "CrowMods-AI-Phase49-Customer-Support-Notifications.zip",
+    "title": "CrowMods AI \u2014 Phase 49: Customer Support & Notification Engine",
+    "package_names": [
+      "crowmods-support-notifications"
+    ]
+  },
+  {
+    "phase": 50,
+    "archive": "CrowMods-AI-Phase50-Customer-Portal-Command-Center.zip",
+    "title": "CrowMods AI \u2014 Phase 50: Customer Portal & AI Command Center",
+    "package_names": [
+      "crowmods-command-center"
+    ]
+  },
+  {
+    "phase": 51,
+    "archive": "CrowMods-AI-Phase51-Secure-Identity-RBAC-Gateway.zip",
+    "title": "CrowMods AI \u2014 Phase 51: Secure Identity, RBAC & Zero-Trust Gateway",
+    "package_names": [
+      "crowmods-zero-trust-gateway"
+    ]
+  },
+  {
+    "phase": 52,
+    "archive": "CrowMods-AI-Phase52-AI-Orchestrator-Autonomous-Operations.zip",
+    "title": "CrowMods AI \u2014 Phase 52: AI Orchestrator & Autonomous Operations",
+    "package_names": [
+      "crowmods-ai-orchestrator"
+    ]
+  },
+  {
+    "phase": 53,
+    "archive": "CrowMods-AI-Phase53-Production-Worker-Tool-Registry.zip",
+    "title": "CrowMods AI \u2014 Phase 53: Production Worker & Tool Registry",
+    "package_names": [
+      "crowmods-ai-worker"
+    ]
+  },
+  {
+    "phase": 54,
+    "archive": "CrowMods-AI-Phase54-Secrets-Observability.zip",
+    "title": "CrowMods AI \u2014 Phase 54: Secrets & Observability",
+    "package_names": [
+      "crowmods-observability-secrets"
+    ]
+  },
+  {
+    "phase": 55,
+    "archive": "CrowMods-AI-Phase55-Production-Deployment-DR.zip",
+    "title": "CrowMods AI \u2014 Phase 55: Production Deployment, Backup & Disaster Recovery",
+    "package_names": []
+  },
+  {
+    "phase": 56,
+    "archive": "CrowMods-AI-Phase56-CI-CD-Testing-Staging.zip",
+    "title": "CrowMods AI \u2014 Phase 56: CI/CD, Automated Testing & Staging",
+    "package_names": [
+      "crowmods-api"
+    ]
+  },
+  {
+    "phase": 57,
+    "archive": "CrowMods-AI-Phase57-Integration-Migrations-Canary.zip",
+    "title": "CrowMods AI \u2014 Phase 57: Integration, Migrations & Canary Releases",
+    "package_names": [
+      "crowmods-release-control"
+    ]
+  },
+  {
+    "phase": 58,
+    "archive": "CrowMods-AI-Phase58-Deployment-Progressive-Traffic.zip",
+    "title": "CrowMods AI \u2014 Phase 58: Deployment Adapters, Artifact Integrity & Progressive Traffic",
+    "package_names": [
+      "crowmods-progressive-release"
+    ]
+  },
+  {
+    "phase": 59,
+    "archive": "CrowMods-AI-Phase59-Staging-Verification-Release-Evidence.zip",
+    "title": "CrowMods AI \u2014 Phase 59: Full Staging Verification & Release Evidence",
+    "package_names": [
+      "crowmods-release-evidence"
+    ]
+  },
+  {
+    "phase": 60,
+    "archive": "CrowMods-AI-Phase60-Production-Launch-Package.zip",
+    "title": "CrowMods AI \u2014 Phase 60: Production Launch Package",
+    "package_names": [
+      "crowmods-production-launch"
+    ]
+  },
+  {
+    "phase": 61,
+    "archive": "CrowMods-AI-Phase61-Launch-Control-Post-Launch-Operations.zip",
+    "title": "CrowMods AI \u2014 Phase 61: Launch Control Dashboard & Post-Launch Operations",
+    "package_names": [
+      "crowmods-launch-operations"
+    ]
+  },
+  {
+    "phase": 62,
+    "archive": "CrowMods-AI-Phase62-Live-Metrics-SLO-Monitoring.zip",
+    "title": "CrowMods AI \u2014 Phase 62: Live Metrics, SLO & Burn-Rate Monitoring",
+    "package_names": [
+      "crowmods-live-monitoring"
+    ]
+  },
+  {
+    "phase": 63,
+    "archive": "CrowMods-AI-Phase63-Alert-Routing-OnCall.zip",
+    "title": "CrowMods AI \u2014 Phase 63: Alert Routing & On-Call Operations",
+    "package_names": [
+      "crowmods-oncall-routing"
+    ]
+  },
+  {
+    "phase": 64,
+    "archive": "CrowMods-AI-Phase64-Automated-Escalation-Worker.zip",
+    "title": "CrowMods AI \u2014 Phase 64: Automated Escalation Worker & Incident Processing",
+    "package_names": [
+      "crowmods-escalation-worker"
+    ]
+  },
+  {
+    "phase": 65,
+    "archive": "CrowMods-AI-Phase65-EndToEnd-Alert-Incident-Pipeline.zip",
+    "title": "CrowMods AI \u2014 Phase 65: End-to-End Alert \u2192 Incident \u2192 Escalation Pipeline",
+    "package_names": [
+      "crowmods-event-pipeline"
+    ]
+  },
+  {
+    "phase": 66,
+    "archive": "CrowMods-AI-Phase66-Event-Streaming-Dependency-Graph.zip",
+    "title": "CrowMods AI \u2014 Phase 66: Event Streaming & Service Dependency Graph",
+    "package_names": [
+      "crowmods-event-streaming"
+    ]
+  },
+  {
+    "phase": 67,
+    "archive": "CrowMods-AI-Phase67-Production-Event-Bus-Schemas-Replay.zip",
+    "title": "CrowMods AI \u2014 Phase 67: Production Event Bus, Schemas, Replay & DLQ",
+    "package_names": [
+      "crowmods-event-platform"
+    ]
+  },
+  {
+    "phase": 68,
+    "archive": "CrowMods-AI-Phase68-Consumer-Workers-DLQ-Lag.zip",
+    "title": "CrowMods AI \u2014 Phase 68: Consumer Workers, DLQ Management & Event Lag",
+    "package_names": [
+      "crowmods-consumer-workers"
+    ]
+  },
+  {
+    "phase": 69,
+    "archive": "CrowMods-AI-Phase69-Broker-Partitions-Worker-Coordination.zip",
+    "title": "CrowMods AI \u2014 Phase 69: Broker Adapter, Partitions & Worker Coordination",
+    "package_names": [
+      "crowmods-partition-workers"
+    ]
+  },
+  {
+    "phase": 70,
+    "archive": "CrowMods-AI-Phase70-Rebalancer-DLQ-Lag-Alerting.zip",
+    "title": "CrowMods AI \u2014 Phase 70: Rebalancer, DLQ Executor & Lag Alerting",
+    "package_names": [
+      "crowmods-recovery-operations"
+    ]
+  },
+  {
+    "phase": 71,
+    "archive": "CrowMods-AI-Phase71-Recovery-Incident-Autoscaling.zip",
+    "title": "CrowMods AI \u2014 Phase 71: Recovery-to-Incident Integration & Autoscaling Signals",
+    "package_names": [
+      "crowmods-capacity-recovery"
+    ]
+  },
+  {
+    "phase": 72,
+    "archive": "CrowMods-AI-Phase72-Autoscaling-Controller-Cooldowns-Cost.zip",
+    "title": "CrowMods AI \u2014 Phase 72: Autoscaling Controller, Cooldowns & Cost-Aware Capacity",
+    "package_names": [
+      "crowmods-autoscaling-controller"
+    ]
+  },
+  {
+    "phase": 73,
+    "archive": "CrowMods-AI-Phase73-Capacity-Telemetry-Hysteresis-Verification.zip",
+    "title": "CrowMods AI \u2014 Phase 73: Capacity Telemetry, Hysteresis & Verification Loop",
+    "package_names": [
+      "crowmods-capacity-verification"
+    ]
+  },
+  {
+    "phase": 74,
+    "archive": "CrowMods-AI-Phase74-Stabilization-MultiSample-Recovery.zip",
+    "title": "CrowMods AI \u2014 Phase 74: Stabilization Windows, Multi-Sample Verification & Recovery Automation",
+    "package_names": [
+      "crowmods-recovery-automation"
+    ]
+  },
+  {
+    "phase": 75,
+    "archive": "CrowMods-AI-Phase75-Incident-State-SLO-Recovery.zip",
+    "title": "CrowMods AI \u2014 Phase 75: Incident State Integration & SLO Recovery Confirmation",
+    "package_names": [
+      "crowmods-incident-recovery"
+    ]
+  },
+  {
+    "phase": 76,
+    "archive": "CrowMods-AI-Phase76-Incident-SLO-Evidence-Closure.zip",
+    "title": "CrowMods AI \u2014 Phase 76: Incident/SLO Adapters, Evidence Collection & Closure Approval",
+    "package_names": [
+      "crowmods-evidence-closure"
+    ]
+  },
+  {
+    "phase": 77,
+    "archive": "CrowMods-AI-Phase77-Signed-Evidence-Immutable-Audit.zip",
+    "title": "CrowMods AI \u2014 Phase 77: Signed Evidence, Immutable Audit & Provider Contracts",
+    "package_names": [
+      "crowmods-audit-integrity"
+    ]
+  },
+  {
+    "phase": 78,
+    "archive": "CrowMods-AI-Phase78-Crypto-Signatures-KeyRotation-Immutable.zip",
+    "title": "CrowMods AI \u2014 Phase 78: Cryptographic Signatures, Key Rotation & Immutable Export",
+    "package_names": [
+      "crowmods-crypto-immutability"
+    ]
+  },
+  {
+    "phase": 79,
+    "archive": "CrowMods-AI-Phase79-KMS-WORM-Provider-Certification-DR.zip",
+    "title": "CrowMods AI \u2014 Phase 79: KMS/WORM Adapter Contracts, Provider Certification & DR Validation",
+    "package_names": [
+      "crowmods-provider-certification"
+    ]
+  },
+  {
+    "phase": 80,
+    "archive": "CrowMods-AI-Phase80-DR-Restore-Rehearsal-CrossRegion.zip",
+    "title": "CrowMods AI \u2014 Phase 80: Automated DR Restore Rehearsal & Cross-Region Recovery",
+    "package_names": [
+      "crowmods-dr-rehearsal"
+    ]
+  },
+  {
+    "phase": 81,
+    "archive": "CrowMods-AI-Phase81-CrossRegion-Replication-Failover.zip",
+    "title": "CrowMods AI \u2014 Phase 81: Cross-Region Replication & Traffic Failover Simulation",
+    "package_names": [
+      "crowmods-cross-region"
+    ]
+  },
+  {
+    "phase": 82,
+    "archive": "CrowMods-AI-Phase82-Replication-Traffic-DR-Gameday.zip",
+    "title": "CrowMods AI \u2014 Phase 82: Replication Adapters, Controlled Traffic & DR Game Days",
+    "package_names": [
+      "crowmods-dr-gameday"
+    ]
+  },
+  {
+    "phase": 83,
+    "archive": "CrowMods-AI-Phase83-DR-Scheduling-Chaos-Resilience.zip",
+    "title": "CrowMods AI \u2014 Phase 83: DR Scheduling, Controlled Chaos & Resilience Scorecards",
+    "package_names": [
+      "crowmods-resilience-exercises"
+    ]
+  },
+  {
+    "phase": 84,
+    "archive": "CrowMods-AI-Phase84-Scheduler-Trends-CapacityForecast.zip",
+    "title": "CrowMods AI \u2014 Phase 84: Scheduler, Resilience Trends & Capacity Forecasting",
+    "package_names": [
+      "crowmods-resilience-scheduler"
+    ]
+  },
+  {
+    "phase": 85,
+    "archive": "CrowMods-AI-Phase85-AdvancedForecasting-Anomaly-AlertRouting.zip",
+    "title": "CrowMods AI \u2014 Phase 85: Advanced Forecasting, Anomaly Detection & Alert Routing",
+    "package_names": [
+      "crowmods-resilience-intelligence"
+    ]
+  },
+  {
+    "phase": 86,
+    "archive": "CrowMods-AI-Phase86-AlertIntegrations-Observability-Policies.zip",
+    "title": "CrowMods AI \u2014 Phase 86: Alert Integrations, Observability & Policy Correlation",
+    "package_names": [
+      "crowmods-alert-operations"
+    ]
+  },
+  {
+    "phase": 87,
+    "archive": "CrowMods-AI-Phase87-Alert-Lifecycle-Telemetry-Incident-Correlation.zip",
+    "title": "CrowMods AI \u2014 Phase 87: Alert Lifecycle, Telemetry Export & Incident Correlation",
+    "package_names": [
+      "crowmods-alert-lifecycle"
+    ]
+  },
+  {
+    "phase": 88,
+    "archive": "CrowMods-AI-Phase88-SLO-BurnRate-IncidentTimeline-RBAC.zip",
+    "title": "CrowMods AI \u2014 Phase 88: SLO Burn Rate, Incident Timeline & Operational RBAC",
+    "package_names": [
+      "crowmods-slo-operations"
+    ]
+  },
+  {
+    "phase": 89,
+    "archive": "CrowMods-AI-Phase89-TrustedIdentity-SLOAlerts-ImmutableAudit.zip",
+    "title": "CrowMods AI \u2014 Phase 89: Trusted Identity, Automated SLO Alerts & Immutable Audit",
+    "package_names": [
+      "crowmods-security-audit"
+    ]
+  },
+  {
+    "phase": 90,
+    "archive": "CrowMods-AI-Phase90-OIDC-RBAC-SignedAudit-SecurityCorrelation.zip",
+    "title": "CrowMods AI \u2014 Phase 90: OIDC Foundation, RBAC Administration & Signed Audit Export",
+    "package_names": [
+      "crowmods-security-admin"
+    ]
+  },
+  {
+    "phase": 91,
+    "archive": "CrowMods-AI-Phase91-JWT-JWKS-KMS-Signing.zip",
+    "title": "CrowMods AI \u2014 Phase 91: JWT Validation, JWKS Rotation & KMS Signing",
+    "package_names": [
+      "crowmods-identity-crypto"
+    ]
+  },
+  {
+    "phase": 92,
+    "archive": "CrowMods-AI-Phase92-RemoteJWKS-JWT-Signature-Rollover.zip",
+    "title": "CrowMods AI \u2014 Phase 92: Remote JWKS, Signature Verification & Key Rollover",
+    "package_names": [
+      "crowmods-oidc-verifier"
+    ]
+  },
+  {
+    "phase": 93,
+    "archive": "CrowMods-AI-Phase93-HardenedJWKS-Claims-RBAC-Middleware.zip",
+    "title": "CrowMods AI \u2014 Phase 93: Hardened JWKS Transport, Server-Side Claims & Authorization Middleware",
+    "package_names": [
+      "crowmods-security-boundary"
+    ]
+  },
+  {
+    "phase": 94,
+    "archive": "CrowMods-AI-Phase94-PersistentRBAC-TrustedClaims-PolicyEngine.zip",
+    "title": "CrowMods AI \u2014 Phase 94: Persistent RBAC Policies & Trusted JWT Claims",
+    "package_names": [
+      "crowmods-policy-rbac"
+    ]
+  },
+  {
+    "phase": 95,
+    "archive": "CrowMods-AI-Phase95-ScopedRBAC-RoleHierarchy-PolicySimulation.zip",
+    "title": "CrowMods AI \u2014 Phase 95: Scoped Permissions, Role Hierarchy & Policy Simulation",
+    "package_names": [
+      "crowmods-rbac-controls"
+    ]
+  },
+  {
+    "phase": 96,
+    "archive": "CrowMods-AI-Phase96-PolicyVersioning-Rollback-DualApproval-AccessReviews.zip",
+    "title": "CrowMods AI \u2014 Phase 96: Policy Versioning, Rollback, Dual Approval & Access Reviews",
+    "package_names": [
+      "crowmods-rbac-governance"
+    ]
+  },
+  {
+    "phase": 97,
+    "archive": "CrowMods-AI-Phase97-AccessReviews-AnomalyDetection-PolicyConflicts.zip",
+    "title": "CrowMods AI \u2014 Phase 97: Automated Access Reviews, Anomaly Detection & Policy Conflict Analysis",
+    "package_names": [
+      "crowmods-security-detection"
+    ]
+  },
+  {
+    "phase": 98,
+    "archive": "CrowMods-AI-Phase98-SecurityTriage-PrivilegedSessions-SignedEvidence.zip",
+    "title": "CrowMods AI \u2014 Phase 98: Alert Triage, Privileged Sessions & Signed Evidence",
+    "package_names": [
+      "crowmods-security-operations"
+    ]
+  },
+  {
+    "phase": 99,
+    "archive": "CrowMods-AI-Phase99-FinalSecurity-SIEM-EvidenceExport.zip",
+    "title": "CrowMods AI \u2014 Phase 99: Final Security Hardening, SIEM Pipeline & Evidence Export",
+    "package_names": [
+      "crowmods-final-security-hardening"
+    ]
+  },
+  {
+    "phase": 100,
+    "archive": "CrowMods-AI-Phase100-FinalRelease-Validation-100of100.zip",
+    "title": "CrowMods AI \u2014 Phase 100: Final Release Validation",
+    "package_names": [
+      "crowmods-final-release-validation"
+    ]
+  },
+  {
+    "phase": 101,
+    "archive": "CrowMods-AI-Phase101-Continuous-Security-Assurance.zip",
+    "title": "CrowMods AI \u2014 Phase 101: Post-Release Security Operations & Continuous Assurance",
+    "package_names": [
+      "crowmods-continuous-assurance"
+    ]
+  },
+  {
+    "phase": 102,
+    "archive": "CrowMods-AI-Phase102-Automated-Security-Health-Probes.zip",
+    "title": "CrowMods AI \u2014 Phase 102: Automated Security Health Probes",
+    "package_names": [
+      "crowmods-security-health-probes"
+    ]
+  },
+  {
+    "phase": 103,
+    "archive": "CrowMods-AI-Phase103-Live-Probes-Signed-Health-Evidence-Remediation.zip",
+    "title": "CrowMods AI \u2014 Phase 103: Live Dependency Probes, Signed Health Evidence & Controlled Remediation",
+    "package_names": [
+      "crowmods-live-security-health"
+    ]
+  },
+  {
+    "phase": 104,
+    "archive": "CrowMods-AI-Phase104-Production-Signing-Certificates-SIEM.zip",
+    "title": "CrowMods AI \u2014 Phase 104: Production Signing Boundary, Certificate Chain Validation & Authenticated SIEM Delivery",
+    "package_names": [
+      "crowmods-production-security-integrations"
+    ]
+  },
+  {
+    "phase": 105,
+    "archive": "CrowMods-AI-Phase105-Workload-Identity-Live-Certificates-Security-SLOs.zip",
+    "title": "CrowMods AI \u2014 Phase 105: Workload Identity, Live Certificate Acquisition & Security SLOs",
+    "package_names": [
+      "crowmods-security-slo-workload-identity"
+    ]
+  },
+  {
+    "phase": 106,
+    "archive": "CrowMods-AI-Phase106-Error-Budgets-Burn-Rates-Provider-Adapters.zip",
+    "title": "CrowMods AI \u2014 Phase 106: Error Budgets, Burn-Rate Alerts & Provider Adapters",
+    "package_names": [
+      "crowmods-security-error-budgets"
+    ]
+  },
+  {
+    "phase": 107,
+    "archive": "CrowMods-AI-Phase107-MultiWindow-BurnRates-Failover-Reliability.zip",
+    "title": "CrowMods AI \u2014 Phase 107: Multi-Window Burn Rates, Budget Policy & Failover Safety",
+    "package_names": [
+      "crowmods-security-reliability"
+    ]
+  },
+  {
+    "phase": 108,
+    "archive": "CrowMods-AI-Phase108-Forecasting-Correlation-Recovery-Orchestration.zip",
+    "title": "CrowMods AI \u2014 Phase 108: Forecasting, Incident/Change Correlation & Recovery Orchestration",
+    "package_names": [
+      "crowmods-security-orchestration"
+    ]
+  },
+  {
+    "phase": 109,
+    "archive": "CrowMods-AI-Phase109-Incident-Timelines-Deployment-Correlation-PostIncident.zip",
+    "title": "CrowMods AI \u2014 Phase 109: Incident Timelines, Deployment Correlation, Signed Recovery Evidence & Post-Incident Review",
+    "package_names": [
+      "crowmods-incident-review"
+    ]
+  },
+  {
+    "phase": 110,
+    "archive": "CrowMods-AI-Phase110-Timeline-Ingestion-Signed-Snapshots-Postmortems.zip",
+    "title": "CrowMods AI \u2014 Phase 110: Timeline Ingestion, Signed Snapshots, Action SLAs & Postmortem Reports",
+    "package_names": [
+      "crowmods-postmortem-automation"
+    ]
+  },
+  {
+    "phase": 111,
+    "archive": "CrowMods-AI-Phase111-Authenticated-Ingestion-Signed-Reports-Control-Effectiveness.zip",
+    "title": "CrowMods AI \u2014 Phase 111: Authenticated Ingestion, Signed Report Bundles, Action Escalation & Control Effectiveness",
+    "package_names": [
+      "crowmods-control-effectiveness"
+    ]
+  },
+  {
+    "phase": 112,
+    "archive": "CrowMods-AI-Phase112-Evidence-Verification-Control-Scheduling-Governance.zip",
+    "title": "CrowMods AI \u2014 Phase 112: Evidence Verification, Control Scheduling, Trends & Governance Mapping",
+    "package_names": [
+      "crowmods-governance-assurance"
+    ]
+  },
+  {
+    "phase": 113,
+    "archive": "CrowMods-AI-Phase113-KMS-Verification-Durable-Scheduler-Executive-Assurance.zip",
+    "title": "CrowMods AI \u2014 Phase 113: Production KMS Verification, Durable Scheduling, Risk Prioritization & Executive Assurance",
+    "package_names": [
+      "crowmods-executive-assurance"
+    ]
+  },
+  {
+    "phase": 114,
+    "archive": "CrowMods-AI-Phase114-KMS-Adapters-Worker-Leases-Risk-Acceptance-Assurance-Forecast.zip",
+    "title": "CrowMods AI \u2014 Phase 114: KMS Provider Adapters, Worker Leases/Retries, Risk Acceptance & Assurance Forecasting",
+    "package_names": [
+      "crowmods-risk-recovery"
+    ]
+  },
+  {
+    "phase": 115,
+    "archive": "CrowMods-AI-Phase115-Distributed-Locks-DLQ-Risk-Approval-Executive-Register.zip",
+    "title": "CrowMods AI \u2014 Phase 115: Distributed Worker Locking, Retry Jitter/DLQ, Approval Chains & Risk Register",
+    "package_names": [
+      "crowmods-distributed-risk"
+    ]
+  },
+  {
+    "phase": 116,
+    "archive": "CrowMods-AI-Phase116-Lock-Heartbeats-DLQ-Replay-Approval-Delegation-Risk-Trends.zip",
+    "title": "CrowMods AI \u2014 Phase 116: Lock Heartbeats, DLQ Replay/Quarantine, Approval Delegation, Risk Trends & Decision Records",
+    "package_names": [
+      "crowmods-executive-decisions"
+    ]
+  },
+  {
+    "phase": 117,
+    "archive": "CrowMods-AI-Phase117-Fencing-Canary-DLQ-Delegation-Risk-Forecast-Signed-Decisions.zip",
+    "title": "CrowMods AI \u2014 Phase 117: Fencing Tokens, Canary DLQ Replay, Delegation Lifecycle, Risk Forecasting & Signed Decisions",
+    "package_names": [
+      "crowmods-phase117-governance-recovery"
+    ]
+  },
+  {
+    "phase": 118,
+    "archive": "CrowMods-AI-Phase118-Fencing-Enforcement-Canary-Gates-Revocation-Forecast-Bundles.zip",
+    "title": "CrowMods AI \u2014 Phase 118: Fencing Enforcement, Canary Promotion Gates, Delegation Revocation, Forecast Confidence & Signed Evidence Bundles",
+    "package_names": [
+      "crowmods-phase118-governance-enforcement"
+    ]
+  },
+  {
+    "phase": 119,
+    "archive": "CrowMods-AI-Phase119-Downstream-Fencing-Canary-Rollback-Delegation-Worker-Forecast-KMS.zip",
+    "title": "CrowMods AI \u2014 Phase 119: Downstream Fencing Propagation, Automated Canary Rollback, Delegation Worker, Forecast Calibration & KMS Signing Boundary",
+    "package_names": [
+      "crowmods-phase119-production-governance"
+    ]
+  },
+  {
+    "phase": 120,
+    "archive": "CrowMods-AI-Phase120-Bound-Fencing-Canary-Orchestration-Delegation-Scheduler-Forecast-KMS.zip",
+    "title": "CrowMods AI \u2014 Phase 120: Bound Fencing, Canary Orchestration, Durable Delegation Scheduling, Forecast Intervals & KMS Verification",
+    "package_names": [
+      "crowmods-phase120-production-assurance"
+    ]
+  },
+  {
+    "phase": 121,
+    "archive": "CrowMods-AI-Phase121-Transactional-Fencing-Canary-Traffic-Queue-Claims-Forecast-KMS.zip",
+    "title": "CrowMods AI \u2014 Phase 121: Transactional Fencing, Multi-Stage Canary Traffic, Queue Claims, Forecast Calibration & Cloud KMS Adapters",
+    "package_names": [
+      "crowmods-phase121-cloud-assurance"
+    ]
+  },
+  {
+    "phase": 122,
+    "archive": "CrowMods-AI-Phase122-Serializable-Fencing-Adaptive-Canary-Lease-Conformal-KMS.zip",
+    "title": "CrowMods AI \u2014 Phase 122: Serializable Fencing, Adaptive Canary, Lease Heartbeats, Conformal Calibration & Isolated KMS Integrations",
+    "package_names": [
+      "crowmods-phase122-assurance"
+    ]
+  },
+  {
+    "phase": 123,
+    "archive": "CrowMods-AI-Phase123-CAS-Fencing-Canary-Hysteresis-Lease-Calibration-Drift.zip",
+    "title": "CrowMods AI \u2014 Phase 123: Database CAS Fencing, Canary Hysteresis, Lease Fencing, Online Calibration & Drift Alerts",
+    "package_names": [
+      "crowmods-phase123-assurance"
+    ]
+  },
+  {
+    "phase": 124,
+    "archive": "CrowMods-AI-Phase124-SQL-Serializable-CAS-Canary-Cooldown-Queue-Takeover-Calibration-Alerts.zip",
+    "title": "CrowMods AI \u2014 Phase 124: SQL Serializable CAS, Canary Cooldowns, Atomic Queue Takeover, Adaptive Calibration & Alert Escalation",
+    "package_names": [
+      "crowmods-phase124-assurance"
+    ]
+  },
+  {
+    "phase": 125,
+    "archive": "CrowMods-AI-Phase125-Serializable-Retry-Staged-Recovery-Queue-Takeover-Calibration-Alerts.zip",
+    "title": "CrowMods AI \u2014 Phase 125: Serializable Retry, Staged Recovery, Transactional Takeover, Drift-Aware Calibration & Alert Routing",
+    "package_names": [
+      "crowmods-phase125-assurance"
+    ]
+  },
+  {
+    "phase": 126,
+    "archive": "CrowMods-AI-Phase126-Retry-Telemetry-Circuit-Breaker-Canary-Takeover-Calibration-Audit.zip",
+    "title": "CrowMods AI \u2014 Phase 126: Retry Telemetry, Circuit Breaker, Canary Recovery Controller, Verified Takeover, Joint Calibration & Alert Audit",
+    "package_names": [
+      "crowmods-phase126-assurance"
+    ]
+  },
+  {
+    "phase": 127,
+    "archive": "CrowMods-AI-Phase127-Dependency-Circuit-Persistent-Cooldown-Takeover-Coverage-Alerts.zip",
+    "title": "CrowMods AI \u2014 Phase 127: Dependency Circuit Metrics, Persistent Canary Cooldowns, Enforced SQL Takeover, Coverage Confidence & Alert Acknowledgement",
+    "package_names": [
+      "crowmods-phase127-assurance"
+    ]
+  },
+  {
+    "phase": 128,
+    "archive": "CrowMods-AI-Phase128-Automatic-Breakers-Recovery-Scheduling-Verified-Takeover-Coverage-Alert-History.zip",
+    "title": "CrowMods AI \u2014 Phase 128: Automatic Breakers, Recovery Scheduling, Verified SQL Takeover, Sequential Coverage & Alert History",
+    "package_names": [
+      "crowmods-phase128-assurance"
+    ]
+  },
+  {
+    "phase": 129,
+    "archive": "CrowMods-AI-Phase129-Breaker-Workers-Recovery-Leases-Takeover-Retry-Calibration-Alert-Review.zip",
+    "title": "CrowMods AI \u2014 Phase 129: Persistent Breaker Workers, Lease-Fenced Recovery, Retry Takeovers, Confidence Calibration & Alert Review",
+    "package_names": [
+      "crowmods-phase129-assurance"
+    ]
+  },
+  {
+    "phase": 130,
+    "archive": "CrowMods-AI-Phase130-Worker-Failover-Renewal-Fencing-Retry-Telemetry-Calibration-Alert-Access.zip",
+    "title": "CrowMods AI \u2014 Phase 130: Worker Failover, Renewal Fencing, Retry Telemetry, Sequential Calibration & Access-Controlled Alert Review",
+    "package_names": [
+      "crowmods-phase130-assurance"
+    ]
+  },
+  {
+    "phase": 131,
+    "archive": "CrowMods-AI-Phase131-Database-CAS-Retry-Histograms-Calibration-Hysteresis-Alert-Exports.zip",
+    "title": "CrowMods AI \u2014 Phase 131",
+    "package_names": [
+      "crowmods-phase131"
+    ]
+  },
+  {
+    "phase": 132,
+    "archive": "CrowMods-AI-Phase132-Audit-Joins-Retry-Percentiles-Calibration-Deadbands-Signed-Manifests-Retention.zip",
+    "title": "CrowMods AI \u2014 Phase 132",
+    "package_names": [
+      "crowmods-phase132"
+    ]
+  },
+  {
+    "phase": 133,
+    "archive": "CrowMods-AI-Phase133-Retention-Execution-Retry-Anomaly-Calibration-Recovery-Manifest-Verification.zip",
+    "title": "CrowMods AI \u2014 Phase 133",
+    "package_names": [
+      "crowmods-phase133"
+    ]
+  },
+  {
+    "phase": 134,
+    "archive": "CrowMods-AI-Phase134-Authorized-Retention-Rolling-Baselines-Calibration-CAS-Manifest-Integrity.zip",
+    "title": "CrowMods AI \u2014 Phase 134",
+    "package_names": [
+      "crowmods-phase134"
+    ]
+  },
+  {
+    "phase": 135,
+    "archive": "CrowMods-AI-Phase135-Transactional-Purge-Row-Audits-Baseline-Alerts-Calibration-Leases-Manifest-Reverify.zip",
+    "title": "CrowMods AI \u2014 Phase 135",
+    "package_names": [
+      "crowmods-phase135"
+    ]
+  },
+  {
+    "phase": 136,
+    "archive": "CrowMods-AI-Phase136-SQL-Purge-Eligibility-Alert-Cooldowns-Calibration-Lease-CAS-Manifest-Batches.zip",
+    "title": "CrowMods AI \u2014 Phase 136",
+    "package_names": [
+      "crowmods-phase136"
+    ]
+  },
+  {
+    "phase": 137,
+    "archive": "CrowMods-AI-Phase137-SQL-Purge-Alert-Escalation-Fenced-Calibration-Manifest-Worker.zip",
+    "title": "CrowMods AI \u2014 Phase 137",
+    "package_names": [
+      "crowmods-phase137"
+    ]
+  },
+  {
+    "phase": 138,
+    "archive": "CrowMods-AI-Phase138-Transactional-SQL-Purge-Alert-Recovery-Fenced-Audit-Manifest-Transactions.zip",
+    "title": "CrowMods AI \u2014 Phase 138",
+    "package_names": [
+      "crowmods-phase138"
+    ]
+  },
+  {
+    "phase": 139,
+    "archive": "CrowMods-AI-Phase139-Row-Locks-Alert-Recovery-Caps-Calibration-Binding-Manifest-Idempotency.zip",
+    "title": "CrowMods AI \u2014 Phase 139",
+    "package_names": [
+      "crowmods-phase139"
+    ]
+  },
+  {
+    "phase": 140,
+    "archive": "CrowMods-AI-Phase140-Locked-Purge-Alert-Cap-Reset-Calibration-CAS-Manifest-Replay.zip",
+    "title": "CrowMods AI \u2014 Phase 140",
+    "package_names": [
+      "crowmods-phase140"
+    ]
+  },
+  {
+    "phase": 141,
+    "archive": "CrowMods-AI-Phase141-Purge-Audit-Alert-State-Atomic-Calibration-Replay-Cache.zip",
+    "title": "CrowMods AI \u2014 Phase 141",
+    "package_names": [
+      "crowmods-phase141"
+    ]
+  },
+  {
+    "phase": 142,
+    "archive": "CrowMods-AI-Phase142-Purge-Outcomes-Alert-Transitions-Fenced-Calibration-Replay-Cleanup.zip",
+    "title": "CrowMods AI \u2014 Phase 142",
+    "package_names": [
+      "crowmods-phase142"
+    ]
+  },
+  {
+    "phase": 143,
+    "archive": "CrowMods-AI-Phase143-Purge-Reconciliation-Recovery-SLO-Lease-Renewal-Replay-Quarantine.zip",
+    "title": "CrowMods AI \u2014 Phase 143",
+    "package_names": [
+      "crowmods-phase143"
+    ]
+  },
+  {
+    "phase": 144,
+    "archive": "CrowMods-AI-Phase144-Repair-Queue-Recovery-SLO-Lease-Fencing-Quarantine-Resolution.zip",
+    "title": "CrowMods AI \u2014 Phase 144",
+    "package_names": [
+      "crowmods-phase144"
+    ]
+  },
+  {
+    "phase": 145,
+    "archive": "CrowMods-AI-Phase145-Repair-Execution-Burn-Rate-Lease-Conflicts-Quarantine-States.zip",
+    "title": "CrowMods AI \u2014 Phase 145",
+    "package_names": [
+      "crowmods-phase145"
+    ]
+  },
+  {
+    "phase": 146,
+    "archive": "CrowMods-AI-Phase146-Backoff-DeadLetter-MultiWindow-Burn-LeaseConflict-ImmutableClosure.zip",
+    "title": "CrowMods AI \u2014 Phase 146",
+    "package_names": [
+      "crowmods-phase146"
+    ]
+  },
+  {
+    "phase": 147,
+    "archive": "CrowMods-AI-Phase147-Redrive-Burn-Severity-Lease-Trends-Evidence-Chain.zip",
+    "title": "CrowMods AI \u2014 Phase 147",
+    "package_names": [
+      "crowmods-phase147"
+    ]
+  },
+  {
+    "phase": 148,
+    "archive": "CrowMods-AI-Phase148-Approval-Replay-Hysteresis-Adaptive-Baseline-Evidence-Anchor.zip",
+    "title": "CrowMods AI \u2014 Phase 148",
+    "package_names": [
+      "crowmods-phase148"
+    ]
+  },
+  {
+    "phase": 149,
+    "archive": "CrowMods-AI-Phase149-Quorum-Replay-Limits-Hysteresis-Baseline-External-Evidence.zip",
+    "title": "CrowMods AI \u2014 Phase 149",
+    "package_names": [
+      "crowmods-phase149"
+    ]
+  },
+  {
+    "phase": 150,
+    "archive": "CrowMods-AI-Phase150-Approval-Expiry-Sliding-Replay-Hysteresis-Confidence-Attestation.zip",
+    "title": "CrowMods AI \u2014 Phase 150",
+    "package_names": [
+      "crowmods-phase150"
+    ]
+  },
+  {
+    "phase": 151,
+    "archive": "CrowMods-AI-Phase151-Quorum-Revocation-Propagation.zip",
+    "title": "CrowMods AI \u2014 Phase 151",
+    "package_names": [
+      "crowmods-phase151"
+    ]
+  },
+  {
+    "phase": 152,
+    "archive": "CrowMods-AI-Phase152-Distributed-Sliding-Window-Rate-Limiting.zip",
+    "title": "CrowMods AI \u2014 Phase 152",
+    "package_names": [
+      "crowmods-phase152"
+    ]
+  },
+  {
+    "phase": 153,
+    "archive": "CrowMods-AI-Phase153.zip",
+    "title": "CrowMods AI \u2014 Phase 153",
+    "package_names": [
+      "crowmods-ai-phase-153"
+    ]
+  },
+  {
+    "phase": 154,
+    "archive": "CrowMods-AI-Phase154.zip",
+    "title": "CrowMods AI \u2014 Phase 154",
+    "package_names": [
+      "crowmods-ai-phase-154"
+    ]
+  },
+  {
+    "phase": 155,
+    "archive": "CrowMods-AI-Phase155.zip",
+    "title": "CrowMods AI \u2014 Phase 155",
+    "package_names": [
+      "crowmods-ai-phase-155"
+    ]
+  },
+  {
+    "phase": 156,
+    "archive": "CrowMods-AI-Phase156.zip",
+    "title": "CrowMods AI \u2014 Phase 156",
+    "package_names": [
+      "crowmods-ai-phase-156"
+    ]
+  },
+  {
+    "phase": 157,
+    "archive": "CrowMods-AI-Phase157.zip",
+    "title": "CrowMods AI \u2014 Phase 157",
+    "package_names": [
+      "crowmods-ai-phase-157"
+    ]
+  },
+  {
+    "phase": 158,
+    "archive": "CrowMods-AI-Phase158.zip",
+    "title": "CrowMods AI \u2014 Phase 158",
+    "package_names": [
+      "crowmods-ai-phase-158"
+    ]
+  },
+  {
+    "phase": 159,
+    "archive": "CrowMods-AI-Phase159.zip",
+    "title": "CrowMods AI \u2014 Phase 159",
+    "package_names": [
+      "crowmods-ai-phase-159"
+    ]
+  },
+  {
+    "phase": 160,
+    "archive": "CrowMods-AI-Phase160.zip",
+    "title": "CrowMods AI \u2014 Phase 160",
+    "package_names": [
+      "crowmods-ai-phase-160"
+    ]
+  },
+  {
+    "phase": 161,
+    "archive": "CrowMods-AI-Phase161.zip",
+    "title": "CrowMods AI \u2014 Phase 161",
+    "package_names": [
+      "crowmods-ai-phase-161"
+    ]
+  },
+  {
+    "phase": 162,
+    "archive": "CrowMods-AI-Phase162.zip",
+    "title": "CrowMods AI \u2014 Phase 162",
+    "package_names": [
+      "crowmods-ai-phase-162"
+    ]
+  },
+  {
+    "phase": 163,
+    "archive": "CrowMods-AI-Phase163.zip",
+    "title": "CrowMods AI \u2014 Phase 163",
+    "package_names": [
+      "crowmods-ai-phase-163"
+    ]
+  },
+  {
+    "phase": 164,
+    "archive": "CrowMods-AI-Phase164.zip",
+    "title": "CrowMods AI \u2014 Phase 164",
+    "package_names": [
+      "crowmods-ai-phase-164"
+    ]
+  },
+  {
+    "phase": 165,
+    "archive": "CrowMods-AI-Phase165.zip",
+    "title": "CrowMods AI \u2014 Phase 165",
+    "package_names": [
+      "crowmods-ai-phase-165"
+    ]
+  },
+  {
+    "phase": 166,
+    "archive": "CrowMods-AI-Phase166.zip",
+    "title": "CrowMods AI \u2014 Phase 166",
+    "package_names": [
+      "crowmods-ai-phase-166"
+    ]
+  },
+  {
+    "phase": 167,
+    "archive": "CrowMods-AI-Phase167.zip",
+    "title": "CrowMods AI \u2014 Phase 167",
+    "package_names": [
+      "crowmods-ai-phase-167"
+    ]
+  },
+  {
+    "phase": 168,
+    "archive": "CrowMods-AI-Phase168.zip",
+    "title": "CrowMods AI \u2014 Phase 168",
+    "package_names": [
+      "crowmods-ai-phase-168"
+    ]
+  },
+  {
+    "phase": 169,
+    "archive": "CrowMods-AI-Phase169.zip",
+    "title": "CrowMods AI \u2014 Phase 169",
+    "package_names": [
+      "crowmods-ai-phase-169"
+    ]
+  },
+  {
+    "phase": 170,
+    "archive": "CrowMods-AI-Phase170.zip",
+    "title": "CrowMods AI \u2014 Phase 170",
+    "package_names": [
+      "crowmods-ai-phase-170"
+    ]
+  },
+  {
+    "phase": 171,
+    "archive": "CrowMods-AI-Phase171.zip",
+    "title": "CrowMods AI \u2014 Phase 171",
+    "package_names": [
+      "crowmods-ai-phase-171"
+    ]
+  },
+  {
+    "phase": 172,
+    "archive": "CrowMods-AI-Phase172.zip",
+    "title": "CrowMods AI \u2014 Phase 172",
+    "package_names": [
+      "crowmods-ai-phase-172"
+    ]
+  },
+  {
+    "phase": 173,
+    "archive": "CrowMods-AI-Phase173.zip",
+    "title": "CrowMods AI \u2014 Phase 173",
+    "package_names": [
+      "crowmods-ai-phase-173"
+    ]
+  },
+  {
+    "phase": 174,
+    "archive": "CrowMods-AI-Phase174.zip",
+    "title": "CrowMods AI \u2014 Phase 174",
+    "package_names": [
+      "crowmods-ai-phase-174"
+    ]
+  },
+  {
+    "phase": 175,
+    "archive": "CrowMods-AI-Phase175.zip",
+    "title": "CrowMods AI \u2014 Phase 175",
+    "package_names": [
+      "crowmods-ai-phase-175"
+    ]
+  },
+  {
+    "phase": 176,
+    "archive": "CrowMods-AI-Phase176.zip",
+    "title": "CrowMods AI \u2014 Phase 176",
+    "package_names": [
+      "crowmods-ai-phase-176"
+    ]
+  },
+  {
+    "phase": 177,
+    "archive": "CrowMods-AI-Phase177.zip",
+    "title": "CrowMods AI \u2014 Phase 177",
+    "package_names": [
+      "crowmods-ai-phase-177"
+    ]
+  },
+  {
+    "phase": 178,
+    "archive": "CrowMods-AI-Phase178.zip",
+    "title": "CrowMods AI \u2014 Phase 178",
+    "package_names": [
+      "crowmods-ai-phase-178"
+    ]
+  },
+  {
+    "phase": 179,
+    "archive": "CrowMods-AI-Phase179.zip",
+    "title": "CrowMods AI \u2014 Phase 179",
+    "package_names": [
+      "crowmods-ai-phase-179"
+    ]
+  },
+  {
+    "phase": 180,
+    "archive": "CrowMods-AI-Phase180.zip",
+    "title": "CrowMods AI \u2014 Phase 180",
+    "package_names": [
+      "crowmods-ai-phase-180"
+    ]
+  },
+  {
+    "phase": 181,
+    "archive": "CrowMods-AI-Phase181.zip",
+    "title": "CrowMods AI \u2014 Phase 181",
+    "package_names": [
+      "crowmods-ai-phase-181"
+    ]
+  },
+  {
+    "phase": 182,
+    "archive": "CrowMods-AI-Phase182.zip",
+    "title": "CrowMods AI \u2014 Phase 182",
+    "package_names": [
+      "crowmods-ai-phase-182"
+    ]
+  },
+  {
+    "phase": 183,
+    "archive": "CrowMods-AI-Phase183.zip",
+    "title": "CrowMods AI \u2014 Phase 183",
+    "package_names": [
+      "crowmods-ai-phase-183"
+    ]
+  },
+  {
+    "phase": 184,
+    "archive": "CrowMods-AI-Phase184.zip",
+    "title": "CrowMods AI \u2014 Phase 184",
+    "package_names": [
+      "crowmods-ai-phase-184"
+    ]
+  },
+  {
+    "phase": 185,
+    "archive": "CrowMods-AI-Phase185.zip",
+    "title": "CrowMods AI \u2014 Phase 185",
+    "package_names": [
+      "crowmods-ai-phase-185"
+    ]
+  },
+  {
+    "phase": 186,
+    "archive": "CrowMods-AI-Phase186.zip",
+    "title": "CrowMods AI \u2014 Phase 186",
+    "package_names": [
+      "crowmods-ai-phase-186"
+    ]
+  },
+  {
+    "phase": 187,
+    "archive": "CrowMods-AI-Phase187.zip",
+    "title": "CrowMods AI \u2014 Phase 187",
+    "package_names": [
+      "crowmods-ai-phase-187"
+    ]
+  },
+  {
+    "phase": 188,
+    "archive": "CrowMods-AI-Phase188.zip",
+    "title": "CrowMods AI \u2014 Phase 188",
+    "package_names": [
+      "crowmods-ai-phase-188"
+    ]
+  },
+  {
+    "phase": 189,
+    "archive": "CrowMods-AI-Phase189.zip",
+    "title": "CrowMods AI \u2014 Phase 189",
+    "package_names": [
+      "crowmods-ai-phase-189"
+    ]
+  },
+  {
+    "phase": 190,
+    "archive": "CrowMods-AI-Phase190.zip",
+    "title": "CrowMods AI \u2014 Phase 190",
+    "package_names": [
+      "crowmods-ai-phase-190"
+    ]
+  },
+  {
+    "phase": 191,
+    "archive": "CrowMods-AI-Phase191.zip",
+    "title": "CrowMods AI \u2014 Phase 191",
+    "package_names": [
+      "crowmods-ai-phase-191"
+    ]
+  },
+  {
+    "phase": 192,
+    "archive": "CrowMods-AI-Phase192.zip",
+    "title": "CrowMods AI \u2014 Phase 192",
+    "package_names": [
+      "crowmods-ai-phase-192"
+    ]
+  },
+  {
+    "phase": 193,
+    "archive": "CrowMods-AI-Phase193.zip",
+    "title": "CrowMods AI \u2014 Phase 193",
+    "package_names": [
+      "crowmods-ai-phase-193"
+    ]
+  },
+  {
+    "phase": 194,
+    "archive": "CrowMods-AI-Phase194.zip",
+    "title": "CrowMods AI \u2014 Phase 194",
+    "package_names": [
+      "crowmods-ai-phase-194"
+    ]
+  },
+  {
+    "phase": 195,
+    "archive": "CrowMods-AI-Phase195.zip",
+    "title": "CrowMods AI \u2014 Phase 195",
+    "package_names": [
+      "crowmods-ai-phase-195"
+    ]
+  },
+  {
+    "phase": 196,
+    "archive": "CrowMods-AI-Phase196.zip",
+    "title": "CrowMods AI \u2014 Phase 196",
+    "package_names": [
+      "crowmods-ai-phase-196"
+    ]
+  },
+  {
+    "phase": 197,
+    "archive": "CrowMods-AI-Phase197.zip",
+    "title": "CrowMods AI \u2014 Phase 197",
+    "package_names": [
+      "crowmods-ai-phase-197"
+    ]
+  },
+  {
+    "phase": 198,
+    "archive": "CrowMods-AI-Phase198.zip",
+    "title": "CrowMods AI \u2014 Phase 198",
+    "package_names": [
+      "crowmods-ai-phase-198"
+    ]
+  },
+  {
+    "phase": 199,
+    "archive": "CrowMods-AI-Phase199.zip",
+    "title": "CrowMods AI \u2014 Phase 199",
+    "package_names": [
+      "crowmods-ai-phase-199"
+    ]
+  },
+  {
+    "phase": 200,
+    "archive": "CrowMods-AI-Phase200.zip",
+    "title": "CrowMods AI \u2014 Phase 200",
+    "package_names": [
+      "crowmods-ai-phase-200"
+    ]
+  },
+  {
+    "phase": 201,
+    "archive": "CrowMods-AI-Phase201.zip",
+    "title": "CrowMods AI \u2014 Phase 201",
+    "package_names": [
+      "crowmods-ai-phase-201"
+    ]
+  },
+  {
+    "phase": 202,
+    "archive": "CrowMods-AI-Phase202.zip",
+    "title": "CrowMods AI \u2014 Phase 202",
+    "package_names": [
+      "crowmods-ai-phase-202"
+    ]
+  },
+  {
+    "phase": 203,
+    "archive": "CrowMods-AI-Phase203.zip",
+    "title": "CrowMods AI \u2014 Phase 203",
+    "package_names": [
+      "crowmods-ai-phase-203"
+    ]
+  },
+  {
+    "phase": 204,
+    "archive": "CrowMods-AI-Phase204.zip",
+    "title": "CrowMods AI \u2014 Phase 204",
+    "package_names": [
+      "crowmods-ai-phase-204"
+    ]
+  },
+  {
+    "phase": 205,
+    "archive": "CrowMods-AI-Phase205.zip",
+    "title": "CrowMods AI \u2014 Phase 205",
+    "package_names": [
+      "crowmods-ai-phase-205"
+    ]
+  },
+  {
+    "phase": 206,
+    "archive": "CrowMods-AI-Phase206.zip",
+    "title": "CrowMods AI \u2014 Phase 206",
+    "package_names": [
+      "crowmods-ai-phase-206"
+    ]
+  },
+  {
+    "phase": 207,
+    "archive": "CrowMods-AI-Phase207.zip",
+    "title": "CrowMods AI \u2014 Phase 207",
+    "package_names": [
+      "crowmods-ai-phase-207"
+    ]
+  },
+  {
+    "phase": 208,
+    "archive": "CrowMods-AI-Phase208.zip",
+    "title": "CrowMods AI \u2014 Phase 208",
+    "package_names": [
+      "crowmods-ai-phase-208"
+    ]
+  },
+  {
+    "phase": 209,
+    "archive": "CrowMods-AI-Phase209.zip",
+    "title": "CrowMods AI \u2014 Phase 209",
+    "package_names": [
+      "crowmods-ai-phase-209"
+    ]
+  },
+  {
+    "phase": 210,
+    "archive": "CrowMods-AI-Phase210.zip",
+    "title": "CrowMods AI \u2014 Phase 210",
+    "package_names": [
+      "crowmods-ai-phase-210"
+    ]
+  },
+  {
+    "phase": 211,
+    "archive": "CrowMods-AI-Phase211.zip",
+    "title": "CrowMods AI \u2014 Phase 211",
+    "package_names": [
+      "crowmods-ai-phase-211"
+    ]
+  },
+  {
+    "phase": 212,
+    "archive": "CrowMods-AI-Phase212.zip",
+    "title": "CrowMods AI \u2014 Phase 212",
+    "package_names": [
+      "crowmods-ai-phase-212"
+    ]
+  },
+  {
+    "phase": 213,
+    "archive": "CrowMods-AI-Phase213.zip",
+    "title": "CrowMods AI \u2014 Phase 213",
+    "package_names": [
+      "crowmods-ai-phase-213"
+    ]
+  },
+  {
+    "phase": 214,
+    "archive": "CrowMods-AI-Phase214.zip",
+    "title": "CrowMods AI \u2014 Phase 214",
+    "package_names": [
+      "crowmods-ai-phase-214"
+    ]
+  },
+  {
+    "phase": 215,
+    "archive": "CrowMods-AI-Phase215.zip",
+    "title": "CrowMods AI \u2014 Phase 215",
+    "package_names": [
+      "crowmods-ai-phase-215"
+    ]
+  },
+  {
+    "phase": 216,
+    "archive": "CrowMods-AI-Phase216.zip",
+    "title": "CrowMods AI \u2014 Phase 216",
+    "package_names": [
+      "crowmods-ai-phase-216"
+    ]
+  },
+  {
+    "phase": 217,
+    "archive": "CrowMods-AI-Phase217.zip",
+    "title": "CrowMods AI \u2014 Phase 217",
+    "package_names": [
+      "crowmods-ai-phase-217"
+    ]
+  },
+  {
+    "phase": 218,
+    "archive": "CrowMods-AI-Phase218.zip",
+    "title": "CrowMods AI \u2014 Phase 218",
+    "package_names": [
+      "crowmods-ai-phase-218"
+    ]
+  },
+  {
+    "phase": 219,
+    "archive": "CrowMods-AI-Phase219.zip",
+    "title": "CrowMods AI \u2014 Phase 219",
+    "package_names": [
+      "crowmods-ai-phase-219"
+    ]
+  },
+  {
+    "phase": 220,
+    "archive": "CrowMods-AI-Phase220.zip",
+    "title": "CrowMods AI \u2014 Phase 220",
+    "package_names": [
+      "crowmods-ai-phase-220"
+    ]
+  },
+  {
+    "phase": 221,
+    "archive": "CrowMods-AI-Phase221.zip",
+    "title": "CrowMods AI \u2014 Phase 221",
+    "package_names": [
+      "crowmods-ai-phase-221"
+    ]
+  },
+  {
+    "phase": 222,
+    "archive": "CrowMods-AI-Phase222.zip",
+    "title": "CrowMods AI \u2014 Phase 222",
+    "package_names": [
+      "crowmods-ai-phase-222"
+    ]
+  },
+  {
+    "phase": 223,
+    "archive": "CrowMods-AI-Phase223.zip",
+    "title": "CrowMods AI \u2014 Phase 223",
+    "package_names": [
+      "crowmods-ai-phase-223"
+    ]
+  },
+  {
+    "phase": 224,
+    "archive": "CrowMods-AI-Phase224.zip",
+    "title": "CrowMods AI \u2014 Phase 224",
+    "package_names": [
+      "crowmods-ai-phase-224"
+    ]
+  },
+  {
+    "phase": 225,
+    "archive": "CrowMods-AI-Phase225.zip",
+    "title": "CrowMods AI \u2014 Phase 225",
+    "package_names": [
+      "crowmods-ai-phase-225"
+    ]
+  },
+  {
+    "phase": 226,
+    "archive": "CrowMods-AI-Phase226.zip",
+    "title": "CrowMods AI \u2014 Phase 226",
+    "package_names": [
+      "crowmods-ai-phase-226"
+    ]
+  },
+  {
+    "phase": 227,
+    "archive": "CrowMods-AI-Phase227.zip",
+    "title": "CrowMods AI \u2014 Phase 227",
+    "package_names": [
+      "crowmods-ai-phase-227"
+    ]
+  },
+  {
+    "phase": 228,
+    "archive": "CrowMods-AI-Phase228.zip",
+    "title": "CrowMods AI \u2014 Phase 228",
+    "package_names": [
+      "crowmods-ai-phase-228"
+    ]
+  },
+  {
+    "phase": 229,
+    "archive": "CrowMods-AI-Phase229.zip",
+    "title": "CrowMods AI \u2014 Phase 229",
+    "package_names": [
+      "crowmods-ai-phase-229"
+    ]
+  },
+  {
+    "phase": 230,
+    "archive": "CrowMods-AI-Phase230.zip",
+    "title": "CrowMods AI \u2014 Phase 230",
+    "package_names": [
+      "crowmods-ai-phase-230"
+    ]
+  },
+  {
+    "phase": 231,
+    "archive": "CrowMods-AI-Phase231.zip",
+    "title": "CrowMods AI \u2014 Phase 231",
+    "package_names": [
+      "crowmods-ai-phase-231"
+    ]
+  },
+  {
+    "phase": 232,
+    "archive": "CrowMods-AI-Phase232.zip",
+    "title": "CrowMods AI \u2014 Phase 232",
+    "package_names": [
+      "crowmods-ai-phase-232"
+    ]
+  },
+  {
+    "phase": 233,
+    "archive": "CrowMods-AI-Phase233.zip",
+    "title": "CrowMods AI \u2014 Phase 233",
+    "package_names": [
+      "crowmods-ai-phase-233"
+    ]
+  },
+  {
+    "phase": 234,
+    "archive": "CrowMods-AI-Phase234.zip",
+    "title": "CrowMods AI \u2014 Phase 234",
+    "package_names": [
+      "crowmods-ai-phase-234"
+    ]
+  },
+  {
+    "phase": 235,
+    "archive": "CrowMods-AI-Phase235.zip",
+    "title": "CrowMods AI \u2014 Phase 235",
+    "package_names": [
+      "crowmods-ai-phase-235"
+    ]
+  },
+  {
+    "phase": 236,
+    "archive": "CrowMods-AI-Phase236.zip",
+    "title": "CrowMods AI \u2014 Phase 236",
+    "package_names": [
+      "crowmods-ai-phase-236"
+    ]
+  },
+  {
+    "phase": 237,
+    "archive": "CrowMods-AI-Phase237.zip",
+    "title": "CrowMods AI \u2014 Phase 237",
+    "package_names": [
+      "crowmods-ai-phase-237"
+    ]
+  },
+  {
+    "phase": 238,
+    "archive": "CrowMods-AI-Phase238.zip",
+    "title": "CrowMods AI \u2014 Phase 238",
+    "package_names": [
+      "crowmods-ai-phase-238"
+    ]
+  },
+  {
+    "phase": 239,
+    "archive": "CrowMods-AI-Phase239.zip",
+    "title": "CrowMods AI \u2014 Phase 239",
+    "package_names": [
+      "crowmods-ai-phase-239"
+    ]
+  },
+  {
+    "phase": 240,
+    "archive": "CrowMods-AI-Phase240.zip",
+    "title": "CrowMods AI \u2014 Phase 240",
+    "package_names": [
+      "crowmods-ai-phase-240"
+    ]
+  },
+  {
+    "phase": 241,
+    "archive": "CrowMods-AI-Phase241.zip",
+    "title": "CrowMods AI \u2014 Phase 241",
+    "package_names": [
+      "crowmods-ai-phase-241"
+    ]
+  },
+  {
+    "phase": 242,
+    "archive": "CrowMods-AI-Phase242.zip",
+    "title": "CrowMods AI \u2014 Phase 242",
+    "package_names": [
+      "crowmods-ai-phase-242"
+    ]
+  },
+  {
+    "phase": 243,
+    "archive": "CrowMods-AI-Phase243.zip",
+    "title": "CrowMods AI \u2014 Phase 243",
+    "package_names": [
+      "crowmods-ai-phase-243"
+    ]
+  },
+  {
+    "phase": 244,
+    "archive": "CrowMods-AI-Phase244.zip",
+    "title": "CrowMods AI \u2014 Phase 244",
+    "package_names": [
+      "crowmods-ai-phase-244"
+    ]
+  },
+  {
+    "phase": 245,
+    "archive": "CrowMods-AI-Phase245.zip",
+    "title": "CrowMods AI \u2014 Phase 245",
+    "package_names": [
+      "crowmods-ai-phase-245"
+    ]
+  },
+  {
+    "phase": 246,
+    "archive": "CrowMods-AI-Phase246.zip",
+    "title": "CrowMods AI \u2014 Phase 246",
+    "package_names": [
+      "crowmods-ai-phase-246"
+    ]
+  },
+  {
+    "phase": 247,
+    "archive": "CrowMods-AI-Phase247.zip",
+    "title": "CrowMods AI \u2014 Phase 247",
+    "package_names": [
+      "crowmods-ai-phase-247"
+    ]
+  },
+  {
+    "phase": 248,
+    "archive": "CrowMods-AI-Phase248.zip",
+    "title": "CrowMods AI \u2014 Phase 248",
+    "package_names": [
+      "crowmods-ai-phase-248"
+    ]
+  },
+  {
+    "phase": 249,
+    "archive": "CrowMods-AI-Phase249.zip",
+    "title": "CrowMods AI \u2014 Phase 249",
+    "package_names": [
+      "crowmods-ai-phase-249"
+    ]
+  },
+  {
+    "phase": 250,
+    "archive": "CrowMods-AI-Phase250.zip",
+    "title": "CrowMods AI \u2014 Phase 250",
+    "package_names": [
+      "crowmods-ai-phase-250"
+    ]
+  },
+  {
+    "phase": 251,
+    "archive": "CrowMods-AI-Phase251.zip",
+    "title": "CrowMods AI \u2014 Phase 251",
+    "package_names": [
+      "crowmods-ai-phase-251"
+    ]
+  },
+  {
+    "phase": 252,
+    "archive": "CrowMods-AI-Phase252.zip",
+    "title": "CrowMods AI \u2014 Phase 252",
+    "package_names": [
+      "crowmods-ai-phase-252"
+    ]
+  },
+  {
+    "phase": 253,
+    "archive": "CrowMods-AI-Phase253.zip",
+    "title": "CrowMods AI \u2014 Phase 253",
+    "package_names": [
+      "crowmods-ai-phase-253"
+    ]
+  },
+  {
+    "phase": 254,
+    "archive": "CrowMods-AI-Phase254.zip",
+    "title": "CrowMods AI \u2014 Phase 254",
+    "package_names": [
+      "crowmods-ai-phase-254"
+    ]
+  },
+  {
+    "phase": 255,
+    "archive": "CrowMods-AI-Phase255.zip",
+    "title": "CrowMods AI \u2014 Phase 255",
+    "package_names": [
+      "crowmods-ai-phase-255"
+    ]
+  },
+  {
+    "phase": 256,
+    "archive": "CrowMods-AI-Phase256.zip",
+    "title": "CrowMods AI \u2014 Phase 256",
+    "package_names": [
+      "crowmods-ai-phase-256"
+    ]
+  },
+  {
+    "phase": 257,
+    "archive": "CrowMods-AI-Phase257.zip",
+    "title": "CrowMods AI \u2014 Phase 257",
+    "package_names": [
+      "crowmods-ai-phase-257"
+    ]
+  },
+  {
+    "phase": 258,
+    "archive": "CrowMods-AI-Phase258.zip",
+    "title": "CrowMods AI \u2014 Phase 258",
+    "package_names": [
+      "crowmods-ai-phase-258"
+    ]
+  },
+  {
+    "phase": 259,
+    "archive": "CrowMods-AI-Phase259.zip",
+    "title": "CrowMods AI \u2014 Phase 259",
+    "package_names": [
+      "crowmods-ai-phase-259"
+    ]
+  },
+  {
+    "phase": 260,
+    "archive": "CrowMods-AI-Phase260.zip",
+    "title": "CrowMods AI \u2014 Phase 260",
+    "package_names": [
+      "crowmods-ai-phase-260"
+    ]
+  },
+  {
+    "phase": 261,
+    "archive": "CrowMods-AI-Phase261.zip",
+    "title": "CrowMods AI \u2014 Phase 261",
+    "package_names": [
+      "crowmods-ai-phase-261"
+    ]
+  },
+  {
+    "phase": 262,
+    "archive": "CrowMods-AI-Phase262.zip",
+    "title": "CrowMods AI \u2014 Phase 262",
+    "package_names": [
+      "crowmods-ai-phase-262"
+    ]
+  },
+  {
+    "phase": 263,
+    "archive": "CrowMods-AI-Phase263.zip",
+    "title": "CrowMods AI \u2014 Phase 263",
+    "package_names": [
+      "crowmods-ai-phase-263"
+    ]
+  },
+  {
+    "phase": 264,
+    "archive": "CrowMods-AI-Phase264.zip",
+    "title": "CrowMods AI \u2014 Phase 264",
+    "package_names": [
+      "crowmods-ai-phase-264"
+    ]
+  },
+  {
+    "phase": 265,
+    "archive": "CrowMods-AI-Phase265.zip",
+    "title": "CrowMods AI \u2014 Phase 265",
+    "package_names": [
+      "crowmods-ai-phase-265"
+    ]
+  },
+  {
+    "phase": 266,
+    "archive": "CrowMods-AI-Phase266.zip",
+    "title": "CrowMods AI \u2014 Phase 266",
+    "package_names": [
+      "crowmods-ai-phase-266"
+    ]
+  },
+  {
+    "phase": 267,
+    "archive": "CrowMods-AI-Phase267.zip",
+    "title": "CrowMods AI \u2014 Phase 267",
+    "package_names": [
+      "crowmods-ai-phase-267"
+    ]
+  },
+  {
+    "phase": 268,
+    "archive": "CrowMods-AI-Phase268.zip",
+    "title": "CrowMods AI \u2014 Phase 268",
+    "package_names": [
+      "crowmods-ai-phase-268"
+    ]
+  },
+  {
+    "phase": 269,
+    "archive": "CrowMods-AI-Phase269.zip",
+    "title": "CrowMods AI \u2014 Phase 269",
+    "package_names": [
+      "crowmods-ai-phase-269"
+    ]
+  },
+  {
+    "phase": 270,
+    "archive": "CrowMods-AI-Phase270.zip",
+    "title": "CrowMods AI \u2014 Phase 270",
+    "package_names": [
+      "crowmods-ai-phase-270"
+    ]
+  },
+  {
+    "phase": 271,
+    "archive": "CrowMods-AI-Phase271.zip",
+    "title": "CrowMods AI \u2014 Phase 271",
+    "package_names": [
+      "crowmods-ai-phase-271"
+    ]
+  },
+  {
+    "phase": 272,
+    "archive": "CrowMods-AI-Phase272.zip",
+    "title": "CrowMods AI \u2014 Phase 272",
+    "package_names": [
+      "crowmods-ai-phase-272"
+    ]
+  },
+  {
+    "phase": 273,
+    "archive": "CrowMods-AI-Phase273.zip",
+    "title": "CrowMods AI \u2014 Phase 273",
+    "package_names": [
+      "crowmods-ai-phase-273"
+    ]
+  },
+  {
+    "phase": 274,
+    "archive": "CrowMods-AI-Phase274.zip",
+    "title": "CrowMods AI \u2014 Phase 274",
+    "package_names": [
+      "crowmods-ai-phase-274"
+    ]
+  },
+  {
+    "phase": 275,
+    "archive": "CrowMods-AI-Phase275.zip",
+    "title": "CrowMods AI \u2014 Phase 275",
+    "package_names": [
+      "crowmods-ai-phase-275"
+    ]
+  },
+  {
+    "phase": 276,
+    "archive": "CrowMods-AI-Phase276.zip",
+    "title": "CrowMods AI \u2014 Phase 276",
+    "package_names": [
+      "crowmods-ai-phase-276"
+    ]
+  },
+  {
+    "phase": 277,
+    "archive": "CrowMods-AI-Phase277.zip",
+    "title": "CrowMods AI \u2014 Phase 277",
+    "package_names": [
+      "crowmods-ai-phase-277"
+    ]
+  },
+  {
+    "phase": 278,
+    "archive": "CrowMods-AI-Phase278.zip",
+    "title": "CrowMods AI \u2014 Phase 278",
+    "package_names": [
+      "crowmods-ai-phase-278"
+    ]
+  },
+  {
+    "phase": 279,
+    "archive": "CrowMods-AI-Phase279.zip",
+    "title": "CrowMods AI \u2014 Phase 279",
+    "package_names": [
+      "crowmods-ai-phase-279"
+    ]
+  },
+  {
+    "phase": 280,
+    "archive": "CrowMods-AI-Phase280.zip",
+    "title": "CrowMods AI \u2014 Phase 280",
+    "package_names": [
+      "crowmods-ai-phase-280"
+    ]
+  },
+  {
+    "phase": 281,
+    "archive": "CrowMods-AI-Phase281.zip",
+    "title": "CrowMods AI \u2014 Phase 281",
+    "package_names": [
+      "crowmods-ai-phase-281"
+    ]
+  },
+  {
+    "phase": 282,
+    "archive": "CrowMods-AI-Phase282.zip",
+    "title": "CrowMods AI \u2014 Phase 282",
+    "package_names": [
+      "crowmods-ai-phase-282"
+    ]
+  },
+  {
+    "phase": 283,
+    "archive": "CrowMods-AI-Phase283.zip",
+    "title": "CrowMods AI \u2014 Phase 283",
+    "package_names": [
+      "crowmods-ai-phase-283"
+    ]
+  },
+  {
+    "phase": 284,
+    "archive": "CrowMods-AI-Phase284.zip",
+    "title": "CrowMods AI \u2014 Phase 284",
+    "package_names": [
+      "crowmods-ai-phase-284"
+    ]
+  },
+  {
+    "phase": 285,
+    "archive": "CrowMods-AI-Phase285.zip",
+    "title": "CrowMods AI \u2014 Phase 285",
+    "package_names": [
+      "crowmods-ai-phase-285"
+    ]
+  },
+  {
+    "phase": 286,
+    "archive": "CrowMods-AI-Phase286.zip",
+    "title": "CrowMods AI \u2014 Phase 286",
+    "package_names": [
+      "crowmods-ai-phase-286"
+    ]
+  },
+  {
+    "phase": 287,
+    "archive": "CrowMods-AI-Phase287.zip",
+    "title": "CrowMods AI \u2014 Phase 287",
+    "package_names": [
+      "crowmods-ai-phase-287"
+    ]
+  },
+  {
+    "phase": 288,
+    "archive": "CrowMods-AI-Phase288.zip",
+    "title": "CrowMods AI \u2014 Phase 288",
+    "package_names": [
+      "crowmods-ai-phase-288"
+    ]
+  },
+  {
+    "phase": 289,
+    "archive": "CrowMods-AI-Phase289.zip",
+    "title": "CrowMods AI \u2014 Phase 289",
+    "package_names": [
+      "crowmods-ai-phase-289"
+    ]
+  },
+  {
+    "phase": 290,
+    "archive": "CrowMods-AI-Phase290.zip",
+    "title": "CrowMods AI \u2014 Phase 290",
+    "package_names": [
+      "crowmods-ai-phase-290"
+    ]
+  },
+  {
+    "phase": 291,
+    "archive": "CrowMods-AI-Phase291.zip",
+    "title": "CrowMods AI \u2014 Phase 291",
+    "package_names": [
+      "crowmods-ai-phase-291"
+    ]
+  },
+  {
+    "phase": 292,
+    "archive": "CrowMods-AI-Phase292.zip",
+    "title": "CrowMods AI \u2014 Phase 292",
+    "package_names": [
+      "crowmods-ai-phase-292"
+    ]
+  },
+  {
+    "phase": 293,
+    "archive": "CrowMods-AI-Phase293.zip",
+    "title": "CrowMods AI \u2014 Phase 293",
+    "package_names": [
+      "crowmods-ai-phase-293"
+    ]
+  },
+  {
+    "phase": 294,
+    "archive": "CrowMods-AI-Phase294.zip",
+    "title": "CrowMods AI \u2014 Phase 294",
+    "package_names": [
+      "crowmods-ai-phase-294"
+    ]
+  },
+  {
+    "phase": 295,
+    "archive": "CrowMods-AI-Phase295.zip",
+    "title": "CrowMods AI \u2014 Phase 295",
+    "package_names": [
+      "crowmods-ai-phase-295"
+    ]
+  },
+  {
+    "phase": 296,
+    "archive": "CrowMods-AI-Phase296.zip",
+    "title": "CrowMods AI \u2014 Phase 296",
+    "package_names": [
+      "crowmods-ai-phase-296"
+    ]
+  },
+  {
+    "phase": 297,
+    "archive": "CrowMods-AI-Phase297.zip",
+    "title": "CrowMods AI \u2014 Phase 297",
+    "package_names": [
+      "crowmods-ai-phase-297"
+    ]
+  },
+  {
+    "phase": 298,
+    "archive": "CrowMods-AI-Phase298.zip",
+    "title": "CrowMods AI \u2014 Phase 298",
+    "package_names": [
+      "crowmods-ai-phase-298"
+    ]
+  },
+  {
+    "phase": 299,
+    "archive": "CrowMods-AI-Phase299.zip",
+    "title": "CrowMods AI \u2014 Phase 299",
+    "package_names": [
+      "crowmods-ai-phase-299"
+    ]
+  },
+  {
+    "phase": 300,
+    "archive": "CrowMods-AI-Phase300.zip",
+    "title": "CrowMods AI \u2014 Phase 300",
+    "package_names": [
+      "crowmods-ai-phase-300"
+    ]
+  }
+]

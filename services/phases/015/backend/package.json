@@ -1,0 +1,14 @@
+{
+  "name":"crowmods-auth",
+  "private":true,
+  "version":"0.15.0",
+  "scripts":{"dev":"node src/server.js","start":"node src/server.js"},
+  "dependencies":{
+    "express":"latest",
+    "helmet":"latest",
+    "cors":"latest",
+    "pg":"latest",
+    "argon2":"latest",
+    "express-rate-limit":"latest"
+  }
+}

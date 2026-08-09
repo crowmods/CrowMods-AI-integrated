@@ -1,0 +1,11 @@
+{
+  "name": "crowmods-backend",
+  "private": true,
+  "version": "0.8.0",
+  "scripts": {"dev": "node src/server.js", "start": "node src/server.js"},
+  "dependencies": {
+    "cors": "latest",
+    "express": "latest",
+    "helmet": "latest"
+  }
+}

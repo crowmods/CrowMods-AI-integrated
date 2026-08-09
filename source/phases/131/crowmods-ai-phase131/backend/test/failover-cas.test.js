@@ -1,0 +1,4 @@
+const test=require("node:test"); const assert=require("node:assert/strict");
+const {failoverWithCas,renewWithCas}=require("../src/failover-cas");
+test("failover CAS accepts one committed row",async()=>{const pool={query:async()=>({rowCount:1,rows:[{result:"FAILED_OVER",committed_version:"4",affected_rows:"1"}]})}; const r=await failoverWithCas(pool,{workerKey:"w",expectedVersion:3,newWorkerId:"w2",newLeaseToken:"t",newLeaseExpiresAt:"2027-01-01T00:00:00Z"}); assert.equal(r.status,"FAILED_OVER"); assert.equal(r.committedVersion,4);});
+test("renewal CAS is verified",async()=>{const pool={query:async()=>({rowCount:1,rows:[{result:"RENEWED",committed_version:"4",affected_rows:"1"}]})}; const r=await renewWithCas(pool,{workerKey:"w",workerId:"w2",leaseToken:"t",expectedVersion:4,newLeaseExpiresAt:"2027-01-01T00:00:00Z"}); assert.equal(r.status,"RENEWED");});

@@ -1,0 +1,17 @@
+{
+  "name":"crowmods-incident-review",
+  "private":true,
+  "version":"1.9.0",
+  "scripts":{
+    "dev":"node src/server.js",
+    "start":"node src/server.js",
+    "test":"node --test",
+    "timeline":"node src/timeline.js"
+  },
+  "dependencies":{
+    "express":"latest",
+    "helmet":"latest",
+    "cors":"latest",
+    "pg":"latest"
+  }
+}

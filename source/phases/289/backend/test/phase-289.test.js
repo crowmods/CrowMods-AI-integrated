@@ -1,0 +1,14 @@
+const test=require("node:test");
+const assert=require("node:assert/strict");
+const {evaluate}=require("../src/phase-289");
+
+test("phase 289 accepts controlled context",()=>{
+ const r=evaluate({actorId:"operator",score:120});
+ assert.equal(r.state,"READY");
+ assert.equal(r.phase,289);
+ assert.equal(r.score,100);
+});
+
+test("phase 289 fails closed without actor",()=>{
+ assert.equal(evaluate({}).state,"REJECTED");
+});

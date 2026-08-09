@@ -1,0 +1,44 @@
+name: CrowMods Production
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build immutable API image
+        run: docker build -f docker/api.Dockerfile -t crowmods-api:${{ github.sha }} .
+
+      - name: Build immutable worker image
+        run: docker build -f docker/worker.Dockerfile -t crowmods-worker:${{ github.sha }} .
+
+      - name: Production deployment placeholder
+        run: |
+          echo "Connect this job to the approved production deployment platform."
+          echo "Use GitHub Environment protection rules for human approval."
+
+      - name: Deployment verification
+        env:
+          BASE_URL: ${{ secrets.PRODUCTION_BASE_URL }}
+        run: |
+          if [ -z "$BASE_URL" ]; then
+            echo "PRODUCTION_BASE_URL is not configured."
+            exit 1
+          fi
+          ./scripts/deploy-verify.sh
+
+      - name: Rollback contract
+        if: failure()
+        env:
+          ROLLBACK_IMAGE: ${{ vars.LAST_KNOWN_GOOD_IMAGE }}
+        run: ./scripts/rollback.sh

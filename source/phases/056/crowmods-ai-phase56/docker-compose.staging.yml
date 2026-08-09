@@ -1,0 +1,40 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: crowmods_staging
+      POSTGRES_USER: crowmods_staging
+      POSTGRES_PASSWORD: staging-only-change-me
+    volumes:
+      - staging_postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - staging_private
+
+  api:
+    build:
+      context: .
+      dockerfile: docker/api.Dockerfile
+    environment:
+      NODE_ENV: staging
+      DATABASE_URL: postgresql://crowmods_staging:staging-only-change-me@postgres:5432/crowmods_staging
+      PORT: 4000
+      SERVICE_NAME: crowmods-staging
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "4000:4000"
+    networks:
+      - staging_private
+
+volumes:
+  staging_postgres:
+
+networks:
+  staging_private:
+    internal: true

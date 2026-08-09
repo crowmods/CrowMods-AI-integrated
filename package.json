@@ -1,0 +1,26 @@
+{
+  "name": "crowmods-ai-integrated",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Unified integration gateway for the 300 CrowMods AI phase packages",
+  "scripts": {
+    "start": "node apps/api/src/server.js",
+    "dev": "node apps/api/src/server.js",
+    "test": "node --test $(find services/phases tests -type f \\( -name '*.test.js' -o -name '*.test.mjs' -o -name '*.test.cjs' \\) -print)",
+    "integration:check": "node scripts/integration-check.js",
+    "phase:inventory": "node scripts/phase-inventory.js"
+  },
+  "dependencies": {
+    "argon2": "latest",
+    "bcryptjs": "latest",
+    "cors": "latest",
+    "express": "latest",
+    "express-rate-limit": "latest",
+    "helmet": "latest",
+    "multer": "latest",
+    "pg": "latest",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  }
+}

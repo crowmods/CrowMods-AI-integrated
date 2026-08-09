@@ -1,0 +1,1457 @@
+[
+  {
+    "phase": 11,
+    "source": "crowmods-ai-phase11/database/seed.sql",
+    "copied_to": "database/source/phase-011/seed.sql"
+  },
+  {
+    "phase": 11,
+    "source": "crowmods-ai-phase11/database/schema.sql",
+    "copied_to": "database/source/phase-011/schema.sql"
+  },
+  {
+    "phase": 13,
+    "source": "crowmods-ai-phase13/database/monetization.sql",
+    "copied_to": "database/source/phase-013/monetization.sql"
+  },
+  {
+    "phase": 14,
+    "source": "crowmods-ai-phase14/database/users-premium.sql",
+    "copied_to": "database/source/phase-014/users-premium.sql"
+  },
+  {
+    "phase": 15,
+    "source": "crowmods-ai-phase15/database/auth.sql",
+    "copied_to": "database/source/phase-015/auth.sql"
+  },
+  {
+    "phase": 17,
+    "source": "crowmods-ai-phase17/database/jobs.sql",
+    "copied_to": "database/source/phase-017/jobs.sql"
+  },
+  {
+    "phase": 20,
+    "source": "crowmods-ai-phase20/database/intake.sql",
+    "copied_to": "database/source/phase-020/intake.sql"
+  },
+  {
+    "phase": 22,
+    "source": "crowmods-ai-phase22/database/discovery.sql",
+    "copied_to": "database/source/phase-022/discovery.sql"
+  },
+  {
+    "phase": 23,
+    "source": "crowmods-ai-phase23/database/media.sql",
+    "copied_to": "database/source/phase-023/media.sql"
+  },
+  {
+    "phase": 24,
+    "source": "crowmods-ai-phase24/database/telegram.sql",
+    "copied_to": "database/source/phase-024/telegram.sql"
+  },
+  {
+    "phase": 25,
+    "source": "crowmods-ai-phase25/database/discord.sql",
+    "copied_to": "database/source/phase-025/discord.sql"
+  },
+  {
+    "phase": 26,
+    "source": "crowmods-ai-phase26/database/campaigns.sql",
+    "copied_to": "database/source/phase-026/campaigns.sql"
+  },
+  {
+    "phase": 27,
+    "source": "crowmods-ai-phase27/database/social_strategy.sql",
+    "copied_to": "database/source/phase-027/social_strategy.sql"
+  },
+  {
+    "phase": 28,
+    "source": "crowmods-ai-phase28/database/community.sql",
+    "copied_to": "database/source/phase-028/community.sql"
+  },
+  {
+    "phase": 29,
+    "source": "crowmods-ai-phase29/database/knowledge.sql",
+    "copied_to": "database/source/phase-029/knowledge.sql"
+  },
+  {
+    "phase": 30,
+    "source": "crowmods-ai-phase30/database/analytics.sql",
+    "copied_to": "database/source/phase-030/analytics.sql"
+  },
+  {
+    "phase": 31,
+    "source": "crowmods-ai-phase31/database/monetization.sql",
+    "copied_to": "database/source/phase-031/monetization.sql"
+  },
+  {
+    "phase": 32,
+    "source": "crowmods-ai-phase32/database/users.sql",
+    "copied_to": "database/source/phase-032/users.sql"
+  },
+  {
+    "phase": 34,
+    "source": "crowmods-ai-phase34/database/security.sql",
+    "copied_to": "database/source/phase-034/security.sql"
+  },
+  {
+    "phase": 35,
+    "source": "crowmods-ai-phase35/database/orchestrator.sql",
+    "copied_to": "database/source/phase-035/orchestrator.sql"
+  },
+  {
+    "phase": 36,
+    "source": "crowmods-ai-phase36/database/monitoring.sql",
+    "copied_to": "database/source/phase-036/monitoring.sql"
+  },
+  {
+    "phase": 38,
+    "source": "crowmods-ai-phase38/database/uploads.sql",
+    "copied_to": "database/source/phase-038/uploads.sql"
+  },
+  {
+    "phase": 39,
+    "source": "crowmods-ai-phase39/database/release_intelligence.sql",
+    "copied_to": "database/source/phase-039/release_intelligence.sql"
+  },
+  {
+    "phase": 40,
+    "source": "crowmods-ai-phase40/database/media.sql",
+    "copied_to": "database/source/phase-040/media.sql"
+  },
+  {
+    "phase": 41,
+    "source": "crowmods-ai-phase41/database/release_pages.sql",
+    "copied_to": "database/source/phase-041/release_pages.sql"
+  },
+  {
+    "phase": 42,
+    "source": "crowmods-ai-phase42/database/campaigns.sql",
+    "copied_to": "database/source/phase-042/campaigns.sql"
+  },
+  {
+    "phase": 43,
+    "source": "crowmods-ai-phase43/database/connectors.sql",
+    "copied_to": "database/source/phase-043/connectors.sql"
+  },
+  {
+    "phase": 44,
+    "source": "crowmods-ai-phase44/database/community.sql",
+    "copied_to": "database/source/phase-044/community.sql"
+  },
+  {
+    "phase": 45,
+    "source": "crowmods-ai-phase45/database/knowledge.sql",
+    "copied_to": "database/source/phase-045/knowledge.sql"
+  },
+  {
+    "phase": 46,
+    "source": "crowmods-ai-phase46/database/analytics.sql",
+    "copied_to": "database/source/phase-046/analytics.sql"
+  },
+  {
+    "phase": 47,
+    "source": "crowmods-ai-phase47/database/monetization.sql",
+    "copied_to": "database/source/phase-047/monetization.sql"
+  },
+  {
+    "phase": 48,
+    "source": "crowmods-ai-phase48/database/subscriptions.sql",
+    "copied_to": "database/source/phase-048/subscriptions.sql"
+  },
+  {
+    "phase": 49,
+    "source": "crowmods-ai-phase49/database/support.sql",
+    "copied_to": "database/source/phase-049/support.sql"
+  },
+  {
+    "phase": 50,
+    "source": "crowmods-ai-phase50/database/control_plane.sql",
+    "copied_to": "database/source/phase-050/control_plane.sql"
+  },
+  {
+    "phase": 51,
+    "source": "crowmods-ai-phase51/database/security.sql",
+    "copied_to": "database/source/phase-051/security.sql"
+  },
+  {
+    "phase": 52,
+    "source": "crowmods-ai-phase52/database/orchestrator.sql",
+    "copied_to": "database/source/phase-052/orchestrator.sql"
+  },
+  {
+    "phase": 53,
+    "source": "crowmods-ai-phase53/database/worker.sql",
+    "copied_to": "database/source/phase-053/worker.sql"
+  },
+  {
+    "phase": 54,
+    "source": "crowmods-ai-phase54/database/observability.sql",
+    "copied_to": "database/source/phase-054/observability.sql"
+  },
+  {
+    "phase": 57,
+    "source": "crowmods-ai-phase57/database/migrations/001_phase57.sql",
+    "copied_to": "database/source/phase-057/001_phase57.sql"
+  },
+  {
+    "phase": 57,
+    "source": "crowmods-ai-phase57/database/migrations/002_example_index.sql",
+    "copied_to": "database/source/phase-057/002_example_index.sql"
+  },
+  {
+    "phase": 61,
+    "source": "crowmods-ai-phase61/database/operations.sql",
+    "copied_to": "database/source/phase-061/operations.sql"
+  },
+  {
+    "phase": 62,
+    "source": "crowmods-ai-phase62/database/monitoring.sql",
+    "copied_to": "database/source/phase-062/monitoring.sql"
+  },
+  {
+    "phase": 63,
+    "source": "crowmods-ai-phase63/database/oncall.sql",
+    "copied_to": "database/source/phase-063/oncall.sql"
+  },
+  {
+    "phase": 64,
+    "source": "crowmods-ai-phase64/database/escalation.sql",
+    "copied_to": "database/source/phase-064/escalation.sql"
+  },
+  {
+    "phase": 65,
+    "source": "crowmods-ai-phase65/database/pipeline.sql",
+    "copied_to": "database/source/phase-065/pipeline.sql"
+  },
+  {
+    "phase": 66,
+    "source": "crowmods-ai-phase66/database/events.sql",
+    "copied_to": "database/source/phase-066/events.sql"
+  },
+  {
+    "phase": 67,
+    "source": "crowmods-ai-phase67/database/event-platform.sql",
+    "copied_to": "database/source/phase-067/event-platform.sql"
+  },
+  {
+    "phase": 68,
+    "source": "crowmods-ai-phase68/database/consumers.sql",
+    "copied_to": "database/source/phase-068/consumers.sql"
+  },
+  {
+    "phase": 69,
+    "source": "crowmods-ai-phase69/database/partitions.sql",
+    "copied_to": "database/source/phase-069/partitions.sql"
+  },
+  {
+    "phase": 70,
+    "source": "crowmods-ai-phase70/database/recovery.sql",
+    "copied_to": "database/source/phase-070/recovery.sql"
+  },
+  {
+    "phase": 71,
+    "source": "crowmods-ai-phase71/database/capacity.sql",
+    "copied_to": "database/source/phase-071/capacity.sql"
+  },
+  {
+    "phase": 72,
+    "source": "crowmods-ai-phase72/database/autoscaling.sql",
+    "copied_to": "database/source/phase-072/autoscaling.sql"
+  },
+  {
+    "phase": 73,
+    "source": "crowmods-ai-phase73/database/telemetry.sql",
+    "copied_to": "database/source/phase-073/telemetry.sql"
+  },
+  {
+    "phase": 74,
+    "source": "crowmods-ai-phase74/database/recovery-automation.sql",
+    "copied_to": "database/source/phase-074/recovery-automation.sql"
+  },
+  {
+    "phase": 75,
+    "source": "crowmods-ai-phase75/database/incident-recovery.sql",
+    "copied_to": "database/source/phase-075/incident-recovery.sql"
+  },
+  {
+    "phase": 76,
+    "source": "crowmods-ai-phase76/database/evidence-approval.sql",
+    "copied_to": "database/source/phase-076/evidence-approval.sql"
+  },
+  {
+    "phase": 77,
+    "source": "crowmods-ai-phase77/database/audit-integrity.sql",
+    "copied_to": "database/source/phase-077/audit-integrity.sql"
+  },
+  {
+    "phase": 78,
+    "source": "crowmods-ai-phase78/database/crypto-immutability.sql",
+    "copied_to": "database/source/phase-078/crypto-immutability.sql"
+  },
+  {
+    "phase": 79,
+    "source": "crowmods-ai-phase79/database/provider-certification.sql",
+    "copied_to": "database/source/phase-079/provider-certification.sql"
+  },
+  {
+    "phase": 80,
+    "source": "crowmods-ai-phase80/database/dr-rehearsal.sql",
+    "copied_to": "database/source/phase-080/dr-rehearsal.sql"
+  },
+  {
+    "phase": 81,
+    "source": "crowmods-ai-phase81/database/cross-region.sql",
+    "copied_to": "database/source/phase-081/cross-region.sql"
+  },
+  {
+    "phase": 82,
+    "source": "crowmods-ai-phase82/database/dr-gameday.sql",
+    "copied_to": "database/source/phase-082/dr-gameday.sql"
+  },
+  {
+    "phase": 83,
+    "source": "crowmods-ai-phase83/database/resilience-exercises.sql",
+    "copied_to": "database/source/phase-083/resilience-exercises.sql"
+  },
+  {
+    "phase": 84,
+    "source": "crowmods-ai-phase84/database/resilience-trends.sql",
+    "copied_to": "database/source/phase-084/resilience-trends.sql"
+  },
+  {
+    "phase": 85,
+    "source": "crowmods-ai-phase85/database/resilience-intelligence.sql",
+    "copied_to": "database/source/phase-085/resilience-intelligence.sql"
+  },
+  {
+    "phase": 86,
+    "source": "crowmods-ai-phase86/database/alert-operations.sql",
+    "copied_to": "database/source/phase-086/alert-operations.sql"
+  },
+  {
+    "phase": 87,
+    "source": "crowmods-ai-phase87/database/alert-lifecycle.sql",
+    "copied_to": "database/source/phase-087/alert-lifecycle.sql"
+  },
+  {
+    "phase": 88,
+    "source": "crowmods-ai-phase88/database/operations-rbac.sql",
+    "copied_to": "database/source/phase-088/operations-rbac.sql"
+  },
+  {
+    "phase": 89,
+    "source": "crowmods-ai-phase89/database/security-audit.sql",
+    "copied_to": "database/source/phase-089/security-audit.sql"
+  },
+  {
+    "phase": 90,
+    "source": "crowmods-ai-phase90/database/security-admin.sql",
+    "copied_to": "database/source/phase-090/security-admin.sql"
+  },
+  {
+    "phase": 91,
+    "source": "crowmods-ai-phase91/database/identity-keys.sql",
+    "copied_to": "database/source/phase-091/identity-keys.sql"
+  },
+  {
+    "phase": 92,
+    "source": "crowmods-ai-phase92/database/phase92-oidc.sql",
+    "copied_to": "database/source/phase-092/phase92-oidc.sql"
+  },
+  {
+    "phase": 93,
+    "source": "crowmods-ai-phase93/database/phase93-security.sql",
+    "copied_to": "database/source/phase-093/phase93-security.sql"
+  },
+  {
+    "phase": 94,
+    "source": "crowmods-ai-phase94/database/phase94-rbac.sql",
+    "copied_to": "database/source/phase-094/phase94-rbac.sql"
+  },
+  {
+    "phase": 95,
+    "source": "crowmods-ai-phase95/database/phase95-rbac.sql",
+    "copied_to": "database/source/phase-095/phase95-rbac.sql"
+  },
+  {
+    "phase": 96,
+    "source": "crowmods-ai-phase96/database/phase96-governance.sql",
+    "copied_to": "database/source/phase-096/phase96-governance.sql"
+  },
+  {
+    "phase": 97,
+    "source": "crowmods-ai-phase97/database/phase97-detection.sql",
+    "copied_to": "database/source/phase-097/phase97-detection.sql"
+  },
+  {
+    "phase": 98,
+    "source": "crowmods-ai-phase98/database/phase98-security-ops.sql",
+    "copied_to": "database/source/phase-098/phase98-security-ops.sql"
+  },
+  {
+    "phase": 99,
+    "source": "crowmods-ai-phase99/database/phase99-final-hardening.sql",
+    "copied_to": "database/source/phase-099/phase99-final-hardening.sql"
+  },
+  {
+    "phase": 100,
+    "source": "crowmods-ai-phase100/database/phase100-release.sql",
+    "copied_to": "database/source/phase-100/phase100-release.sql"
+  },
+  {
+    "phase": 101,
+    "source": "crowmods-ai-phase101/database/phase101-assurance.sql",
+    "copied_to": "database/source/phase-101/phase101-assurance.sql"
+  },
+  {
+    "phase": 102,
+    "source": "crowmods-ai-phase102/database/phase102-health.sql",
+    "copied_to": "database/source/phase-102/phase102-health.sql"
+  },
+  {
+    "phase": 103,
+    "source": "crowmods-ai-phase103/database/phase103-live-health.sql",
+    "copied_to": "database/source/phase-103/phase103-live-health.sql"
+  },
+  {
+    "phase": 104,
+    "source": "crowmods-ai-phase104/database/phase104-integrations.sql",
+    "copied_to": "database/source/phase-104/phase104-integrations.sql"
+  },
+  {
+    "phase": 105,
+    "source": "crowmods-ai-phase105/database/phase105-slo.sql",
+    "copied_to": "database/source/phase-105/phase105-slo.sql"
+  },
+  {
+    "phase": 106,
+    "source": "crowmods-ai-phase106/database/phase106-error-budgets.sql",
+    "copied_to": "database/source/phase-106/phase106-error-budgets.sql"
+  },
+  {
+    "phase": 107,
+    "source": "crowmods-ai-phase107/database/phase107-reliability.sql",
+    "copied_to": "database/source/phase-107/phase107-reliability.sql"
+  },
+  {
+    "phase": 108,
+    "source": "crowmods-ai-phase108/database/phase108-orchestration.sql",
+    "copied_to": "database/source/phase-108/phase108-orchestration.sql"
+  },
+  {
+    "phase": 109,
+    "source": "crowmods-ai-phase109/database/phase109-incident-review.sql",
+    "copied_to": "database/source/phase-109/phase109-incident-review.sql"
+  },
+  {
+    "phase": 110,
+    "source": "crowmods-ai-phase110/database/phase110-postmortem.sql",
+    "copied_to": "database/source/phase-110/phase110-postmortem.sql"
+  },
+  {
+    "phase": 111,
+    "source": "crowmods-ai-phase111/database/phase111-control-effectiveness.sql",
+    "copied_to": "database/source/phase-111/phase111-control-effectiveness.sql"
+  },
+  {
+    "phase": 112,
+    "source": "crowmods-ai-phase112/database/phase112-governance.sql",
+    "copied_to": "database/source/phase-112/phase112-governance.sql"
+  },
+  {
+    "phase": 113,
+    "source": "crowmods-ai-phase113/database/phase113-assurance.sql",
+    "copied_to": "database/source/phase-113/phase113-assurance.sql"
+  },
+  {
+    "phase": 114,
+    "source": "crowmods-ai-phase114/database/phase114-risk-workers.sql",
+    "copied_to": "database/source/phase-114/phase114-risk-workers.sql"
+  },
+  {
+    "phase": 115,
+    "source": "crowmods-ai-phase115/database/phase115-risk-register.sql",
+    "copied_to": "database/source/phase-115/phase115-risk-register.sql"
+  },
+  {
+    "phase": 116,
+    "source": "crowmods-ai-phase116/database/phase116-decision-records.sql",
+    "copied_to": "database/source/phase-116/phase116-decision-records.sql"
+  },
+  {
+    "phase": 117,
+    "source": "crowmods-ai-phase117/database/phase117-decision-evidence.sql",
+    "copied_to": "database/source/phase-117/phase117-decision-evidence.sql"
+  },
+  {
+    "phase": 118,
+    "source": "crowmods-ai-phase118/database/phase118-governance-evidence.sql",
+    "copied_to": "database/source/phase-118/phase118-governance-evidence.sql"
+  },
+  {
+    "phase": 119,
+    "source": "crowmods-ai-phase119/database/phase119-production-governance.sql",
+    "copied_to": "database/source/phase-119/phase119-production-governance.sql"
+  },
+  {
+    "phase": 120,
+    "source": "crowmods-ai-phase120/database/phase120-production-assurance.sql",
+    "copied_to": "database/source/phase-120/phase120-production-assurance.sql"
+  },
+  {
+    "phase": 121,
+    "source": "crowmods-ai-phase121/database/phase121-assurance.sql",
+    "copied_to": "database/source/phase-121/phase121-assurance.sql"
+  },
+  {
+    "phase": 122,
+    "source": "crowmods-ai-phase122/database/phase122-assurance.sql",
+    "copied_to": "database/source/phase-122/phase122-assurance.sql"
+  },
+  {
+    "phase": 123,
+    "source": "crowmods-ai-phase123/database/phase123-assurance.sql",
+    "copied_to": "database/source/phase-123/phase123-assurance.sql"
+  },
+  {
+    "phase": 124,
+    "source": "crowmods-ai-phase124/database/phase124-assurance.sql",
+    "copied_to": "database/source/phase-124/phase124-assurance.sql"
+  },
+  {
+    "phase": 124,
+    "source": "crowmods-ai-phase124/database/phase124-serializable-cas.sql",
+    "copied_to": "database/source/phase-124/phase124-serializable-cas.sql"
+  },
+  {
+    "phase": 125,
+    "source": "crowmods-ai-phase125/database/phase125-assurance.sql",
+    "copied_to": "database/source/phase-125/phase125-assurance.sql"
+  },
+  {
+    "phase": 126,
+    "source": "crowmods-ai-phase126/database/phase126-assurance.sql",
+    "copied_to": "database/source/phase-126/phase126-assurance.sql"
+  },
+  {
+    "phase": 126,
+    "source": "crowmods-ai-phase126/database/phase126-atomic-takeover.sql",
+    "copied_to": "database/source/phase-126/phase126-atomic-takeover.sql"
+  },
+  {
+    "phase": 127,
+    "source": "crowmods-ai-phase127/database/phase127-enforced-takeover.sql",
+    "copied_to": "database/source/phase-127/phase127-enforced-takeover.sql"
+  },
+  {
+    "phase": 127,
+    "source": "crowmods-ai-phase127/database/phase127-assurance.sql",
+    "copied_to": "database/source/phase-127/phase127-assurance.sql"
+  },
+  {
+    "phase": 128,
+    "source": "crowmods-ai-phase128/database/phase128-assurance.sql",
+    "copied_to": "database/source/phase-128/phase128-assurance.sql"
+  },
+  {
+    "phase": 128,
+    "source": "crowmods-ai-phase128/database/phase128-verified-takeover.sql",
+    "copied_to": "database/source/phase-128/phase128-verified-takeover.sql"
+  },
+  {
+    "phase": 129,
+    "source": "crowmods-ai-phase129/database/phase129-assurance.sql",
+    "copied_to": "database/source/phase-129/phase129-assurance.sql"
+  },
+  {
+    "phase": 130,
+    "source": "crowmods-ai-phase130/database/phase130-assurance.sql",
+    "copied_to": "database/source/phase-130/phase130-assurance.sql"
+  },
+  {
+    "phase": 131,
+    "source": "crowmods-ai-phase131/database/phase131-assurance.sql",
+    "copied_to": "database/source/phase-131/phase131-assurance.sql"
+  },
+  {
+    "phase": 131,
+    "source": "crowmods-ai-phase131/database/phase131-worker-cas.sql",
+    "copied_to": "database/source/phase-131/phase131-worker-cas.sql"
+  },
+  {
+    "phase": 132,
+    "source": "crowmods-ai-phase132/database/phase132-assurance.sql",
+    "copied_to": "database/source/phase-132/phase132-assurance.sql"
+  },
+  {
+    "phase": 133,
+    "source": "crowmods-ai-phase133/database/phase133-assurance.sql",
+    "copied_to": "database/source/phase-133/phase133-assurance.sql"
+  },
+  {
+    "phase": 134,
+    "source": "crowmods-ai-phase134/database/phase134-assurance.sql",
+    "copied_to": "database/source/phase-134/phase134-assurance.sql"
+  },
+  {
+    "phase": 135,
+    "source": "crowmods-ai-phase135/database/phase135-calibration-lease.sql",
+    "copied_to": "database/source/phase-135/phase135-calibration-lease.sql"
+  },
+  {
+    "phase": 135,
+    "source": "crowmods-ai-phase135/database/phase135-assurance.sql",
+    "copied_to": "database/source/phase-135/phase135-assurance.sql"
+  },
+  {
+    "phase": 136,
+    "source": "crowmods-ai-phase136/database/phase136-calibration-cas.sql",
+    "copied_to": "database/source/phase-136/phase136-calibration-cas.sql"
+  },
+  {
+    "phase": 136,
+    "source": "crowmods-ai-phase136/database/phase136-assurance.sql",
+    "copied_to": "database/source/phase-136/phase136-assurance.sql"
+  },
+  {
+    "phase": 137,
+    "source": "crowmods-ai-phase137/database/phase137-assurance.sql",
+    "copied_to": "database/source/phase-137/phase137-assurance.sql"
+  },
+  {
+    "phase": 138,
+    "source": "crowmods-ai-phase138/database/phase138-purge.sql",
+    "copied_to": "database/source/phase-138/phase138-purge.sql"
+  },
+  {
+    "phase": 138,
+    "source": "crowmods-ai-phase138/database/phase138-assurance.sql",
+    "copied_to": "database/source/phase-138/phase138-assurance.sql"
+  },
+  {
+    "phase": 139,
+    "source": "crowmods-ai-phase139/database/phase139-assurance.sql",
+    "copied_to": "database/source/phase-139/phase139-assurance.sql"
+  },
+  {
+    "phase": 140,
+    "source": "crowmods-ai-phase140/database/phase140-purge.sql",
+    "copied_to": "database/source/phase-140/phase140-purge.sql"
+  },
+  {
+    "phase": 140,
+    "source": "crowmods-ai-phase140/database/phase140-assurance.sql",
+    "copied_to": "database/source/phase-140/phase140-assurance.sql"
+  },
+  {
+    "phase": 140,
+    "source": "crowmods-ai-phase140/database/phase140-calibration.sql",
+    "copied_to": "database/source/phase-140/phase140-calibration.sql"
+  },
+  {
+    "phase": 141,
+    "source": "crowmods-ai-phase141/database/phase141-calibration.sql",
+    "copied_to": "database/source/phase-141/phase141-calibration.sql"
+  },
+  {
+    "phase": 141,
+    "source": "crowmods-ai-phase141/database/phase141-assurance.sql",
+    "copied_to": "database/source/phase-141/phase141-assurance.sql"
+  },
+  {
+    "phase": 142,
+    "source": "crowmods-ai-phase142/database/phase142-assurance.sql",
+    "copied_to": "database/source/phase-142/phase142-assurance.sql"
+  },
+  {
+    "phase": 143,
+    "source": "crowmods-ai-phase143/database/phase143-assurance.sql",
+    "copied_to": "database/source/phase-143/phase143-assurance.sql"
+  },
+  {
+    "phase": 144,
+    "source": "crowmods-ai-phase144/database/phase144-assurance.sql",
+    "copied_to": "database/source/phase-144/phase144-assurance.sql"
+  },
+  {
+    "phase": 145,
+    "source": "crowmods-ai-phase145/database/phase145-assurance.sql",
+    "copied_to": "database/source/phase-145/phase145-assurance.sql"
+  },
+  {
+    "phase": 146,
+    "source": "crowmods-ai-phase146/database/phase146-assurance.sql",
+    "copied_to": "database/source/phase-146/phase146-assurance.sql"
+  },
+  {
+    "phase": 147,
+    "source": "crowmods-ai-phase147/database/phase147-assurance.sql",
+    "copied_to": "database/source/phase-147/phase147-assurance.sql"
+  },
+  {
+    "phase": 148,
+    "source": "crowmods-ai-phase148/database/phase148-assurance.sql",
+    "copied_to": "database/source/phase-148/phase148-assurance.sql"
+  },
+  {
+    "phase": 149,
+    "source": "crowmods-ai-phase149/database/phase149-assurance.sql",
+    "copied_to": "database/source/phase-149/phase149-assurance.sql"
+  },
+  {
+    "phase": 150,
+    "source": "crowmods-ai-phase150/database/phase150-assurance.sql",
+    "copied_to": "database/source/phase-150/phase150-assurance.sql"
+  },
+  {
+    "phase": 151,
+    "source": "crowmods-ai-phase151/database/phase151.sql",
+    "copied_to": "database/source/phase-151/phase151.sql"
+  },
+  {
+    "phase": 152,
+    "source": "crowmods-ai-phase152/database/phase152.sql",
+    "copied_to": "database/source/phase-152/phase152.sql"
+  },
+  {
+    "phase": 153,
+    "source": "database/phase-153.sql",
+    "copied_to": "database/source/phase-153/phase-153.sql"
+  },
+  {
+    "phase": 154,
+    "source": "database/phase-154.sql",
+    "copied_to": "database/source/phase-154/phase-154.sql"
+  },
+  {
+    "phase": 155,
+    "source": "database/phase-155.sql",
+    "copied_to": "database/source/phase-155/phase-155.sql"
+  },
+  {
+    "phase": 156,
+    "source": "database/phase-156.sql",
+    "copied_to": "database/source/phase-156/phase-156.sql"
+  },
+  {
+    "phase": 157,
+    "source": "database/phase-157.sql",
+    "copied_to": "database/source/phase-157/phase-157.sql"
+  },
+  {
+    "phase": 158,
+    "source": "database/phase-158.sql",
+    "copied_to": "database/source/phase-158/phase-158.sql"
+  },
+  {
+    "phase": 159,
+    "source": "database/phase-159.sql",
+    "copied_to": "database/source/phase-159/phase-159.sql"
+  },
+  {
+    "phase": 160,
+    "source": "database/phase-160.sql",
+    "copied_to": "database/source/phase-160/phase-160.sql"
+  },
+  {
+    "phase": 161,
+    "source": "database/phase-161.sql",
+    "copied_to": "database/source/phase-161/phase-161.sql"
+  },
+  {
+    "phase": 162,
+    "source": "database/phase-162.sql",
+    "copied_to": "database/source/phase-162/phase-162.sql"
+  },
+  {
+    "phase": 163,
+    "source": "database/phase-163.sql",
+    "copied_to": "database/source/phase-163/phase-163.sql"
+  },
+  {
+    "phase": 164,
+    "source": "database/phase-164.sql",
+    "copied_to": "database/source/phase-164/phase-164.sql"
+  },
+  {
+    "phase": 165,
+    "source": "database/phase-165.sql",
+    "copied_to": "database/source/phase-165/phase-165.sql"
+  },
+  {
+    "phase": 166,
+    "source": "database/phase-166.sql",
+    "copied_to": "database/source/phase-166/phase-166.sql"
+  },
+  {
+    "phase": 167,
+    "source": "database/phase-167.sql",
+    "copied_to": "database/source/phase-167/phase-167.sql"
+  },
+  {
+    "phase": 168,
+    "source": "database/phase-168.sql",
+    "copied_to": "database/source/phase-168/phase-168.sql"
+  },
+  {
+    "phase": 169,
+    "source": "database/phase-169.sql",
+    "copied_to": "database/source/phase-169/phase-169.sql"
+  },
+  {
+    "phase": 170,
+    "source": "database/phase-170.sql",
+    "copied_to": "database/source/phase-170/phase-170.sql"
+  },
+  {
+    "phase": 171,
+    "source": "database/phase-171.sql",
+    "copied_to": "database/source/phase-171/phase-171.sql"
+  },
+  {
+    "phase": 172,
+    "source": "database/phase-172.sql",
+    "copied_to": "database/source/phase-172/phase-172.sql"
+  },
+  {
+    "phase": 173,
+    "source": "database/phase-173.sql",
+    "copied_to": "database/source/phase-173/phase-173.sql"
+  },
+  {
+    "phase": 174,
+    "source": "database/phase-174.sql",
+    "copied_to": "database/source/phase-174/phase-174.sql"
+  },
+  {
+    "phase": 175,
+    "source": "database/phase-175.sql",
+    "copied_to": "database/source/phase-175/phase-175.sql"
+  },
+  {
+    "phase": 176,
+    "source": "database/phase-176.sql",
+    "copied_to": "database/source/phase-176/phase-176.sql"
+  },
+  {
+    "phase": 177,
+    "source": "database/phase-177.sql",
+    "copied_to": "database/source/phase-177/phase-177.sql"
+  },
+  {
+    "phase": 178,
+    "source": "database/phase-178.sql",
+    "copied_to": "database/source/phase-178/phase-178.sql"
+  },
+  {
+    "phase": 179,
+    "source": "database/phase-179.sql",
+    "copied_to": "database/source/phase-179/phase-179.sql"
+  },
+  {
+    "phase": 180,
+    "source": "database/phase-180.sql",
+    "copied_to": "database/source/phase-180/phase-180.sql"
+  },
+  {
+    "phase": 181,
+    "source": "database/phase-181.sql",
+    "copied_to": "database/source/phase-181/phase-181.sql"
+  },
+  {
+    "phase": 182,
+    "source": "database/phase-182.sql",
+    "copied_to": "database/source/phase-182/phase-182.sql"
+  },
+  {
+    "phase": 183,
+    "source": "database/phase-183.sql",
+    "copied_to": "database/source/phase-183/phase-183.sql"
+  },
+  {
+    "phase": 184,
+    "source": "database/phase-184.sql",
+    "copied_to": "database/source/phase-184/phase-184.sql"
+  },
+  {
+    "phase": 185,
+    "source": "database/phase-185.sql",
+    "copied_to": "database/source/phase-185/phase-185.sql"
+  },
+  {
+    "phase": 186,
+    "source": "database/phase-186.sql",
+    "copied_to": "database/source/phase-186/phase-186.sql"
+  },
+  {
+    "phase": 187,
+    "source": "database/phase-187.sql",
+    "copied_to": "database/source/phase-187/phase-187.sql"
+  },
+  {
+    "phase": 188,
+    "source": "database/phase-188.sql",
+    "copied_to": "database/source/phase-188/phase-188.sql"
+  },
+  {
+    "phase": 189,
+    "source": "database/phase-189.sql",
+    "copied_to": "database/source/phase-189/phase-189.sql"
+  },
+  {
+    "phase": 190,
+    "source": "database/phase-190.sql",
+    "copied_to": "database/source/phase-190/phase-190.sql"
+  },
+  {
+    "phase": 191,
+    "source": "database/phase-191.sql",
+    "copied_to": "database/source/phase-191/phase-191.sql"
+  },
+  {
+    "phase": 192,
+    "source": "database/phase-192.sql",
+    "copied_to": "database/source/phase-192/phase-192.sql"
+  },
+  {
+    "phase": 193,
+    "source": "database/phase-193.sql",
+    "copied_to": "database/source/phase-193/phase-193.sql"
+  },
+  {
+    "phase": 194,
+    "source": "database/phase-194.sql",
+    "copied_to": "database/source/phase-194/phase-194.sql"
+  },
+  {
+    "phase": 195,
+    "source": "database/phase-195.sql",
+    "copied_to": "database/source/phase-195/phase-195.sql"
+  },
+  {
+    "phase": 196,
+    "source": "database/phase-196.sql",
+    "copied_to": "database/source/phase-196/phase-196.sql"
+  },
+  {
+    "phase": 197,
+    "source": "database/phase-197.sql",
+    "copied_to": "database/source/phase-197/phase-197.sql"
+  },
+  {
+    "phase": 198,
+    "source": "database/phase-198.sql",
+    "copied_to": "database/source/phase-198/phase-198.sql"
+  },
+  {
+    "phase": 199,
+    "source": "database/phase-199.sql",
+    "copied_to": "database/source/phase-199/phase-199.sql"
+  },
+  {
+    "phase": 200,
+    "source": "database/phase-200.sql",
+    "copied_to": "database/source/phase-200/phase-200.sql"
+  },
+  {
+    "phase": 201,
+    "source": "database/phase-201.sql",
+    "copied_to": "database/source/phase-201/phase-201.sql"
+  },
+  {
+    "phase": 202,
+    "source": "database/phase-202.sql",
+    "copied_to": "database/source/phase-202/phase-202.sql"
+  },
+  {
+    "phase": 203,
+    "source": "database/phase-203.sql",
+    "copied_to": "database/source/phase-203/phase-203.sql"
+  },
+  {
+    "phase": 204,
+    "source": "database/phase-204.sql",
+    "copied_to": "database/source/phase-204/phase-204.sql"
+  },
+  {
+    "phase": 205,
+    "source": "database/phase-205.sql",
+    "copied_to": "database/source/phase-205/phase-205.sql"
+  },
+  {
+    "phase": 206,
+    "source": "database/phase-206.sql",
+    "copied_to": "database/source/phase-206/phase-206.sql"
+  },
+  {
+    "phase": 207,
+    "source": "database/phase-207.sql",
+    "copied_to": "database/source/phase-207/phase-207.sql"
+  },
+  {
+    "phase": 208,
+    "source": "database/phase-208.sql",
+    "copied_to": "database/source/phase-208/phase-208.sql"
+  },
+  {
+    "phase": 209,
+    "source": "database/phase-209.sql",
+    "copied_to": "database/source/phase-209/phase-209.sql"
+  },
+  {
+    "phase": 210,
+    "source": "database/phase-210.sql",
+    "copied_to": "database/source/phase-210/phase-210.sql"
+  },
+  {
+    "phase": 211,
+    "source": "database/phase-211.sql",
+    "copied_to": "database/source/phase-211/phase-211.sql"
+  },
+  {
+    "phase": 212,
+    "source": "database/phase-212.sql",
+    "copied_to": "database/source/phase-212/phase-212.sql"
+  },
+  {
+    "phase": 213,
+    "source": "database/phase-213.sql",
+    "copied_to": "database/source/phase-213/phase-213.sql"
+  },
+  {
+    "phase": 214,
+    "source": "database/phase-214.sql",
+    "copied_to": "database/source/phase-214/phase-214.sql"
+  },
+  {
+    "phase": 215,
+    "source": "database/phase-215.sql",
+    "copied_to": "database/source/phase-215/phase-215.sql"
+  },
+  {
+    "phase": 216,
+    "source": "database/phase-216.sql",
+    "copied_to": "database/source/phase-216/phase-216.sql"
+  },
+  {
+    "phase": 217,
+    "source": "database/phase-217.sql",
+    "copied_to": "database/source/phase-217/phase-217.sql"
+  },
+  {
+    "phase": 218,
+    "source": "database/phase-218.sql",
+    "copied_to": "database/source/phase-218/phase-218.sql"
+  },
+  {
+    "phase": 219,
+    "source": "database/phase-219.sql",
+    "copied_to": "database/source/phase-219/phase-219.sql"
+  },
+  {
+    "phase": 220,
+    "source": "database/phase-220.sql",
+    "copied_to": "database/source/phase-220/phase-220.sql"
+  },
+  {
+    "phase": 221,
+    "source": "database/phase-221.sql",
+    "copied_to": "database/source/phase-221/phase-221.sql"
+  },
+  {
+    "phase": 222,
+    "source": "database/phase-222.sql",
+    "copied_to": "database/source/phase-222/phase-222.sql"
+  },
+  {
+    "phase": 223,
+    "source": "database/phase-223.sql",
+    "copied_to": "database/source/phase-223/phase-223.sql"
+  },
+  {
+    "phase": 224,
+    "source": "database/phase-224.sql",
+    "copied_to": "database/source/phase-224/phase-224.sql"
+  },
+  {
+    "phase": 225,
+    "source": "database/phase-225.sql",
+    "copied_to": "database/source/phase-225/phase-225.sql"
+  },
+  {
+    "phase": 226,
+    "source": "database/phase-226.sql",
+    "copied_to": "database/source/phase-226/phase-226.sql"
+  },
+  {
+    "phase": 227,
+    "source": "database/phase-227.sql",
+    "copied_to": "database/source/phase-227/phase-227.sql"
+  },
+  {
+    "phase": 228,
+    "source": "database/phase-228.sql",
+    "copied_to": "database/source/phase-228/phase-228.sql"
+  },
+  {
+    "phase": 229,
+    "source": "database/phase-229.sql",
+    "copied_to": "database/source/phase-229/phase-229.sql"
+  },
+  {
+    "phase": 230,
+    "source": "database/phase-230.sql",
+    "copied_to": "database/source/phase-230/phase-230.sql"
+  },
+  {
+    "phase": 231,
+    "source": "database/phase-231.sql",
+    "copied_to": "database/source/phase-231/phase-231.sql"
+  },
+  {
+    "phase": 232,
+    "source": "database/phase-232.sql",
+    "copied_to": "database/source/phase-232/phase-232.sql"
+  },
+  {
+    "phase": 233,
+    "source": "database/phase-233.sql",
+    "copied_to": "database/source/phase-233/phase-233.sql"
+  },
+  {
+    "phase": 234,
+    "source": "database/phase-234.sql",
+    "copied_to": "database/source/phase-234/phase-234.sql"
+  },
+  {
+    "phase": 235,
+    "source": "database/phase-235.sql",
+    "copied_to": "database/source/phase-235/phase-235.sql"
+  },
+  {
+    "phase": 236,
+    "source": "database/phase-236.sql",
+    "copied_to": "database/source/phase-236/phase-236.sql"
+  },
+  {
+    "phase": 237,
+    "source": "database/phase-237.sql",
+    "copied_to": "database/source/phase-237/phase-237.sql"
+  },
+  {
+    "phase": 238,
+    "source": "database/phase-238.sql",
+    "copied_to": "database/source/phase-238/phase-238.sql"
+  },
+  {
+    "phase": 239,
+    "source": "database/phase-239.sql",
+    "copied_to": "database/source/phase-239/phase-239.sql"
+  },
+  {
+    "phase": 240,
+    "source": "database/phase-240.sql",
+    "copied_to": "database/source/phase-240/phase-240.sql"
+  },
+  {
+    "phase": 241,
+    "source": "database/phase-241.sql",
+    "copied_to": "database/source/phase-241/phase-241.sql"
+  },
+  {
+    "phase": 242,
+    "source": "database/phase-242.sql",
+    "copied_to": "database/source/phase-242/phase-242.sql"
+  },
+  {
+    "phase": 243,
+    "source": "database/phase-243.sql",
+    "copied_to": "database/source/phase-243/phase-243.sql"
+  },
+  {
+    "phase": 244,
+    "source": "database/phase-244.sql",
+    "copied_to": "database/source/phase-244/phase-244.sql"
+  },
+  {
+    "phase": 245,
+    "source": "database/phase-245.sql",
+    "copied_to": "database/source/phase-245/phase-245.sql"
+  },
+  {
+    "phase": 246,
+    "source": "database/phase-246.sql",
+    "copied_to": "database/source/phase-246/phase-246.sql"
+  },
+  {
+    "phase": 247,
+    "source": "database/phase-247.sql",
+    "copied_to": "database/source/phase-247/phase-247.sql"
+  },
+  {
+    "phase": 248,
+    "source": "database/phase-248.sql",
+    "copied_to": "database/source/phase-248/phase-248.sql"
+  },
+  {
+    "phase": 249,
+    "source": "database/phase-249.sql",
+    "copied_to": "database/source/phase-249/phase-249.sql"
+  },
+  {
+    "phase": 250,
+    "source": "database/phase-250.sql",
+    "copied_to": "database/source/phase-250/phase-250.sql"
+  },
+  {
+    "phase": 251,
+    "source": "database/phase-251.sql",
+    "copied_to": "database/source/phase-251/phase-251.sql"
+  },
+  {
+    "phase": 252,
+    "source": "database/phase-252.sql",
+    "copied_to": "database/source/phase-252/phase-252.sql"
+  },
+  {
+    "phase": 253,
+    "source": "database/phase-253.sql",
+    "copied_to": "database/source/phase-253/phase-253.sql"
+  },
+  {
+    "phase": 254,
+    "source": "database/phase-254.sql",
+    "copied_to": "database/source/phase-254/phase-254.sql"
+  },
+  {
+    "phase": 255,
+    "source": "database/phase-255.sql",
+    "copied_to": "database/source/phase-255/phase-255.sql"
+  },
+  {
+    "phase": 256,
+    "source": "database/phase-256.sql",
+    "copied_to": "database/source/phase-256/phase-256.sql"
+  },
+  {
+    "phase": 257,
+    "source": "database/phase-257.sql",
+    "copied_to": "database/source/phase-257/phase-257.sql"
+  },
+  {
+    "phase": 258,
+    "source": "database/phase-258.sql",
+    "copied_to": "database/source/phase-258/phase-258.sql"
+  },
+  {
+    "phase": 259,
+    "source": "database/phase-259.sql",
+    "copied_to": "database/source/phase-259/phase-259.sql"
+  },
+  {
+    "phase": 260,
+    "source": "database/phase-260.sql",
+    "copied_to": "database/source/phase-260/phase-260.sql"
+  },
+  {
+    "phase": 261,
+    "source": "database/phase-261.sql",
+    "copied_to": "database/source/phase-261/phase-261.sql"
+  },
+  {
+    "phase": 262,
+    "source": "database/phase-262.sql",
+    "copied_to": "database/source/phase-262/phase-262.sql"
+  },
+  {
+    "phase": 263,
+    "source": "database/phase-263.sql",
+    "copied_to": "database/source/phase-263/phase-263.sql"
+  },
+  {
+    "phase": 264,
+    "source": "database/phase-264.sql",
+    "copied_to": "database/source/phase-264/phase-264.sql"
+  },
+  {
+    "phase": 265,
+    "source": "database/phase-265.sql",
+    "copied_to": "database/source/phase-265/phase-265.sql"
+  },
+  {
+    "phase": 266,
+    "source": "database/phase-266.sql",
+    "copied_to": "database/source/phase-266/phase-266.sql"
+  },
+  {
+    "phase": 267,
+    "source": "database/phase-267.sql",
+    "copied_to": "database/source/phase-267/phase-267.sql"
+  },
+  {
+    "phase": 268,
+    "source": "database/phase-268.sql",
+    "copied_to": "database/source/phase-268/phase-268.sql"
+  },
+  {
+    "phase": 269,
+    "source": "database/phase-269.sql",
+    "copied_to": "database/source/phase-269/phase-269.sql"
+  },
+  {
+    "phase": 270,
+    "source": "database/phase-270.sql",
+    "copied_to": "database/source/phase-270/phase-270.sql"
+  },
+  {
+    "phase": 271,
+    "source": "database/phase-271.sql",
+    "copied_to": "database/source/phase-271/phase-271.sql"
+  },
+  {
+    "phase": 272,
+    "source": "database/phase-272.sql",
+    "copied_to": "database/source/phase-272/phase-272.sql"
+  },
+  {
+    "phase": 273,
+    "source": "database/phase-273.sql",
+    "copied_to": "database/source/phase-273/phase-273.sql"
+  },
+  {
+    "phase": 274,
+    "source": "database/phase-274.sql",
+    "copied_to": "database/source/phase-274/phase-274.sql"
+  },
+  {
+    "phase": 275,
+    "source": "database/phase-275.sql",
+    "copied_to": "database/source/phase-275/phase-275.sql"
+  },
+  {
+    "phase": 276,
+    "source": "database/phase-276.sql",
+    "copied_to": "database/source/phase-276/phase-276.sql"
+  },
+  {
+    "phase": 277,
+    "source": "database/phase-277.sql",
+    "copied_to": "database/source/phase-277/phase-277.sql"
+  },
+  {
+    "phase": 278,
+    "source": "database/phase-278.sql",
+    "copied_to": "database/source/phase-278/phase-278.sql"
+  },
+  {
+    "phase": 279,
+    "source": "database/phase-279.sql",
+    "copied_to": "database/source/phase-279/phase-279.sql"
+  },
+  {
+    "phase": 280,
+    "source": "database/phase-280.sql",
+    "copied_to": "database/source/phase-280/phase-280.sql"
+  },
+  {
+    "phase": 281,
+    "source": "database/phase-281.sql",
+    "copied_to": "database/source/phase-281/phase-281.sql"
+  },
+  {
+    "phase": 282,
+    "source": "database/phase-282.sql",
+    "copied_to": "database/source/phase-282/phase-282.sql"
+  },
+  {
+    "phase": 283,
+    "source": "database/phase-283.sql",
+    "copied_to": "database/source/phase-283/phase-283.sql"
+  },
+  {
+    "phase": 284,
+    "source": "database/phase-284.sql",
+    "copied_to": "database/source/phase-284/phase-284.sql"
+  },
+  {
+    "phase": 285,
+    "source": "database/phase-285.sql",
+    "copied_to": "database/source/phase-285/phase-285.sql"
+  },
+  {
+    "phase": 286,
+    "source": "database/phase-286.sql",
+    "copied_to": "database/source/phase-286/phase-286.sql"
+  },
+  {
+    "phase": 287,
+    "source": "database/phase-287.sql",
+    "copied_to": "database/source/phase-287/phase-287.sql"
+  },
+  {
+    "phase": 288,
+    "source": "database/phase-288.sql",
+    "copied_to": "database/source/phase-288/phase-288.sql"
+  },
+  {
+    "phase": 289,
+    "source": "database/phase-289.sql",
+    "copied_to": "database/source/phase-289/phase-289.sql"
+  },
+  {
+    "phase": 290,
+    "source": "database/phase-290.sql",
+    "copied_to": "database/source/phase-290/phase-290.sql"
+  },
+  {
+    "phase": 291,
+    "source": "database/phase-291.sql",
+    "copied_to": "database/source/phase-291/phase-291.sql"
+  },
+  {
+    "phase": 292,
+    "source": "database/phase-292.sql",
+    "copied_to": "database/source/phase-292/phase-292.sql"
+  },
+  {
+    "phase": 293,
+    "source": "database/phase-293.sql",
+    "copied_to": "database/source/phase-293/phase-293.sql"
+  },
+  {
+    "phase": 294,
+    "source": "database/phase-294.sql",
+    "copied_to": "database/source/phase-294/phase-294.sql"
+  },
+  {
+    "phase": 295,
+    "source": "database/phase-295.sql",
+    "copied_to": "database/source/phase-295/phase-295.sql"
+  },
+  {
+    "phase": 296,
+    "source": "database/phase-296.sql",
+    "copied_to": "database/source/phase-296/phase-296.sql"
+  },
+  {
+    "phase": 297,
+    "source": "database/phase-297.sql",
+    "copied_to": "database/source/phase-297/phase-297.sql"
+  },
+  {
+    "phase": 298,
+    "source": "database/phase-298.sql",
+    "copied_to": "database/source/phase-298/phase-298.sql"
+  },
+  {
+    "phase": 299,
+    "source": "database/phase-299.sql",
+    "copied_to": "database/source/phase-299/phase-299.sql"
+  },
+  {
+    "phase": 300,
+    "source": "database/phase-300.sql",
+    "copied_to": "database/source/phase-300/phase-300.sql"
+  }
+]

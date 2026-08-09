@@ -1,0 +1,17 @@
+{
+  "name":"crowmods-governance-assurance",
+  "private":true,
+  "version":"1.12.0",
+  "scripts":{
+    "dev":"node src/server.js",
+    "start":"node src/server.js",
+    "test":"node --test",
+    "trend":"node src/control-trends.js"
+  },
+  "dependencies":{
+    "express":"latest",
+    "helmet":"latest",
+    "cors":"latest",
+    "pg":"latest"
+  }
+}

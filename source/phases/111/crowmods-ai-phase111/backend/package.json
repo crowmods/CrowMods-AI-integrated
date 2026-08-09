@@ -1,0 +1,17 @@
+{
+  "name":"crowmods-control-effectiveness",
+  "private":true,
+  "version":"1.11.0",
+  "scripts":{
+    "dev":"node src/server.js",
+    "start":"node src/server.js",
+    "test":"node --test",
+    "control:test":"node src/control-effectiveness.js"
+  },
+  "dependencies":{
+    "express":"latest",
+    "helmet":"latest",
+    "cors":"latest",
+    "pg":"latest"
+  }
+}

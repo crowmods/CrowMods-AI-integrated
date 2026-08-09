@@ -1,0 +1,14 @@
+{
+  "name":"crowmods-production-frontend",
+  "private":true,
+  "version":"0.37.0",
+  "scripts":{
+    "build":"next build",
+    "start":"next start -p 3000"
+  },
+  "dependencies":{
+    "next":"latest",
+    "react":"latest",
+    "react-dom":"latest"
+  }
+}

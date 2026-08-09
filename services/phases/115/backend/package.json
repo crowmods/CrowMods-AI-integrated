@@ -1,0 +1,16 @@
+{
+  "name":"crowmods-distributed-risk",
+  "private":true,
+  "version":"1.15.0",
+  "scripts":{
+    "dev":"node src/server.js",
+    "start":"node src/server.js",
+    "test":"node --test"
+  },
+  "dependencies":{
+    "express":"latest",
+    "helmet":"latest",
+    "cors":"latest",
+    "pg":"latest"
+  }
+}

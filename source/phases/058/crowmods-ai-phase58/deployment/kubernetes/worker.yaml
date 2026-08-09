@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crowmods-worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crowmods-worker
+  template:
+    metadata:
+      labels:
+        app: crowmods-worker
+    spec:
+      containers:
+        - name: worker
+          image: REGISTRY/crowmods-worker@sha256:REPLACE_ME
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]

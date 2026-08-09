@@ -1,0 +1,27 @@
+{
+  "releaseVersion": "0.60.0",
+  "commitSha": "REPLACE_WITH_VERIFIED_SHA",
+  "artifact": {
+    "apiDigest": "sha256:REPLACE",
+    "workerDigest": "sha256:REPLACE",
+    "frontendDigest": "sha256:REPLACE",
+    "signatureVerified": false,
+    "sbomVerified": false
+  },
+  "verification": {
+    "ci": false,
+    "tests": false,
+    "security": false,
+    "artifact": false,
+    "staging": false,
+    "backup": false,
+    "canary": false,
+    "approval": false
+  },
+  "deployment": {
+    "provider": "REPLACE",
+    "deploymentId": null,
+    "startedAt": null,
+    "completedAt": null
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name":"crowmods-escalation-worker",
+  "private":true,
+  "version":"0.64.0",
+  "scripts":{
+    "dev":"node src/server.js",
+    "start":"node src/server.js",
+    "worker":"node src/escalation-worker.js",
+    "test":"node --test"
+  },
+  "dependencies":{
+    "express":"latest",
+    "helmet":"latest",
+    "cors":"latest",
+    "pg":"latest"
+  }
+}

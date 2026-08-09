@@ -1,0 +1,17 @@
+{
+  "name":"crowmods-consumer-workers",
+  "private":true,
+  "version":"0.68.0",
+  "scripts":{
+    "dev":"node src/server.js",
+    "start":"node src/server.js",
+    "worker":"node src/consumer-worker.js",
+    "test":"node --test"
+  },
+  "dependencies":{
+    "express":"latest",
+    "helmet":"latest",
+    "cors":"latest",
+    "pg":"latest"
+  }
+}

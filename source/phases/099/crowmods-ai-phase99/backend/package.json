@@ -1,0 +1,17 @@
+{
+  "name":"crowmods-final-security-hardening",
+  "private":true,
+  "version":"0.99.0",
+  "scripts":{
+    "dev":"node src/server.js",
+    "start":"node src/server.js",
+    "test":"node --test",
+    "security:validate":"node src/security-validation.js"
+  },
+  "dependencies":{
+    "express":"latest",
+    "helmet":"latest",
+    "cors":"latest",
+    "pg":"latest"
+  }
+}

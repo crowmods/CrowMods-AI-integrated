@@ -1,0 +1,13 @@
+{
+  "name":"crowmods-accounts",
+  "private":true,
+  "version":"0.32.0",
+  "scripts":{"dev":"node src/server.js","start":"node src/server.js"},
+  "dependencies":{
+    "express":"latest",
+    "helmet":"latest",
+    "cors":"latest",
+    "pg":"latest",
+    "bcryptjs":"latest"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name":"crowmods-security-slo-workload-identity",
+  "private":true,
+  "version":"1.5.0",
+  "scripts":{
+    "dev":"node src/server.js",
+    "start":"node src/server.js",
+    "test":"node --test",
+    "slo:check":"node src/slo.js"
+  },
+  "dependencies":{
+    "express":"latest",
+    "helmet":"latest",
+    "cors":"latest",
+    "pg":"latest"
+  }
+}

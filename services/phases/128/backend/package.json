@@ -1,0 +1,7 @@
+{
+  "name":"crowmods-phase128-assurance",
+  "private":true,
+  "version":"1.28.0",
+  "scripts":{"test":"node --test","start":"node src/server.js"},
+  "dependencies":{"express":"latest","helmet":"latest","cors":"latest","pg":"latest"}
+}

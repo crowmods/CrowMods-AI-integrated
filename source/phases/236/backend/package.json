@@ -1,0 +1,1 @@
+{"name":"crowmods-ai-phase-236","private":true,"version":"1.236.0","scripts":{"test":"node --test","start":"node src/server.js"},"dependencies":{"express":"latest","helmet":"latest","cors":"latest"}}

@@ -1,0 +1,7 @@
+{
+  "name":"crowmods-phase123-assurance",
+  "private":true,
+  "version":"1.23.0",
+  "scripts":{"test":"node --test","start":"node src/server.js"},
+  "dependencies":{"express":"latest","helmet":"latest","cors":"latest","pg":"latest"}
+}

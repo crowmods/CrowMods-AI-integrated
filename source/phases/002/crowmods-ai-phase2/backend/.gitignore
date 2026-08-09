@@ -1,0 +1,5 @@
+node_modules/
+storage/quarantine/*
+storage/releases.json
+.env
+.env.*

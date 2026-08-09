@@ -1,0 +1,17 @@
+{
+  "name":"crowmods-postmortem-automation",
+  "private":true,
+  "version":"1.10.0",
+  "scripts":{
+    "dev":"node src/server.js",
+    "start":"node src/server.js",
+    "test":"node --test",
+    "postmortem":"node src/postmortem-report.js"
+  },
+  "dependencies":{
+    "express":"latest",
+    "helmet":"latest",
+    "cors":"latest",
+    "pg":"latest"
+  }
+}

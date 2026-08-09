@@ -1,0 +1,17 @@
+{
+  "name":"crowmods-security-health-probes",
+  "private":true,
+  "version":"1.2.0",
+  "scripts":{
+    "dev":"node src/server.js",
+    "start":"node src/server.js",
+    "test":"node --test",
+    "health:check":"node src/health-check.js"
+  },
+  "dependencies":{
+    "express":"latest",
+    "helmet":"latest",
+    "cors":"latest",
+    "pg":"latest"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name":"crowmods-production-backend",
+  "private":true,
+  "version":"0.37.0",
+  "scripts":{"start":"node src/server.js"},
+  "dependencies":{
+    "express":"latest",
+    "helmet":"latest",
+    "cors":"latest",
+    "pg":"latest"
+  }
+}

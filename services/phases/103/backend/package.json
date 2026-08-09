@@ -1,0 +1,17 @@
+{
+  "name":"crowmods-live-security-health",
+  "private":true,
+  "version":"1.3.0",
+  "scripts":{
+    "dev":"node src/server.js",
+    "start":"node src/server.js",
+    "test":"node --test",
+    "probe:live":"node src/live-probe.js"
+  },
+  "dependencies":{
+    "express":"latest",
+    "helmet":"latest",
+    "cors":"latest",
+    "pg":"latest"
+  }
+}

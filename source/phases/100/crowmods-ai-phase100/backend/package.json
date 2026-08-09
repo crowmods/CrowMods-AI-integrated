@@ -1,0 +1,17 @@
+{
+  "name":"crowmods-final-release-validation",
+  "private":true,
+  "version":"1.0.0",
+  "scripts":{
+    "dev":"node src/server.js",
+    "start":"node src/server.js",
+    "test":"node --test",
+    "release:validate":"node src/release-validation.js"
+  },
+  "dependencies":{
+    "express":"latest",
+    "helmet":"latest",
+    "cors":"latest",
+    "pg":"latest"
+  }
+}

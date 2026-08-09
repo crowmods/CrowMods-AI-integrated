@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crowmods-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: crowmods-api
+  template:
+    metadata:
+      labels:
+        app: crowmods-api
+    spec:
+      containers:
+        - name: api
+          image: REGISTRY/crowmods-api@sha256:REPLACE_ME
+          ports:
+            - containerPort: 4000
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 4000
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 4000
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: crowmods-api
+spec:
+  selector:
+    app: crowmods-api
+  ports:
+    - port: 4000
+      targetPort: 4000

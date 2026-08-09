@@ -1,0 +1,11 @@
+{
+  "format": "CycloneDX-or-SPDX",
+  "artifact": "crowmods-api",
+  "imageDigest": "sha256:REPLACE_ME",
+  "generatedAt": "ISO-8601",
+  "generator": "approved-ci-tool",
+  "verification": {
+    "required": true,
+    "storeWithReleaseManifest": true
+  }
+}

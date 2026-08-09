@@ -1,0 +1,38 @@
+name: CrowMods Staging
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  staging:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Backend tests
+        working-directory: backend
+        run: |
+          npm install
+          npm test
+
+      - name: Build staging image
+        run: docker build -f docker/api.Dockerfile -t crowmods-api:staging .
+
+      - name: Staging deployment placeholder
+        run: |
+          echo "Connect this step to your staging platform."
+          echo "Do not place production credentials in the repository."
+
+      - name: Smoke-test contract
+        run: |
+          echo "Run scripts/smoke-test.sh against the deployed staging URL."

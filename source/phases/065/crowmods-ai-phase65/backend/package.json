@@ -1,0 +1,16 @@
+{
+  "name":"crowmods-event-pipeline",
+  "private":true,
+  "version":"0.65.0",
+  "scripts":{
+    "dev":"node src/server.js",
+    "start":"node src/server.js",
+    "test":"node --test"
+  },
+  "dependencies":{
+    "express":"latest",
+    "helmet":"latest",
+    "cors":"latest",
+    "pg":"latest"
+  }
+}

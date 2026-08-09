@@ -1,0 +1,12 @@
+{
+  "name":"crowmods-public-site",
+  "private":true,
+  "version":"0.21.0",
+  "scripts":{"dev":"node src/server.js","start":"node src/server.js"},
+  "dependencies":{
+    "express":"latest",
+    "helmet":"latest",
+    "cors":"latest",
+    "pg":"latest"
+  }
+}

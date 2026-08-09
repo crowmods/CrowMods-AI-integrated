@@ -1,0 +1,17 @@
+{
+  "name":"crowmods-api",
+  "private":true,
+  "version":"0.56.0",
+  "scripts":{
+    "dev":"node src/server.js",
+    "start":"node src/server.js",
+    "test":"node --test",
+    "check":"node --check src/server.js && node --check src/worker.js"
+  },
+  "dependencies":{
+    "express":"latest",
+    "helmet":"latest",
+    "cors":"latest",
+    "pg":"latest"
+  }
+}

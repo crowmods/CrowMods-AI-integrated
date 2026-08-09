@@ -1,0 +1,1 @@
+const test=require("node:test"); const assert=require("node:assert/strict"); const app=require("../../apps/api/src/server"); test("central gateway exports an Express app",()=>assert.equal(typeof app,"function"));

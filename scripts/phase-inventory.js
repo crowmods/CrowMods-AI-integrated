@@ -1,0 +1,1 @@
+const fs=require("node:fs"),path=require("node:path"); const c=JSON.parse(fs.readFileSync(path.join(__dirname,"..","docs","phase-catalog.json"))); console.table(c.map(x=>({phase:x.phase,title:x.title})));

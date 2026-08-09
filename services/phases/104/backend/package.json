@@ -1,0 +1,17 @@
+{
+  "name":"crowmods-production-security-integrations",
+  "private":true,
+  "version":"1.4.0",
+  "scripts":{
+    "dev":"node src/server.js",
+    "start":"node src/server.js",
+    "test":"node --test",
+    "integration:validate":"node src/integration-validation.js"
+  },
+  "dependencies":{
+    "express":"latest",
+    "helmet":"latest",
+    "cors":"latest",
+    "pg":"latest"
+  }
+}

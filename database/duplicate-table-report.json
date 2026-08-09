@@ -1,0 +1,427 @@
+[
+  {
+    "table": "affiliate_events",
+    "definitions": [
+      {
+        "archive": "CrowMods-AI-Phase31-Revenue-Monetization.zip",
+        "sql": "crowmods-ai-phase31/database/monetization.sql",
+        "body": "id bigserial primary key, partner_ref text not null, click_ref text not null, event_type text not null check(event_type in ('click','conversion')), value_minor bigint not null default 0, currency char(3) not null default 'inr', metadata jsonb not null default '{}'::jsonb, created_at timestamptz not null default now()"
+      },
+      {
+        "archive": "CrowMods-AI-Phase47-Revenue-Monetization.zip",
+        "sql": "crowmods-ai-phase47/database/monetization.sql",
+        "body": "id bigserial primary key, affiliate_ref text not null, click_ref text, event_type text not null check(event_type in ('click','conversion')), amount_minor bigint, currency char(3), provider_ref text, metadata jsonb not null default '{}'::jsonb, created_at timestamptz not null default now()"
+      }
+    ]
+  },
+  {
+    "table": "alert_routes",
+    "definitions": [
+      {
+        "archive": "CrowMods-AI-Phase63-Alert-Routing-OnCall.zip",
+        "sql": "crowmods-ai-phase63/database/oncall.sql",
+        "body": "id uuid primary key default gen_random_uuid(), name text not null unique, service text not null, severity text not null, policy_id uuid references escalation_policies(id) on delete set null, destination text not null, enabled boolean not null default true, created_at timestamptz not null default now()"
+      },
+      {
+        "archive": "CrowMods-AI-Phase85-AdvancedForecasting-Anomaly-AlertRouting.zip",
+        "sql": "crowmods-ai-phase85/database/resilience-intelligence.sql",
+        "body": "id uuid primary key default gen_random_uuid(), route_name text not null unique, severity_min text not null default 'warning', destination_type text not null, destination_ref text not null, enabled boolean not null default true, created_at timestamptz not null default now()"
+      }
+    ]
+  },
+  {
+    "table": "analytics_events",
+    "definitions": [
+      {
+        "archive": "CrowMods-AI-Phase11-PostgreSQL-Infrastructure.zip",
+        "sql": "crowmods-ai-phase11/database/schema.sql",
+        "body": "id bigserial primary key, event_name text not null, release_id uuid references releases(id) on delete set null, campaign_id uuid references campaigns(id) on delete set null, anonymous_session_id text, metadata jsonb not null default '{}'::jsonb, created_at timestamptz not null default now()"
+      },
+      {
+        "archive": "CrowMods-AI-Phase30-Analytics-Growth-Center.zip",
+        "sql": "crowmods-ai-phase30/database/analytics.sql",
+        "body": "id bigserial primary key, event_name text not null, release_id uuid references releases(id) on delete set null, platform text, source text, anonymous_session_id text, value numeric(14,2), metadata jsonb not null default '{}'::jsonb, created_at timestamptz not null default now()"
+      },
+      {
+        "archive": "CrowMods-AI-Phase46-Analytics-Growth-Intelligence.zip",
+        "sql": "crowmods-ai-phase46/database/analytics.sql",
+        "body": "id bigserial primary key, event_name text not null, anonymous_id text, session_id text, release_id uuid, campaign_id uuid, platform text, source text, metadata jsonb not null default '{}'::jsonb, created_at timestamptz not null default now()"
+      }
+    ]
+  },
+  {
+    "table": "authorization_policies",
+    "definitions": [
+      {
+        "archive": "CrowMods-AI-Phase93-HardenedJWKS-Claims-RBAC-Middleware.zip",
+        "sql": "crowmods-ai-phase93/database/phase93-security.sql",
+        "body": "id uuid primary key default gen_random_uuid(), policy_name text not null unique, resource text not null, action text not null, required_roles jsonb not null default '[]'::jsonb, enabled boolean not null default true, created_at timestamptz not null default now()"
+      },
+      {
+        "archive": "CrowMods-AI-Phase94-PersistentRBAC-TrustedClaims-PolicyEngine.zip",
+        "sql": "crowmods-ai-phase94/database/phase94-rbac.sql",
+        "body": "id uuid primary key default gen_random_uuid(), policy_name text not null unique, resource text not null, action text not null, required_roles jsonb not null default '[]'::jsonb, effect text not null default 'allow' check(effect in ('allow','deny')), enabled boolean not null default true, priority integer not null default 100, created_at timestamptz not null default now(), updated_at timestamptz not null default now()"
+      }
+    ]
+  },
+  {
+    "table": "campaigns",
+    "definitions": [
+      {
+        "archive": "CrowMods-AI-Phase11-PostgreSQL-Infrastructure.zip",
+        "sql": "crowmods-ai-phase11/database/schema.sql",
+        "body": "id uuid primary key default gen_random_uuid(), release_id uuid not null references releases(id) on delete cascade, status text not null default 'ready' check (status in ('draft','ready','queued','running','completed','failed','cancelled')), template text, scheduled_for timestamptz, created_by uuid references users(id), created_at timestamptz not null default now()"
+      },
+      {
+        "archive": "CrowMods-AI-Phase42-Multi-Platform-Campaign-Engine.zip",
+        "sql": "crowmods-ai-phase42/database/campaigns.sql",
+        "body": "id uuid primary key default gen_random_uuid(), release_page_id uuid not null references release_pages(id) on delete cascade, name text not null, objective text not null default 'awareness', status text not null default 'draft' check(status in ('draft','review','approved','scheduled','running','completed','cancelled')), start_at timestamptz, end_at timestamptz, created_at timestamptz not null default now(), updated_at timestamptz not null default now()"
+      }
+    ]
+  },
+  {
+    "table": "community_messages",
+    "definitions": [
+      {
+        "archive": "CrowMods-AI-Phase28-AI-Community-Manager.zip",
+        "sql": "crowmods-ai-phase28/database/community.sql",
+        "body": "id uuid primary key default gen_random_uuid(), platform text not null, channel_ref text not null, external_message_id text, author_ref text, content text not null, status text not null default 'new' check(status in ('new','processed','escalated','ignored')), created_at timestamptz not null default now()"
+      },
+      {
+        "archive": "CrowMods-AI-Phase44-AI-Community-Manager.zip",
+        "sql": "crowmods-ai-phase44/database/community.sql",
+        "body": "id uuid primary key default gen_random_uuid(), platform text not null, external_message_ref text, member_ref text, channel_ref text, message_text text, message_type text not null default 'unknown', ai_label text, risk_score numeric(5,4), suggested_action text, status text not null default 'received' check(status in ('received','review','answered','escalated','ignored','resolved')), created_at timestamptz not null default now(), updated_at timestamptz not null default now()"
+      }
+    ]
+  },
+  {
+    "table": "customers",
+    "definitions": [
+      {
+        "archive": "CrowMods-AI-Phase31-Revenue-Monetization.zip",
+        "sql": "crowmods-ai-phase31/database/monetization.sql",
+        "body": "id uuid primary key default gen_random_uuid(), external_customer_ref text unique, email_hash text, created_at timestamptz not null default now()"
+      },
+      {
+        "archive": "CrowMods-AI-Phase47-Revenue-Monetization.zip",
+        "sql": "crowmods-ai-phase47/database/monetization.sql",
+        "body": "id uuid primary key default gen_random_uuid(), provider_customer_ref text, anonymous_ref text, email_hash text, created_at timestamptz not null default now()"
+      }
+    ]
+  },
+  {
+    "table": "incident_timeline",
+    "definitions": [
+      {
+        "archive": "CrowMods-AI-Phase36-Monitoring-Incident-Response.zip",
+        "sql": "crowmods-ai-phase36/database/monitoring.sql",
+        "body": "id bigserial primary key, incident_id uuid not null references incidents(id) on delete cascade, actor_ref text, action text not null, message text, metadata jsonb not null default '{}'::jsonb, created_at timestamptz not null default now()"
+      },
+      {
+        "archive": "CrowMods-AI-Phase61-Launch-Control-Post-Launch-Operations.zip",
+        "sql": "crowmods-ai-phase61/database/operations.sql",
+        "body": "id bigserial primary key, launch_id uuid references launch_operations(id) on delete cascade, incident_id uuid references incidents(id) on delete set null, event_type text not null, message text not null, actor text, created_at timestamptz not null default now()"
+      },
+      {
+        "archive": "CrowMods-AI-Phase88-SLO-BurnRate-IncidentTimeline-RBAC.zip",
+        "sql": "crowmods-ai-phase88/database/operations-rbac.sql",
+        "body": "id bigserial primary key, incident_id uuid not null, event_type text not null, actor text not null, description text not null, metadata jsonb not null default '{}'::jsonb, created_at timestamptz not null default now()"
+      }
+    ]
+  },
+  {
+    "table": "incidents",
+    "definitions": [
+      {
+        "archive": "CrowMods-AI-Phase36-Monitoring-Incident-Response.zip",
+        "sql": "crowmods-ai-phase36/database/monitoring.sql",
+        "body": "id uuid primary key default gen_random_uuid(), title text not null, severity text not null default 'medium' check(severity in ('low','medium','high','critical')), status text not null default 'open' check(status in ('open','investigating','mitigated','resolved')), source_alert_id uuid references monitoring_alerts(id) on delete set null, summary text, created_at timestamptz not null default now(), resolved_at timestamptz"
+      },
+      {
+        "archive": "CrowMods-AI-Phase54-Secrets-Observability.zip",
+        "sql": "crowmods-ai-phase54/database/observability.sql",
+        "body": "id uuid primary key default gen_random_uuid(), severity text not null check(severity in ('low','medium','high','critical')), status text not null default 'open' check(status in ('open','acknowledged','mitigated','resolved')), title text not null, description text, service text, detected_at timestamptz not null default now(), acknowledged_at timestamptz, resolved_at timestamptz, metadata jsonb not null default '{}'::jsonb"
+      },
+      {
+        "archive": "CrowMods-AI-Phase87-Alert-Lifecycle-Telemetry-Incident-Correlation.zip",
+        "sql": "crowmods-ai-phase87/database/alert-lifecycle.sql",
+        "body": "id uuid primary key default gen_random_uuid(), correlation_key text not null unique, title text not null, severity text not null, status text not null default 'open' check(status in ('open','acknowledged','resolved')), alert_count integer not null default 0, slo_breach boolean not null default false, created_at timestamptz not null default now(), updated_at timestamptz not null default now(), resolved_at timestamptz"
+      }
+    ]
+  },
+  {
+    "table": "kms_verification_events",
+    "definitions": [
+      {
+        "archive": "CrowMods-AI-Phase113-KMS-Verification-Durable-Scheduler-Executive-Assurance.zip",
+        "sql": "crowmods-ai-phase113/database/phase113-assurance.sql",
+        "body": "id uuid primary key default gen_random_uuid(), provider text not null, key_reference text not null, digest text not null, signature text not null, verification_status text not null check(verification_status in ('verified','failed','blocked')), latency_ms integer, created_at timestamptz not null default now()"
+      },
+      {
+        "archive": "CrowMods-AI-Phase120-Bound-Fencing-Canary-Orchestration-Delegation-Scheduler-Forecast-KMS.zip",
+        "sql": "crowmods-ai-phase120/database/phase120-production-assurance.sql",
+        "body": "id uuid primary key default gen_random_uuid(), provider text not null, key_reference text not null, algorithm text not null, verification_result text not null check(verification_result in ('valid','invalid','blocked')), digest text not null, created_at timestamptz not null default now()"
+      }
+    ]
+  },
+  {
+    "table": "knowledge_chunks",
+    "definitions": [
+      {
+        "archive": "CrowMods-AI-Phase29-AI-Support-Knowledge-Base.zip",
+        "sql": "crowmods-ai-phase29/database/knowledge.sql",
+        "body": "id uuid primary key default gen_random_uuid(), document_id uuid not null references knowledge_documents(id) on delete cascade, chunk_index integer not null, content text not null, keywords text[] not null default '{}', created_at timestamptz not null default now(), unique(document_id,chunk_index)"
+      },
+      {
+        "archive": "CrowMods-AI-Phase45-Knowledge-Base-RAG.zip",
+        "sql": "crowmods-ai-phase45/database/knowledge.sql",
+        "body": "id uuid primary key default gen_random_uuid(), source_id uuid not null references knowledge_sources(id) on delete cascade, chunk_index integer not null, content text not null, token_estimate integer not null default 0, search_vector tsvector generated always as ( to_tsvector('english', content) ) stored, created_at timestamptz not null default now(), unique(source_id,chunk_index)"
+      }
+    ]
+  },
+  {
+    "table": "media_assets",
+    "definitions": [
+      {
+        "archive": "CrowMods-AI-Phase23-Media-Asset-Pipeline.zip",
+        "sql": "crowmods-ai-phase23/database/media.sql",
+        "body": "id uuid primary key default gen_random_uuid(), release_id uuid references releases(id) on delete cascade, asset_type text not null check(asset_type in ( 'icon','screenshot','banner','thumbnail','telegram_art','social_art' )), original_name text not null, object_key text not null unique, content_type text not null, width integer, height integer, size_bytes bigint not null default 0, sha256 char(64), status text not null default 'quarantined' check(status in ('quarantined','processing','ready','rejected')), alt_text text, metadata jsonb not null default '{}'::jsonb, created_at timestamptz not null default now()"
+      },
+      {
+        "archive": "CrowMods-AI-Phase40-Media-Asset-Studio.zip",
+        "sql": "crowmods-ai-phase40/database/media.sql",
+        "body": "id uuid primary key default gen_random_uuid(), release_intelligence_id uuid references release_intelligence(id) on delete set null, original_name text not null, object_key text not null unique, media_type text not null, mime_type text, width integer, height integer, size_bytes bigint not null default 0, sha256 char(64), alt_text text, caption text, status text not null default 'draft' check(status in ('draft','review','approved','rejected','archived')), created_at timestamptz not null default now(), updated_at timestamptz not null default now()"
+      }
+    ]
+  },
+  {
+    "table": "monitoring_alerts",
+    "definitions": [
+      {
+        "archive": "CrowMods-AI-Phase36-Monitoring-Incident-Response.zip",
+        "sql": "crowmods-ai-phase36/database/monitoring.sql",
+        "body": "id uuid primary key default gen_random_uuid(), alert_type text not null, severity text not null default 'medium' check(severity in ('low','medium','high','critical')), service_name text, fingerprint text not null unique, message text not null, metadata jsonb not null default '{}'::jsonb, status text not null default 'open' check(status in ('open','acknowledged','resolved')), created_at timestamptz not null default now(), resolved_at timestamptz"
+      },
+      {
+        "archive": "CrowMods-AI-Phase62-Live-Metrics-SLO-Monitoring.zip",
+        "sql": "crowmods-ai-phase62/database/monitoring.sql",
+        "body": "id bigserial primary key, service text not null, alert_name text not null, severity text not null check(severity in ('low','medium','high','critical')), condition text not null, observed_value double precision, threshold double precision, status text not null default 'open' check(status in ('open','acknowledged','resolved')), created_at timestamptz not null default now(), resolved_at timestamptz"
+      }
+    ]
+  },
+  {
+    "table": "notification_deliveries",
+    "definitions": [
+      {
+        "archive": "CrowMods-AI-Phase64-Automated-Escalation-Worker.zip",
+        "sql": "crowmods-ai-phase64/database/escalation.sql",
+        "body": "id bigserial primary key, routed_incident_id uuid not null references routed_incidents(id) on delete cascade, provider text not null, destination text, severity text, status text not null default 'queued' check(status in ('queued','sent','failed','retrying')), attempts integer not null default 0, provider_ref text, error_message text, sent_at timestamptz, created_at timestamptz not null default now()"
+      },
+      {
+        "archive": "CrowMods-AI-Phase86-AlertIntegrations-Observability-Policies.zip",
+        "sql": "crowmods-ai-phase86/database/alert-operations.sql",
+        "body": "id uuid primary key default gen_random_uuid(), alert_id uuid, provider text not null, destination text not null, status text not null default 'pending' check(status in ('pending','sent','failed','dlq')), attempts integer not null default 0, last_error text, next_attempt_at timestamptz, created_at timestamptz not null default now(), delivered_at timestamptz"
+      }
+    ]
+  },
+  {
+    "table": "notification_preferences",
+    "definitions": [
+      {
+        "archive": "CrowMods-AI-Phase14-User-Accounts-Premium.zip",
+        "sql": "crowmods-ai-phase14/database/users-premium.sql",
+        "body": "user_id uuid primary key references users(id) on delete cascade, release_updates boolean not null default true, community_updates boolean not null default true, marketing boolean not null default false, updated_at timestamptz not null default now()"
+      },
+      {
+        "archive": "CrowMods-AI-Phase49-Customer-Support-Notifications.zip",
+        "sql": "crowmods-ai-phase49/database/support.sql",
+        "body": "customer_id uuid primary key references customers(id) on delete cascade, email_enabled boolean not null default true, telegram_enabled boolean not null default false, whatsapp_enabled boolean not null default false, discord_enabled boolean not null default false, marketing_enabled boolean not null default false, transactional_enabled boolean not null default true, updated_at timestamptz not null default now()"
+      }
+    ]
+  },
+  {
+    "table": "payment_events",
+    "definitions": [
+      {
+        "archive": "CrowMods-AI-Phase31-Revenue-Monetization.zip",
+        "sql": "crowmods-ai-phase31/database/monetization.sql",
+        "body": "id bigserial primary key, provider text not null, external_event_id text not null unique, event_type text not null, customer_id uuid references customers(id), amount_minor bigint not null default 0, currency char(3) not null default 'inr', metadata jsonb not null default '{}'::jsonb, created_at timestamptz not null default now()"
+      },
+      {
+        "archive": "CrowMods-AI-Phase47-Revenue-Monetization.zip",
+        "sql": "crowmods-ai-phase47/database/monetization.sql",
+        "body": "id bigserial primary key, provider text not null, provider_event_ref text not null unique, event_type text not null, provider_customer_ref text, provider_payment_ref text, amount_minor bigint, currency char(3), status text not null, metadata jsonb not null default '{}'::jsonb, received_at timestamptz not null default now()"
+      }
+    ]
+  },
+  {
+    "table": "provider_health_checks",
+    "definitions": [
+      {
+        "archive": "CrowMods-AI-Phase106-Error-Budgets-Burn-Rates-Provider-Adapters.zip",
+        "sql": "crowmods-ai-phase106/database/phase106-error-budgets.sql",
+        "body": "id uuid primary key default gen_random_uuid(), provider_type text not null, provider_name text not null, status text not null check(status in ('pass','fail','blocked')), details jsonb not null default '{}'::jsonb, checked_at timestamptz not null default now()"
+      },
+      {
+        "archive": "CrowMods-AI-Phase79-KMS-WORM-Provider-Certification-DR.zip",
+        "sql": "crowmods-ai-phase79/database/provider-certification.sql",
+        "body": "id bigserial primary key, adapter_type text not null, provider_name text not null, healthy boolean not null, capabilities jsonb not null default '{}'::jsonb, checked_at timestamptz not null default now()"
+      }
+    ]
+  },
+  {
+    "table": "recovery_evidence",
+    "definitions": [
+      {
+        "archive": "CrowMods-AI-Phase109-Incident-Timelines-Deployment-Correlation-PostIncident.zip",
+        "sql": "crowmods-ai-phase109/database/phase109-incident-review.sql",
+        "body": "id uuid primary key default gen_random_uuid(), workflow_id uuid references recovery_workflows(id) on delete cascade, digest text not null, signature text not null, key_version text not null, algorithm text not null, evidence jsonb not null, created_at timestamptz not null default now()"
+      },
+      {
+        "archive": "CrowMods-AI-Phase76-Incident-SLO-Evidence-Closure.zip",
+        "sql": "crowmods-ai-phase76/database/evidence-approval.sql",
+        "body": "id uuid primary key default gen_random_uuid(), incident_id uuid not null, evidence_type text not null, source text not null, summary text not null, payload jsonb not null default '{}'::jsonb, collected_at timestamptz not null default now()"
+      }
+    ]
+  },
+  {
+    "table": "retention_policies",
+    "definitions": [
+      {
+        "archive": "CrowMods-AI-Phase132-Audit-Joins-Retry-Percentiles-Calibration-Deadbands-Signed-Manifests-Retention.zip",
+        "sql": "crowmods-ai-phase132/database/phase132-assurance.sql",
+        "body": "policy_key text primary key, table_name text not null, retention_days integer not null check(retention_days>0), enabled boolean not null default true, updated_at timestamptz not null default now()"
+      },
+      {
+        "archive": "CrowMods-AI-Phase78-Crypto-Signatures-KeyRotation-Immutable.zip",
+        "sql": "crowmods-ai-phase78/database/crypto-immutability.sql",
+        "body": "id uuid primary key default gen_random_uuid(), policy_name text not null unique, retention_days integer not null, immutable boolean not null default true, enabled boolean not null default true, created_at timestamptz not null default now()"
+      }
+    ]
+  },
+  {
+    "table": "revenue_events",
+    "definitions": [
+      {
+        "archive": "CrowMods-AI-Phase13-Monetization-Foundation.zip",
+        "sql": "crowmods-ai-phase13/database/monetization.sql",
+        "body": "id uuid primary key default gen_random_uuid(), source text not null, event_type text not null, amount_minor bigint not null default 0, currency char(3) not null default 'inr', external_reference text, metadata jsonb not null default '{}'::jsonb, created_at timestamptz not null default now()"
+      },
+      {
+        "archive": "CrowMods-AI-Phase30-Analytics-Growth-Center.zip",
+        "sql": "crowmods-ai-phase30/database/analytics.sql",
+        "body": "id bigserial primary key, event_name text not null, amount numeric(14,2) not null default 0, currency char(3) not null default 'inr', source text, metadata jsonb not null default '{}'::jsonb, created_at timestamptz not null default now()"
+      },
+      {
+        "archive": "CrowMods-AI-Phase46-Analytics-Growth-Intelligence.zip",
+        "sql": "crowmods-ai-phase46/database/analytics.sql",
+        "body": "id bigserial primary key, event_name text not null, amount_minor bigint not null check(amount_minor >= 0), currency char(3) not null, anonymous_id text, campaign_id uuid, release_id uuid, source text, metadata jsonb not null default '{}'::jsonb, created_at timestamptz not null default now()"
+      }
+    ]
+  },
+  {
+    "table": "security_controls",
+    "definitions": [
+      {
+        "archive": "CrowMods-AI-Phase101-Continuous-Security-Assurance.zip",
+        "sql": "crowmods-ai-phase101/database/phase101-assurance.sql",
+        "body": "id uuid primary key default gen_random_uuid(), control_key text not null unique, control_name text not null, owner text not null, criticality text not null check(criticality in ('low','medium','high','critical')), enabled boolean not null default true, expected_state jsonb not null default '{}'::jsonb, created_at timestamptz not null default now(), updated_at timestamptz not null default now()"
+      },
+      {
+        "archive": "CrowMods-AI-Phase111-Authenticated-Ingestion-Signed-Reports-Control-Effectiveness.zip",
+        "sql": "crowmods-ai-phase111/database/phase111-control-effectiveness.sql",
+        "body": "id uuid primary key default gen_random_uuid(), control_key text not null unique, control_name text not null, category text not null, target_percent numeric(6,3) not null, enabled boolean not null default true, created_at timestamptz not null default now()"
+      }
+    ]
+  },
+  {
+    "table": "security_events",
+    "definitions": [
+      {
+        "archive": "CrowMods-AI-Phase34-Security-Hardening.zip",
+        "sql": "crowmods-ai-phase34/database/security.sql",
+        "body": "id bigserial primary key, event_type text not null, severity text not null default 'info' check(severity in ('info','low','medium','high','critical')), service text, actor_ref text, ip_hash text, metadata jsonb not null default '{}'::jsonb, created_at timestamptz not null default now()"
+      },
+      {
+        "archive": "CrowMods-AI-Phase51-Secure-Identity-RBAC-Gateway.zip",
+        "sql": "crowmods-ai-phase51/database/security.sql",
+        "body": "id bigserial primary key, identity_id uuid references identities(id) on delete set null, session_id uuid references sessions(id) on delete set null, event_type text not null, request_id text, resource_type text, resource_id text, success boolean not null default true, metadata jsonb not null default '{}'::jsonb, created_at timestamptz not null default now()"
+      }
+    ]
+  },
+  {
+    "table": "signing_keys",
+    "definitions": [
+      {
+        "archive": "CrowMods-AI-Phase78-Crypto-Signatures-KeyRotation-Immutable.zip",
+        "sql": "crowmods-ai-phase78/database/crypto-immutability.sql",
+        "body": "key_id uuid primary key default gen_random_uuid(), key_name text not null, key_version integer not null, algorithm text not null, status text not null default 'active' check(status in ('active','rotating','retired')), created_at timestamptz not null default now(), retired_at timestamptz, unique(key_name,key_version)"
+      },
+      {
+        "archive": "CrowMods-AI-Phase91-JWT-JWKS-KMS-Signing.zip",
+        "sql": "crowmods-ai-phase91/database/identity-keys.sql",
+        "body": "id uuid primary key default gen_random_uuid(), key_name text not null unique, key_version text not null, provider text not null, status text not null default 'active' check(status in ('active','rotating','retired')), created_at timestamptz not null default now(), retired_at timestamptz"
+      }
+    ]
+  },
+  {
+    "table": "slo_observations",
+    "definitions": [
+      {
+        "archive": "CrowMods-AI-Phase61-Launch-Control-Post-Launch-Operations.zip",
+        "sql": "crowmods-ai-phase61/database/operations.sql",
+        "body": "id bigserial primary key, launch_id uuid not null references launch_operations(id) on delete cascade, metric_name text not null, value double precision not null, threshold double precision not null, passed boolean not null, window_minutes integer not null default 15, observed_at timestamptz not null default now()"
+      },
+      {
+        "archive": "CrowMods-AI-Phase88-SLO-BurnRate-IncidentTimeline-RBAC.zip",
+        "sql": "crowmods-ai-phase88/database/operations-rbac.sql",
+        "body": "id bigserial primary key, policy_id uuid not null references slo_policies(id) on delete cascade, good_events bigint not null, total_events bigint not null, observed_at timestamptz not null default now()"
+      }
+    ]
+  },
+  {
+    "table": "slo_policies",
+    "definitions": [
+      {
+        "archive": "CrowMods-AI-Phase62-Live-Metrics-SLO-Monitoring.zip",
+        "sql": "crowmods-ai-phase62/database/monitoring.sql",
+        "body": "id uuid primary key default gen_random_uuid(), service text not null, slo_name text not null, target double precision not null, window_minutes integer not null default 60, max_error_rate double precision, max_latency_ms double precision, min_health_rate double precision, enabled boolean not null default true, unique(service,slo_name)"
+      },
+      {
+        "archive": "CrowMods-AI-Phase88-SLO-BurnRate-IncidentTimeline-RBAC.zip",
+        "sql": "crowmods-ai-phase88/database/operations-rbac.sql",
+        "body": "id uuid primary key default gen_random_uuid(), policy_name text not null unique, service_name text not null, target_availability double precision not null, window_minutes integer not null, enabled boolean not null default true, created_at timestamptz not null default now()"
+      }
+    ]
+  },
+  {
+    "table": "subscriptions",
+    "definitions": [
+      {
+        "archive": "CrowMods-AI-Phase31-Revenue-Monetization.zip",
+        "sql": "crowmods-ai-phase31/database/monetization.sql",
+        "body": "id uuid primary key default gen_random_uuid(), customer_id uuid not null references customers(id) on delete cascade, plan_id uuid not null references monetization_plans(id), external_subscription_ref text unique, status text not null default 'pending' check(status in ('pending','active','past_due','cancelled','expired')), current_period_end timestamptz, created_at timestamptz not null default now()"
+      },
+      {
+        "archive": "CrowMods-AI-Phase48-Subscription-Lifecycle.zip",
+        "sql": "crowmods-ai-phase48/database/subscriptions.sql",
+        "body": "id uuid primary key default gen_random_uuid(), customer_id uuid not null references customers(id) on delete cascade, product_id uuid not null references products(id), provider_subscription_ref text unique, status text not null default 'trialing' check(status in ('trialing','active','past_due','paused','cancelled','expired')), interval text not null check(interval in ('month','year')), current_period_start timestamptz, current_period_end timestamptz, grace_period_end timestamptz, cancelled_at timestamptz, created_at timestamptz not null default now(), updated_at timestamptz not null default now()"
+      }
+    ]
+  },
+  {
+    "table": "users",
+    "definitions": [
+      {
+        "archive": "CrowMods-AI-Phase11-PostgreSQL-Infrastructure.zip",
+        "sql": "crowmods-ai-phase11/database/schema.sql",
+        "body": "id uuid primary key default gen_random_uuid(), email text unique not null, display_name text, role text not null default 'analyst' check (role in ('owner','reviewer','publisher','analyst')), is_active boolean not null default true, created_at timestamptz not null default now(), updated_at timestamptz not null default now()"
+      },
+      {
+        "archive": "CrowMods-AI-Phase32-User-Accounts-Premium.zip",
+        "sql": "crowmods-ai-phase32/database/users.sql",
+        "body": "id uuid primary key default gen_random_uuid(), email text not null unique, password_hash text not null, display_name text, role text not null default 'user' check(role in ('user','moderator','admin')), email_verified boolean not null default false, premium_until timestamptz, is_active boolean not null default true, created_at timestamptz not null default now(), updated_at timestamptz not null default now()"
+      }
+    ]
+  }
+]

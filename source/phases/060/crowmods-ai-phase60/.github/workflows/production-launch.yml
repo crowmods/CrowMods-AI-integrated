@@ -1,0 +1,54 @@
+name: CrowMods Production Launch
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_version:
+        required: true
+        description: "Release version"
+      production_url:
+        required: true
+        description: "Production URL"
+
+permissions:
+  contents: read
+
+jobs:
+  evidence-gate:
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify required launch evidence
+        env:
+          CI_OK: ${{ vars.CI_OK }}
+          TESTS_OK: ${{ vars.TESTS_OK }}
+          SECURITY_OK: ${{ vars.SECURITY_OK }}
+          ARTIFACT_OK: ${{ vars.ARTIFACT_OK }}
+          STAGING_OK: ${{ vars.STAGING_OK }}
+          BACKUP_OK: ${{ vars.BACKUP_OK }}
+          CANARY_OK: ${{ vars.CANARY_OK }}
+          APPROVAL_OK: ${{ vars.APPROVAL_OK }}
+        run: ./scripts/launch-gate.sh
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: evidence-gate
+    environment:
+      name: production
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Production deployment adapter
+        run: |
+          echo "Connect the approved provider adapter here."
+          echo "Deploy the exact immutable artifact already verified."
+
+      - name: Post-launch verification
+        env:
+          BASE_URL: ${{ inputs.production_url }}
+        run: ./scripts/post-launch-check.sh

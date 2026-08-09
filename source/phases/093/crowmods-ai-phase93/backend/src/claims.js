@@ -1,0 +1,38 @@
+function claimRoles({
+  payload,
+  roleClaim="roles"
+}){
+  const raw=payload?.[roleClaim];
+
+  if(Array.isArray(raw))
+    return [...new Set(
+      raw.filter(v=>typeof v==="string")
+    )];
+
+  if(typeof raw==="string")
+    return [...new Set(
+      raw.split(" ")
+        .map(v=>v.trim())
+        .filter(Boolean)
+    )];
+
+  return [];
+}
+
+function identityFromValidatedClaims({
+  payload,
+  roles
+}){
+  return {
+    subject:payload.sub,
+    issuer:payload.iss,
+    audience:payload.aud,
+    roles:[...new Set(roles||[])],
+    authenticated:true
+  };
+}
+
+module.exports={
+  claimRoles,
+  identityFromValidatedClaims
+};

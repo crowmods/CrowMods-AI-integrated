@@ -1,0 +1,77 @@
+name: CrowMods Release Evidence
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_version:
+        required: true
+        description: "Release version"
+      staging_url:
+        required: true
+        description: "Staging base URL"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Backend tests
+        working-directory: backend
+        run: |
+          npm install
+          npm test
+
+      - name: Build verification
+        run: |
+          docker build -f docker/api.Dockerfile -t crowmods-api:evidence .
+          docker build -f docker/worker.Dockerfile -t crowmods-worker:evidence .
+
+      - name: Generate evidence manifest
+        env:
+          RELEASE_VERSION: ${{ inputs.release_version }}
+          COMMIT_SHA: ${{ github.sha }}
+        run: ./scripts/generate-release-evidence.sh
+
+      - name: Upload evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: crowmods-release-evidence
+          path: release-evidence.json
+
+  staging:
+    runs-on: ubuntu-latest
+    needs: verify
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: API contract
+        env:
+          BASE_URL: ${{ inputs.staging_url }}
+        run: ./tests/integration/api-contract.test.sh
+
+      - name: Security checks
+        env:
+          BASE_URL: ${{ inputs.staging_url }}
+        run: ./tests/integration/security-checks.sh
+
+  approval:
+    runs-on: ubuntu-latest
+    needs: staging
+    environment:
+      name: production
+
+    steps:
+      - name: Production approval checkpoint
+        run: |
+          echo "Protected environment approval is required."
+          echo "Only approved release evidence should proceed."
