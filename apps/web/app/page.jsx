@@ -5,16 +5,16 @@ import { useEffect, useState } from "react";
 const API = "https://crowmods-ai-integrated.onrender.com";
 
 export default function Home() {
-  const [status, setStatus] = useState(null);
+  const [data, setData] = useState(null);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch(`${API}/api/integration/status`)
+    fetch(`${API}/api/phases`)
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json();
       })
-      .then(setStatus)
+      .then(setData)
       .catch((err) => setError(err.message));
   }, []);
 
@@ -25,21 +25,40 @@ export default function Home() {
         background: "#080b12",
         color: "#fff",
         fontFamily: "system-ui",
-        padding: "48px",
+        padding: "40px",
       }}
     >
       <h1>CrowMods AI</h1>
       <p>Unified 300-phase integration gateway.</p>
 
-      {error && <p style={{ color: "#ff6b6b" }}>API Error: {error}</p>}
+      {error && <p>API Error: {error}</p>}
 
-      {status && (
-        <section style={{ marginTop: 30 }}>
-          <h2>Integration Status</h2>
-          <p>Total phases: {status.totalPhases}</p>
-          <p>Loaded: {status.loaded}</p>
-          <p>Failed: {status.failed}</p>
-        </section>
+      {data && (
+        <>
+          <h2>Phases: {data.count}</h2>
+
+          <div style={{ display: "grid", gap: "12px" }}>
+            {data.phases.map((phase) => (
+              <div
+                key={phase.phase}
+                style={{
+                  padding: "16px",
+                  border: "1px solid #252b38",
+                  borderRadius: "10px",
+                  background: "#101521",
+                }}
+              >
+                <strong>
+                  Phase {phase.phase}: {phase.title}
+                </strong>
+
+                <div style={{ marginTop: "6px", opacity: 0.7 }}>
+                  {phase.package_names?.join(", ") || "No packages listed"}
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
       )}
     </main>
   );
