@@ -9,9 +9,11 @@ export default function Home() {
   const [error, setError] = useState("");
   const [query, setQuery] = useState("");
   const [health, setHealth] = useState({});
+  const [loading, setLoading] = useState(true);
 
   const loadPhases = () => {
     setError("");
+    setLoading(true);
 
     fetch(`${API}/api/phases`)
       .then((res) => {
@@ -19,7 +21,8 @@ export default function Home() {
         return res.json();
       })
       .then(setData)
-      .catch((err) => setError(err.message));
+      .catch((err) => setError(err.message))
+      .finally(() => setLoading(false));
   };
 
   useEffect(() => {
@@ -39,9 +42,11 @@ export default function Home() {
       <h1>CrowMods AI</h1>
       <p>Unified 300-phase integration gateway.</p>
 
+      {loading && <p>Loading phases...</p>}
+
       {error && <p>API Error: {error}</p>}
 
-      {data && (
+      {data && !loading && (
         <>
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <h2>Phases: {data.count}</h2>
