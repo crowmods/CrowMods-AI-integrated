@@ -8,6 +8,7 @@ export default function Home() {
   const [data, setData] = useState(null);
   const [error, setError] = useState("");
   const [query, setQuery] = useState("");
+  const [health, setHealth] = useState({});
 
   useEffect(() => {
     fetch(`${API}/api/phases`)
@@ -78,6 +79,37 @@ export default function Home() {
                 <div style={{ marginTop: "6px", opacity: 0.7 }}>
                   {phase.package_names?.join(", ") || "No packages listed"}
                 </div>
+
+                <button
+                  onClick={async () => {
+                    const res = await fetch(
+                      `${API}/api/phases/${phase.phase}/health`
+                    );
+                    const result = await res.json();
+                    setHealth((prev) => ({
+                      ...prev,
+                      [phase.phase]: {
+                        ok: res.ok,
+                        result,
+                      },
+                    }));
+                  }}
+                  style={{
+                    marginTop: "10px",
+                    padding: "8px 12px",
+                    borderRadius: "6px",
+                    border: "0",
+                    cursor: "pointer",
+                  }}
+                >
+                  Check Health
+                </button>
+
+                {health[phase.phase] && (
+                  <div style={{ marginTop: "8px" }}>
+                    {health[phase.phase].ok ? "✓ Healthy" : "✗ Failed"}
+                  </div>
+                )}
               </div>
             ))}
           </div>
