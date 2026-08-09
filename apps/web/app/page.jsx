@@ -9,6 +9,7 @@ export default function Home() {
   const [error, setError] = useState("");
   const [query, setQuery] = useState("");
   const [health, setHealth] = useState({});
+  const [gateway, setGateway] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const loadPhases = () => {
@@ -27,6 +28,14 @@ export default function Home() {
 
   useEffect(() => {
     loadPhases();
+
+    fetch(`${API}/api/integration/status`)
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then(setGateway)
+      .catch(() => setGateway(null));
   }, []);
 
   return (
@@ -55,6 +64,24 @@ export default function Home() {
       {loading && <p>Loading phases...</p>}
 
       {error && <p>API Error: {error}</p>}
+
+      {gateway && (
+        <section
+          style={{
+            padding: "16px",
+            marginBottom: "20px",
+            border: "1px solid #252b38",
+            borderRadius: "10px",
+            background: "#101521",
+          }}
+        >
+          <h2>Gateway Status</h2>
+          <p>Mode: {gateway.mode}</p>
+          <p>Total: {gateway.totalPhases}</p>
+          <p>Loaded: {gateway.loaded}</p>
+          <p>Failed: {gateway.failed}</p>
+        </section>
+      )}
 
       {data && !loading && (
         <>
