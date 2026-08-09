@@ -39,6 +39,39 @@ export default function Home() {
         <>
           <h2>Phases: {data.count}</h2>
 
+          <div
+            style={{
+              display: "flex",
+              gap: "12px",
+              flexWrap: "wrap",
+              marginBottom: "20px",
+            }}
+          >
+            <div style={{
+              padding: "12px 18px",
+              background: "#101521",
+              borderRadius: "8px",
+            }}>
+              Total: {data.count}
+            </div>
+
+            <div style={{
+              padding: "12px 18px",
+              background: "#101521",
+              borderRadius: "8px",
+            }}>
+              Loaded: {Object.keys(health).length}
+            </div>
+
+            <div style={{
+              padding: "12px 18px",
+              background: "#101521",
+              borderRadius: "8px",
+            }}>
+              Failed: {Object.values(health).filter((x) => !x.ok).length}
+            </div>
+          </div>
+
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
