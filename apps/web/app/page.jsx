@@ -7,6 +7,7 @@ const API = "https://crowmods-ai-integrated.onrender.com";
 export default function Home() {
   const [data, setData] = useState(null);
   const [error, setError] = useState("");
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     fetch(`${API}/api/phases`)
@@ -37,8 +38,30 @@ export default function Home() {
         <>
           <h2>Phases: {data.count}</h2>
 
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search phases..."
+            style={{
+              width: "100%",
+              maxWidth: "600px",
+              padding: "12px",
+              marginBottom: "20px",
+              borderRadius: "8px",
+              border: "1px solid #252b38",
+              background: "#101521",
+              color: "#fff",
+            }}
+          />
+
           <div style={{ display: "grid", gap: "12px" }}>
-            {data.phases.map((phase) => (
+            {data.phases
+              .filter((phase) =>
+                `${phase.phase} ${phase.title} ${phase.package_names?.join(" ")}`
+                  .toLowerCase()
+                  .includes(query.toLowerCase())
+              )
+              .map((phase) => (
               <div
                 key={phase.phase}
                 style={{
