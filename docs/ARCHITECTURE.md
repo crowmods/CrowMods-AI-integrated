@@ -74,6 +74,9 @@ Migrations live in `database/migrations/*.sql` and are applied by
 - Password reset: one-time tokens stored as hashes with expiry
   (`PASSWORD_RESET_TTL_MS`, default 1h). Confirming a reset revokes all of the
   user's sessions.
+- Initial admin: on boot, `initFoundation()` provisions a `SUPER_ADMIN` from
+  `ADMIN_EMAIL` / `ADMIN_PASSWORD` env vars if set (idempotent). Set these on
+  the host (Render dashboard) to unlock the admin API.
 - RBAC: roles -> permissions mapping (seeded in `003_rbac_seed.sql`).
   Route-level checks use `requirePermission("resource.action")`. `SUPER_ADMIN`
   bypasses checks.

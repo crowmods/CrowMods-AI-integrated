@@ -132,3 +132,28 @@ test("end-to-end foundation workflow", async () => {
   assert.ok(pageHtml.includes("<!doctype html>"));
   assert.ok(pageHtml.includes(release.name));
 });
+
+test("initFoundation provisions the initial admin from env config", async () => {
+  freshRepo();
+  const config = require("../../apps/api/src/foundation/config/env");
+  const { initFoundation } = require("../../apps/api/src/foundation");
+  const previous = { email: config.adminEmail, password: config.adminPassword };
+  config.adminEmail = "provisioned@crowmods.test";
+  config.adminPassword = "Provision!123";
+  try {
+    await initFoundation();
+    const repo = require("../../apps/api/src/foundation/db").getRepository();
+    const user = await repo.findUserByEmail("provisioned@crowmods.test");
+    assert.ok(user);
+    assert.equal(user.role, "SUPER_ADMIN");
+    const login = await fetch(`${server.base}/api/admin/auth/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: "provisioned@crowmods.test", password: "Provision!123" })
+    });
+    assert.equal(login.status, 200);
+  } finally {
+    config.adminEmail = previous.email;
+    config.adminPassword = previous.password;
+  }
+});

@@ -5,6 +5,7 @@ const { getRepository } = require("./db");
 const releases = require("./modules/releases/service");
 const uploads = require("./modules/uploads/service");
 const { preview: websitePreview } = require("./modules/publishing/website");
+const auth = require("./modules/auth/service");
 
 const app = express();
 app.use(express.json({ limit: "4mb" }));
@@ -30,6 +31,9 @@ async function initFoundation() {
   const repo = getRepository();
   if (config.databaseUrl && typeof repo.migrate === "function") {
     await repo.migrate();
+  }
+  if (config.adminEmail && config.adminPassword) {
+    await auth.createInitialAdmin(config.adminEmail, config.adminPassword, config.adminName);
   }
   return { app, config };
 }
