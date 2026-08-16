@@ -8,6 +8,7 @@ const { preview: websitePreview } = require("./modules/publishing/website");
 const auth = require("./modules/auth/service");
 
 const app = express();
+app.set("trust proxy", 1);
 app.use(express.json({ limit: "4mb" }));
 
 app.get("/health", (_req, res) => res.json({ status: "healthy", service: "crowmods-ai-foundation" }));

@@ -37,7 +37,7 @@ function asyncHandler(fn) {
 }
 
 function clientIp(req) {
-  return req.headers["x-forwarded-for"]?.split(",")[0]?.trim() || req.ip || req.socket?.remoteAddress;
+  return req.ip || req.socket?.remoteAddress;
 }
 
 const router = express.Router();
