@@ -162,4 +162,4 @@ function makeTestApk({ packageName = "com.crowmods.testapp", versionName = "1.2.
   ]);
 }
 
-module.exports = { makeTestApk, makeZip, crc32 };
+module.exports = { makeTestApk, makeZip, crc32, makeAndroidManifest };

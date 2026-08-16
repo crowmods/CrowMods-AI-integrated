@@ -194,7 +194,7 @@ function extractMetadata(buffer, extension) {
     hasResourcesArsc: false
   };
 
-  const manifestEntry = entries.find(e => e.name === "AndroidManifest.xml");
+  const manifestEntry = entries.find(e => e.name === "AndroidManifest.xml" || e.name.endsWith("/AndroidManifest.xml"));
   if (manifestEntry) {
     const data = extractEntry(buffer, manifestEntry);
     if (data) {
@@ -202,8 +202,8 @@ function extractMetadata(buffer, extension) {
     }
   }
 
-  info.hasClassesDex = names.some(n => n === "classes.dex" || /^classes\d*\.dex$/.test(n));
-  info.hasResourcesArsc = names.some(n => n === "resources.arsc");
+  info.hasClassesDex = names.some(n => /(^|\/)classes\d*\.dex$/.test(n));
+  info.hasResourcesArsc = names.some(n => /(^|\/)resources\.(arsc|pb)$/.test(n));
   info.signers = names
     .filter(n => /^META-INF\/.+\.(RSA|DSA|EC)$/i.test(n))
     .map(n => ({ entry: n }));

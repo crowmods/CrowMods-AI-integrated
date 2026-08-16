@@ -2,7 +2,7 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const { freshRepo, createAdmin, loginToken, authHeaders } = require("./helpers");
 const { startServer, stopServer } = require("./server");
-const { makeTestApk } = require("./fixtures");
+const { makeTestApk, makeZip, makeAndroidManifest } = require("./fixtures");
 
 let server;
 test.before(async () => { server = await startServer(); });
@@ -97,6 +97,50 @@ test("validate upload extracts APK metadata", async () => {
   assert.equal(body.upload.metadata.manifest.permissions.length, 1);
   assert.ok(body.scan);
   assert.equal(body.scan.status, "CLEAN");
+});
+
+test("validate upload extracts metadata from AAB layout", async () => {
+  const { email, password } = await createAdmin();
+  const token = await loginToken(server, email, password);
+  const aab = makeZip([
+    { name: "base/manifest/AndroidManifest.xml", data: makeAndroidManifest({ packageName: "com.crowmods.bundle", versionName: "2.0.0" }) },
+    { name: "base/dex/classes.dex", data: Buffer.from("dex\n035\0".padEnd(64, "\0"), "binary") },
+    { name: "base/resources.pb", data: Buffer.alloc(16, 1) }
+  ]);
+  const res = await uploadApk(token, aab, "bundle.aab");
+  assert.equal(res.status, 201);
+  const { upload } = await res.json();
+
+  const vres = await fetch(`${server.base}/api/admin/uploads/${upload.id}/validate`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}` }
+  });
+  assert.equal(vres.status, 200);
+  const body = await vres.json();
+  assert.equal(body.upload.status, "VALID");
+  assert.equal(body.upload.metadata.package, "com.crowmods.bundle");
+  assert.equal(body.upload.metadata.versionName, "2.0.0");
+  assert.equal(body.upload.metadata.hasClassesDex, true);
+  assert.equal(body.upload.metadata.hasResourcesArsc, true);
+});
+
+test("plain zip upload validates with no android manifest", async () => {
+  const { email, password } = await createAdmin();
+  const token = await loginToken(server, email, password);
+  const zip = makeZip([{ name: "data.txt", data: Buffer.from("hello") }]);
+  const res = await uploadApk(token, zip, "archive.zip");
+  assert.equal(res.status, 201);
+  const { upload } = await res.json();
+
+  const vres = await fetch(`${server.base}/api/admin/uploads/${upload.id}/validate`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}` }
+  });
+  assert.equal(vres.status, 200);
+  const body = await vres.json();
+  assert.equal(body.upload.status, "VALID");
+  assert.equal(body.upload.metadata.package, null);
+  assert.equal(body.upload.metadata.manifest, null);
 });
 
 test("uploads cannot be validated twice", async () => {
