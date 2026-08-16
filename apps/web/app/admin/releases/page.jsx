@@ -5,8 +5,8 @@ import { api, timeAgo } from "../lib";
 
 const STATUS_BADGE = {
   DRAFT: "badge-gray", PROCESSING: "badge-yellow", READY_FOR_REVIEW: "badge-blue",
-  APPROVED: "badge-green", REJECTED: "badge-red", PUBLISHING: "badge-yellow",
-  PUBLISHED: "badge-green", FAILED: "badge-red", ARCHIVED: "badge-gray"
+  APPROVED: "badge-green", REJECTED: "badge-red", CHANGES_REQUESTED: "badge-yellow",
+  PUBLISHING: "badge-yellow", PUBLISHED: "badge-green", FAILED: "badge-red", ARCHIVED: "badge-gray"
 };
 
 export default function ReleasesPage() {
