@@ -145,7 +145,9 @@ It talks to the API via `NEXT_PUBLIC_API_URL` (defaults to
     and provisions the initial admin.
   - **crowmods-ai-admin** (admin panel): builds `apps/web` (`npm ci && npm run
     build`) and serves it with `next start` on the Render-provided `PORT`.
-    `NEXT_PUBLIC_API_URL` points at the API service.
+    `NEXT_PUBLIC_API_URL` points at the API service. (In production the panel
+    service was created manually as **crowmods-ai-web** at
+    `https://crowmods-ai-web.onrender.com`.)
 - CI: `.github/workflows/ci.yml` runs install, lint, typecheck, migration
   check, tests, integration check, and the web build on push/PR.
 - `apps/web/package.json` start script binds `next start` to `PORT` (default
