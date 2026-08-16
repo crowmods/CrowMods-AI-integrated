@@ -86,6 +86,35 @@ test("notifications can be created and marked read", async () => {
   assert.equal((await read.json()).notification.read_at !== null, true);
 });
 
+test("notifications can be marked all read", async () => {
+  const { email, password } = await createAdmin();
+  const token = await loginToken(server, email, password);
+  const repo = require("../../apps/api/src/foundation/db").getRepository();
+  const admin = await repo.findUserByEmail(email);
+  for (let i = 0; i < 3; i++) {
+    await repo.createNotification({ userId: admin.id, type: "test", severity: "INFO", title: `N${i}`, message: `M${i}` });
+  }
+  const res = await fetch(`${server.base}/api/admin/notifications/read-all`, {
+    method: "POST", headers: { Authorization: `Bearer ${token}` }
+  });
+  const body = await res.json();
+  assert.ok(body.count === 3 || body.updated === 3 || body.ok === true);
+  const list = await (await fetch(`${server.base}/api/admin/notifications?unread=true`, { headers: { Authorization: `Bearer ${token}` } })).json();
+  assert.equal(list.notifications.length, 0);
+});
+
+test("plans can be listed and fetched by code", async () => {
+  const { email, password } = await createAdmin();
+  const token = await loginToken(server, email, password);
+  const list = await (await fetch(`${server.base}/api/admin/plans`, { headers: { Authorization: `Bearer ${token}` } })).json();
+  assert.ok(list.plans.length >= 1);
+  const byCode = await fetch(`${server.base}/api/admin/plans/${list.plans[0].code}`, { headers: { Authorization: `Bearer ${token}` } });
+  const body = await byCode.json();
+  assert.equal(body.plan.code, list.plans[0].code);
+  const missing = await fetch(`${server.base}/api/admin/plans/NO_SUCH_PLAN`, { headers: { Authorization: `Bearer ${token}` } });
+  assert.equal(missing.status, 404);
+});
+
 test("customers can be created and listed", async () => {
   const { email, password } = await createAdmin();
   const token = await loginToken(server, email, password);

@@ -262,6 +262,15 @@ class MemoryRepository {
     return this.releases.find(r => r.slug === slug) || null;
   }
 
+  async deleteRelease(id) {
+    const idx = this.releases.findIndex(r => r.id === id);
+    if (idx === -1) return null;
+    const [removed] = this.releases.splice(idx, 1);
+    this.releaseVersions = this.releaseVersions.filter(v => v.release_id !== id);
+    this.publishingJobs = this.publishingJobs.filter(j => j.release_id !== id);
+    return removed;
+  }
+
   async listReleases({ limit = 50, offset = 0, status, customerId, search } = {}) {
     let rows = this.releases.map(r => ({ ...r }));
     if (status) rows = rows.filter(r => r.status === status);

@@ -257,6 +257,10 @@ class PostgresRepository {
     return this._one("SELECT * FROM releases WHERE slug = $1", [slug]);
   }
 
+  async deleteRelease(id) {
+    return this._one("DELETE FROM releases WHERE id = $1 RETURNING *", [id]);
+  }
+
   async listReleases({ limit = 50, offset = 0, status, customerId, search } = {}) {
     const params = [];
     let sql = "SELECT * FROM releases WHERE 1=1";

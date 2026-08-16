@@ -2,13 +2,14 @@ const { getRepository } = require("../../db");
 
 const VALID_STATUSES = new Set([
   "DRAFT", "PROCESSING", "READY_FOR_REVIEW", "APPROVED", "REJECTED",
-  "PUBLISHING", "PUBLISHED", "FAILED", "ARCHIVED"
+  "CHANGES_REQUESTED", "PUBLISHING", "PUBLISHED", "FAILED", "ARCHIVED"
 ]);
 
 const TRANSITIONS = {
   DRAFT: ["PROCESSING", "READY_FOR_REVIEW", "ARCHIVED"],
   PROCESSING: ["READY_FOR_REVIEW", "FAILED", "ARCHIVED"],
-  READY_FOR_REVIEW: ["APPROVED", "REJECTED", "ARCHIVED"],
+  READY_FOR_REVIEW: ["APPROVED", "REJECTED", "CHANGES_REQUESTED", "ARCHIVED"],
+  CHANGES_REQUESTED: ["READY_FOR_REVIEW", "ARCHIVED"],
   APPROVED: ["PUBLISHING", "ARCHIVED"],
   REJECTED: ["READY_FOR_REVIEW", "ARCHIVED"],
   PUBLISHING: ["PUBLISHED", "FAILED"],
@@ -205,7 +206,7 @@ async function requestChanges(id, actorId, ip, reason = "") {
     throw err;
   }
   const repo = getRepository();
-  const release = await transition(id, "READY_FOR_REVIEW", actorId, ip, reason, "RELEASE_CHANGES_REQUESTED");
+  const release = await transition(id, "CHANGES_REQUESTED", actorId, ip, reason, "RELEASE_CHANGES_REQUESTED");
   await repo.createApproval({ releaseId: id, action: "REQUEST_CHANGES", actorId, reason });
   return release;
 }
@@ -225,6 +226,7 @@ async function removeDraft(id, actorId, ip) {
     err.status = 409;
     throw err;
   }
+  await repo.deleteRelease(id);
   await repo.createAuditLog({
     actorId, action: "RELEASE_DELETED", resource: "release", resourceId: id, ip
   });

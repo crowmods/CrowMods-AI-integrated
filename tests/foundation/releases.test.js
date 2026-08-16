@@ -165,3 +165,62 @@ test("release detail includes versions, upload, scans, jobs", async () => {
   assert.ok(body.upload);
   assert.ok(body.scans.length >= 1);
 });
+
+test("request-changes moves a release back for revision", async () => {
+  const { email, password } = await createAdmin();
+  const token = await loginToken(server, email, password);
+  const upload = await createValidatedUpload(token);
+  const release = await createRelease(token, upload.id);
+  await fetch(`${server.base}/api/admin/releases/${release.id}/ready`, {
+    method: "POST", headers: { Authorization: `Bearer ${token}` }
+  });
+  const res = await fetch(`${server.base}/api/admin/releases/${release.id}/request-changes`, {
+    method: "POST",
+    headers: authHeaders(token),
+    body: JSON.stringify({ reason: "Fix the changelog" })
+  });
+  assert.equal((await res.json()).release.status, "CHANGES_REQUESTED");
+});
+
+test("request-changes requires a reason", async () => {
+  const { email, password } = await createAdmin();
+  const token = await loginToken(server, email, password);
+  const upload = await createValidatedUpload(token);
+  const release = await createRelease(token, upload.id);
+  await fetch(`${server.base}/api/admin/releases/${release.id}/ready`, {
+    method: "POST", headers: { Authorization: `Bearer ${token}` }
+  });
+  const res = await fetch(`${server.base}/api/admin/releases/${release.id}/request-changes`, {
+    method: "POST",
+    headers: authHeaders(token),
+    body: JSON.stringify({})
+  });
+  assert.equal(res.status, 400);
+});
+
+test("draft release can be deleted", async () => {
+  const { email, password } = await createAdmin();
+  const token = await loginToken(server, email, password);
+  const upload = await createValidatedUpload(token);
+  const release = await createRelease(token, upload.id);
+  const res = await fetch(`${server.base}/api/admin/releases/${release.id}`, {
+    method: "DELETE", headers: { Authorization: `Bearer ${token}` }
+  });
+  assert.equal((await res.json()).ok, true);
+  const repo = require("../../apps/api/src/foundation/db").getRepository();
+  assert.equal(await repo.findReleaseById(release.id), null);
+});
+
+test("only draft releases can be deleted", async () => {
+  const { email, password } = await createAdmin();
+  const token = await loginToken(server, email, password);
+  const upload = await createValidatedUpload(token);
+  const release = await createRelease(token, upload.id);
+  await fetch(`${server.base}/api/admin/releases/${release.id}/ready`, {
+    method: "POST", headers: { Authorization: `Bearer ${token}` }
+  });
+  const res = await fetch(`${server.base}/api/admin/releases/${release.id}`, {
+    method: "DELETE", headers: { Authorization: `Bearer ${token}` }
+  });
+  assert.equal(res.status, 409);
+});
