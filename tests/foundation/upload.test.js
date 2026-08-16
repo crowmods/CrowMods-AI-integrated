@@ -143,6 +143,31 @@ test("plain zip upload validates with no android manifest", async () => {
   assert.equal(body.upload.metadata.manifest, null);
 });
 
+test("validate upload extracts metadata from deflate-compressed APK", async () => {
+  const { email, password } = await createAdmin();
+  const token = await loginToken(server, email, password);
+  const manifest = makeAndroidManifest({ packageName: "com.crowmods.compressed", versionName: "3.0.0" });
+  const apk = makeZip([
+    { name: "AndroidManifest.xml", data: manifest, method: 8 },
+    { name: "classes.dex", data: Buffer.from("dex\n035\0".padEnd(64, "\0"), "binary"), method: 8 },
+    { name: "resources.arsc", data: Buffer.alloc(32, 1), method: 8 }
+  ]);
+  const res = await uploadApk(token, apk, "compressed.apk");
+  assert.equal(res.status, 201);
+  const { upload } = await res.json();
+
+  const vres = await fetch(`${server.base}/api/admin/uploads/${upload.id}/validate`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}` }
+  });
+  assert.equal(vres.status, 200);
+  const body = await vres.json();
+  assert.equal(body.upload.status, "VALID");
+  assert.equal(body.upload.metadata.package, "com.crowmods.compressed");
+  assert.equal(body.upload.metadata.versionName, "3.0.0");
+  assert.equal(body.upload.metadata.manifest.permissions.length, 1);
+});
+
 test("uploads cannot be validated twice", async () => {
   const { email, password } = await createAdmin();
   const token = await loginToken(server, email, password);

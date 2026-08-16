@@ -99,31 +99,30 @@ function makeZip(entries) {
   const localParts = [];
   const centralParts = [];
   let offset = 0;
-  for (const { name, data } of entries) {
+  for (const { name, data, method = 0 } of entries) {
     const nameBuf = Buffer.from(name, "utf8");
     const crc = crc32(data);
+    const body = method === 8 ? require("node:zlib").deflateRawSync(data) : data;
     const local = Buffer.alloc(30);
     local.writeUInt32LE(0x04034b50, 0);
     local.writeUInt16LE(20, 4);
-    local.writeUInt16LE(0, 6);
-    local.writeUInt16LE(0, 8);
-    local.writeUInt32LE(0, 10);
+    local.writeUInt16LE(method, 8);
+    local.writeUInt16LE(0, 10);
     local.writeUInt32LE(crc, 14);
-    local.writeUInt32LE(data.length, 18);
+    local.writeUInt32LE(body.length, 18);
     local.writeUInt32LE(data.length, 22);
     local.writeUInt16LE(nameBuf.length, 26);
     local.writeUInt16LE(0, 28);
-    localParts.push(local, nameBuf, data);
+    localParts.push(local, nameBuf, body);
 
     const central = Buffer.alloc(46);
     central.writeUInt32LE(0x02014b50, 0);
     central.writeUInt16LE(0x031e, 4);
     central.writeUInt16LE(20, 6);
-    central.writeUInt16LE(0, 8);
-    central.writeUInt16LE(0, 10);
+    central.writeUInt16LE(method, 10);
     central.writeUInt32LE(0, 12);
     central.writeUInt32LE(crc, 16);
-    central.writeUInt32LE(data.length, 20);
+    central.writeUInt32LE(body.length, 20);
     central.writeUInt32LE(data.length, 24);
     central.writeUInt16LE(nameBuf.length, 28);
     central.writeUInt16LE(0, 30);
@@ -134,7 +133,7 @@ function makeZip(entries) {
     central.writeUInt32LE(offset, 42);
     centralParts.push(central, nameBuf);
 
-    offset += 30 + nameBuf.length + data.length;
+    offset += 30 + nameBuf.length + body.length;
   }
   const centralBuffer = Buffer.concat(centralParts);
   const eocd = Buffer.alloc(22);
