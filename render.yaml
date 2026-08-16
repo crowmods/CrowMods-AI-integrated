@@ -20,3 +20,16 @@ services:
         sync: false
       - key: ADMIN_NAME
         value: Super Admin
+
+  - type: web
+    name: crowmods-ai-admin
+    runtime: node
+    plan: starter
+    rootDir: apps/web
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_API_URL
+        value: https://crowmods-ai-integrated.onrender.com

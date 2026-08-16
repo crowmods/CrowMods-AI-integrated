@@ -137,10 +137,19 @@ It talks to the API via `NEXT_PUBLIC_API_URL` (defaults to
 
 ## Deployment
 
-- `render.yaml` defines the web service: runs lint, typecheck, migration check,
-  integration check, web build, then `npm start`.
+- `render.yaml` defines two services:
+  - **crowmods-ai-integrated** (API): runs lint, typecheck, migration check,
+    integration check, web build, then `npm start` (`node apps/api/src/server.js`).
+    Set `DATABASE_URL`, `CORS_ORIGIN`, `ADMIN_EMAIL`, `ADMIN_PASSWORD` in the
+    Render dashboard. On boot, `initFoundation()` runs pending SQL migrations
+    and provisions the initial admin.
+  - **crowmods-ai-admin** (admin panel): builds `apps/web` (`npm ci && npm run
+    build`) and serves it with `next start` on the Render-provided `PORT`.
+    `NEXT_PUBLIC_API_URL` points at the API service.
 - CI: `.github/workflows/ci.yml` runs install, lint, typecheck, migration
   check, tests, integration check, and the web build on push/PR.
+- `apps/web/package.json` start script binds `next start` to `PORT` (default
+  3000) so it works on Render and locally.
 - On production boot, `initFoundation()` runs pending SQL migrations before the
   server listens. Set `DATABASE_URL`, `CORS_ORIGIN`, and optionally
   `UPLOADS_DIR` for persistent quarantine storage.
