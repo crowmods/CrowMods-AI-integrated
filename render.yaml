@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: crowmods-ai-integrated
+    runtime: node
+    plan: starter
+    buildCommand: npm ci && npm run lint && npm run typecheck && npm run migration:check && npm run integration:check && npm run build:web
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: CORS_ORIGIN
+        sync: false
+      - key: UPLOADS_DIR
+        value: /var/data/uploads

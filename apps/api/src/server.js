@@ -12,6 +12,9 @@ app.use(helmet());
 app.use(cors({ origin: process.env.CORS_ORIGIN || true }));
 app.use(express.json({ limit: "4mb" }));
 
+const { app: foundationApp, initFoundation } = require("./foundation");
+app.use(foundationApp);
+
 const catalogPath = path.resolve(__dirname, "../../../docs/phase-catalog.json");
 const catalog = JSON.parse(fs.readFileSync(catalogPath, "utf8"));
 
@@ -81,7 +84,12 @@ app.get("/api/integration/status", (_req, res) => {
 });
 
 if (require.main === module) {
-  app.listen(PORT, () => console.log(`CrowMods AI integrated API listening on ${PORT}`));
+  initFoundation().then(() => {
+    app.listen(PORT, () => console.log(`CrowMods AI integrated API listening on ${PORT}`));
+  }).catch((err) => {
+    console.error("Failed to initialize foundation:", err.message);
+    process.exit(1);
+  });
 }
 
 module.exports = app;

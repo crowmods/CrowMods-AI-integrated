@@ -14,3 +14,6 @@ coverage/
 
 # Local logs
 logs/
+
+# Runtime uploads / quarantine storage
+apps/api/data/

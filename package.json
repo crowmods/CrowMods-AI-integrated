@@ -7,6 +7,10 @@
     "start": "node apps/api/src/server.js",
     "dev": "node apps/api/src/server.js",
     "test": "node --test $(find services/phases tests -type f \\( -name '*.test.js' -o -name '*.test.mjs' -o -name '*.test.cjs' \\) -print)",
+    "lint": "node scripts/lint.js",
+    "typecheck": "node scripts/typecheck.js",
+    "build:web": "npm --prefix apps/web run build",
+    "migration:check": "node scripts/migration-check.js",
     "integration:check": "node scripts/integration-check.js",
     "phase:inventory": "node scripts/phase-inventory.js"
   },
