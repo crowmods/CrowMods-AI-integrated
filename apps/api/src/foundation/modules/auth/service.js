@@ -72,9 +72,18 @@ function serializeUser(user) {
   };
 }
 
+function assertStrongPassword(password) {
+  if (!password || password.length < 8) {
+    const err = new Error("Password must be at least 8 characters.");
+    err.status = 400;
+    throw err;
+  }
+}
+
 async function createInitialAdmin(email, password, name = "Super Admin") {
   const repo = getRepository();
   if (await repo.findUserByEmail(email)) return null;
+  assertStrongPassword(password);
   const passwordHash = await hashPassword(password);
   const user = await repo.createUser({ email, name, passwordHash, role: "SUPER_ADMIN" });
   return user;
@@ -82,6 +91,7 @@ async function createInitialAdmin(email, password, name = "Super Admin") {
 
 async function createUser({ email, name, password, role, status = "ACTIVE" }) {
   const repo = getRepository();
+  assertStrongPassword(password);
   if (await repo.findUserByEmail(email)) {
     const err = new Error("User already exists");
     err.status = 409;

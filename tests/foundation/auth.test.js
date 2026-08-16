@@ -101,6 +101,17 @@ test("creating a new admin user", async () => {
   assert.equal(body.user.role, "OPERATOR");
 });
 
+test("users cannot be created with a weak password", async () => {
+  const { email, password } = await createAdmin();
+  const token = await loginToken(server, email, password);
+  const res = await fetch(`${server.base}/api/admin/users`, {
+    method: "POST",
+    headers: authHeaders(token),
+    body: JSON.stringify({ email: "weak@crowmods.test", name: "Weak", password: "short", role: "VIEWER" })
+  });
+  assert.equal(res.status, 400);
+});
+
 test("password reset request returns a token and can reset the password", async () => {
   const { email, password } = await createAdmin();
   const req = await fetch(`${server.base}/api/admin/auth/password-reset/request`, {
