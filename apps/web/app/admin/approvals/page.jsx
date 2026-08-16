@@ -13,7 +13,6 @@ export default function ApprovalsPage() {
   const [releases, setReleases] = useState([]);
   const [selected, setSelected] = useState(null);
   const [reason, setReason] = useState("");
-  const [action, setAction] = useState("");
   const [providers, setProviders] = useState(["website"]);
   const [toast, setToast] = useState("");
 
@@ -25,26 +24,30 @@ export default function ApprovalsPage() {
     const d = await api(`/releases/${id}`);
     setSelected(d);
     setReason("");
-    setAction("");
   };
 
-  const run = async () => {
+  const run = async (nextAction) => {
     if (!selected) return;
     setToast("");
+    const a = nextAction;
     try {
-      if (action === "approve") {
+      if (a === "approve") {
         await api(`/releases/${selected.release.id}/approve`, { method: "POST", body: { reason } });
         setToast("Approved");
-      } else if (action === "reject") {
+      } else if (a === "reject") {
         if (!reason.trim()) return setToast("A reason is required.");
         await api(`/releases/${selected.release.id}/reject`, { method: "POST", body: { reason } });
         setToast("Rejected");
-      } else if (action === "changes") {
+      } else if (a === "changes") {
         if (!reason.trim()) return setToast("A reason is required.");
         await api(`/releases/${selected.release.id}/request-changes`, { method: "POST", body: { reason } });
         setToast("Changes requested");
-      } else if (action === "publish") {
-        await api(`/releases/${selected.release.id}/publish`, { method: "POST", body: { providers } });
+      } else if (a === "publish") {
+        const id = selected.release.id;
+        if (selected.release.status !== "APPROVED") {
+          await api(`/releases/${id}/approve`, { method: "POST", body: { reason } });
+        }
+        await api(`/releases/${id}/publish`, { method: "POST", body: { providers } });
         setToast("Publishing jobs started");
       }
       setSelected(null);
@@ -107,9 +110,9 @@ export default function ApprovalsPage() {
           </label>
 
           <div className="row">
-            <button className="btn btn-success" onClick={() => { setAction("approve"); run(); }}>Approve</button>
-            <button className="btn btn-danger" onClick={() => { setAction("reject"); run(); }}>Reject</button>
-            <button className="btn btn-secondary" onClick={() => { setAction("changes"); run(); }}>Request Changes</button>
+            <button className="btn btn-success" onClick={() => run("approve")}>Approve</button>
+            <button className="btn btn-danger" onClick={() => run("reject")}>Reject</button>
+            <button className="btn btn-secondary" onClick={() => run("changes")}>Request Changes</button>
           </div>
 
           <div className="card" style={{ marginTop: 12, background: "var(--panel2)" }}>
@@ -124,7 +127,7 @@ export default function ApprovalsPage() {
                 </label>
               ))}
             </div>
-            <button className="btn btn-block" style={{ marginTop: 8 }} onClick={() => { setAction("publish"); run(); }}>
+            <button className="btn btn-block" style={{ marginTop: 8 }} onClick={() => run("publish")}>
               Publish
             </button>
           </div>

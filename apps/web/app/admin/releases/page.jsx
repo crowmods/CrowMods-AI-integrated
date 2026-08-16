@@ -55,6 +55,18 @@ export default function ReleasesPage() {
     load();
   };
 
+  const publish = async (id, providers) => {
+    setToast("");
+    try {
+      await api(`/releases/${id}/publish`, { method: "POST", body: { providers } });
+      setToast("Publishing jobs started");
+      if (detail?.release?.id === id) openDetail(id);
+      load();
+    } catch (err) {
+      setToast(err.message);
+    }
+  };
+
   const validUploads = uploads.filter(u => u.status === "VALID");
 
   return (
@@ -136,6 +148,9 @@ export default function ReleasesPage() {
             {detail.release.status === "DRAFT" && <button className="btn" onClick={() => markReady(detail.release.id)}>Submit for Review</button>}
             {(detail.release.status === "DRAFT" || detail.release.status === "ARCHIVED") && (
               <button className="btn btn-danger" onClick={() => archive(detail.release.id)}>Archive</button>
+            )}
+            {detail.release.status === "APPROVED" && (
+              <button className="btn" onClick={() => publish(detail.release.id, ["website"])}>Publish to Website</button>
             )}
           </div>
         </div>
