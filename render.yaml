@@ -22,7 +22,7 @@ services:
         value: Super Admin
 
   - type: web
-    name: crowmods-ai-admin
+    name: crowmods-ai-web
     runtime: node
     plan: starter
     rootDir: apps/web
