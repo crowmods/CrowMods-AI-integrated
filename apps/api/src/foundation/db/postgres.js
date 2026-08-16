@@ -3,6 +3,8 @@ const { Pool } = require("pg");
 class PostgresRepository {
   constructor(databaseUrl) {
     this.pool = new Pool({ connectionString: databaseUrl, max: 10 });
+    this._hasUpdatedAt = new Set();
+    this._noUpdatedAt = new Set();
   }
 
   async close() {
@@ -59,6 +61,17 @@ class PostgresRepository {
     return this._updateRow("users", id, fields, allowed);
   }
 
+  async _tableHasUpdatedAt(table) {
+    if (this._hasUpdatedAt.has(table)) return true;
+    if (this._noUpdatedAt.has(table)) return false;
+    const row = await this._one(
+      `SELECT column_name FROM information_schema.columns WHERE table_schema = 'public' AND table_name = $1 AND column_name = 'updated_at'`,
+      [table]
+    );
+    (row ? this._hasUpdatedAt : this._noUpdatedAt).add(table);
+    return !!row;
+  }
+
   async _updateRow(table, id, fields, allowed) {
     const sets = [];
     const params = [];
@@ -70,7 +83,9 @@ class PostgresRepository {
       params.push(value);
     }
     if (!sets.length) return this._one(`SELECT * FROM ${table} WHERE id = $1`, [id]);
-    sets.push(`updated_at = now()`);
+    if (await this._tableHasUpdatedAt(table)) {
+      sets.push(`updated_at = now()`);
+    }
     params.push(id);
     return this._one(`UPDATE ${table} SET ${sets.join(", ")} WHERE id = $${i} RETURNING *`, params);
   }
