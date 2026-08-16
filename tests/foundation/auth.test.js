@@ -154,3 +154,20 @@ test("password reset token cannot be reused", async () => {
   });
   assert.equal(second.status, 400);
 });
+
+test("password reset request is rate limited", async () => {
+  const { email } = await createAdmin();
+  const { passwordResetLimiter } = require("../../apps/api/src/foundation/routes/admin.routes");
+  for (let i = 0; i < 11; i++) {
+    const res = await fetch(`${server.base}/api/admin/auth/password-reset/request`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email })
+    });
+    if (i < 10) assert.equal(res.status, 200);
+    else assert.equal(res.status, 429);
+  }
+  if (passwordResetLimiter && typeof passwordResetLimiter.resetKey === "function") {
+    await passwordResetLimiter.resetKey("::ffff:127.0.0.1");
+  }
+});

@@ -8,9 +8,11 @@ const releases = require("../../apps/api/src/foundation/modules/releases/service
 async function freshRepo() {
   setRepository(new MemoryRepository());
   try {
-    const { loginLimiter } = require("../../apps/api/src/foundation/routes/admin.routes");
-    if (loginLimiter && typeof loginLimiter.resetKey === "function") {
-      await loginLimiter.resetKey("::ffff:127.0.0.1");
+    const { loginLimiter, passwordResetLimiter } = require("../../apps/api/src/foundation/routes/admin.routes");
+    for (const limiter of [loginLimiter, passwordResetLimiter]) {
+      if (limiter && typeof limiter.resetKey === "function") {
+        await limiter.resetKey("::ffff:127.0.0.1");
+      }
     }
   } catch {}
   return require("../../apps/api/src/foundation/db").getRepository();

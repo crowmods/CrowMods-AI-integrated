@@ -51,6 +51,15 @@ const loginLimiter = rateLimit({
   message: { error: "rate_limited", message: "Too many login attempts. Try again later." }
 });
 
+const passwordResetLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 10,
+  standardHeaders: true,
+  legacyHeaders: false,
+  keyGenerator: (req) => clientIp(req),
+  message: { error: "rate_limited", message: "Too many password reset requests. Try again later." }
+});
+
 router.get("/auth/me", authenticate, asyncHandler(async (req, res) => {
   res.json({ user: req.user || null });
 }));
@@ -78,7 +87,7 @@ router.post("/auth/logout", asyncHandler(async (req, res) => {
   res.json({ ok: true });
 }));
 
-router.post("/auth/password-reset/request", asyncHandler(async (req, res) => {
+router.post("/auth/password-reset/request", passwordResetLimiter, asyncHandler(async (req, res) => {
   const { email } = req.body || {};
   if (!email) {
     return res.status(400).json({ error: "invalid_request", message: "Email is required." });
@@ -331,4 +340,4 @@ router.post("/users", requirePermission("user.manage"), asyncHandler(async (req,
   res.status(201).json({ user });
 }));
 
-module.exports = { router, authenticate, loginLimiter };
+module.exports = { router, authenticate, loginLimiter, passwordResetLimiter };
