@@ -224,3 +224,61 @@ test("only draft releases can be deleted", async () => {
   });
   assert.equal(res.status, 409);
 });
+
+async function publishedPublicRelease(token) {
+  const upload = await createValidatedUpload(token);
+  const release = await createRelease(token, upload.id);
+  for (const action of ["ready", "approve", "publish"]) {
+    const res = await fetch(`${server.base}/api/admin/releases/${release.id}/${action}`, {
+      method: "POST",
+      headers: action === "publish" ? { ...authHeaders(token), "Content-Type": "application/json" } : authHeaders(token),
+      body: action === "publish" ? JSON.stringify({ provider: "website" }) : undefined
+    });
+    assert.equal(res.status, 200);
+  }
+  const patch = await fetch(`${server.base}/api/admin/releases/${release.id}`, {
+    method: "PATCH",
+    headers: { ...authHeaders(token), "Content-Type": "application/json" },
+    body: JSON.stringify({ visibility: "PUBLIC" })
+  });
+  assert.equal(patch.status, 200);
+  return (await patch.json()).release;
+}
+
+test("published public release can be downloaded", async () => {
+  const { email, password } = await createAdmin();
+  const token = await loginToken(server, email, password);
+  const release = await publishedPublicRelease(token);
+  const res = await fetch(`${server.base}/releases/${release.slug}/download`);
+  assert.equal(res.status, 200);
+  assert.equal(res.headers.get("content-disposition"), "attachment; filename=\"app.apk\"");
+  const body = await res.arrayBuffer();
+  assert.equal(body.byteLength, makeTestApk().length);
+});
+
+test("private releases cannot be downloaded", async () => {
+  const { email, password } = await createAdmin();
+  const token = await loginToken(server, email, password);
+  const upload = await createValidatedUpload(token);
+  const release = await createRelease(token, upload.id);
+  await fetch(`${server.base}/api/admin/releases/${release.id}/ready`, {
+    method: "POST", headers: { Authorization: `Bearer ${token}` }
+  });
+  await fetch(`${server.base}/api/admin/releases/${release.id}/approve`, {
+    method: "POST", headers: { Authorization: `Bearer ${token}` }
+  });
+  await fetch(`${server.base}/api/admin/releases/${release.id}/publish`, {
+    method: "POST", headers: { ...authHeaders(token), "Content-Type": "application/json" },
+    body: JSON.stringify({ provider: "website" })
+  });
+  const res = await fetch(`${server.base}/releases/${release.slug}/download`);
+  assert.equal(res.status, 404);
+});
+
+test("public page download button points to the artifact endpoint", async () => {
+  const { email, password } = await createAdmin();
+  const token = await loginToken(server, email, password);
+  const release = await publishedPublicRelease(token);
+  const page = await (await fetch(`${server.base}/releases/${release.slug}`)).text();
+  assert.ok(page.includes(`/releases/${release.slug}/download`));
+});

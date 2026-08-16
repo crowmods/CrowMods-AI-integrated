@@ -48,7 +48,7 @@ function renderReleasePage(release, upload) {
     ${meta.map(m => `<div class="kv"><label>${esc(m.label)}</label><div>${esc(m.value)}</div></div>`).join("")}
   </div></div>
   ${permissions.length ? `<div class="card"><h3>Permissions</h3><ul class="perms">${permissions.map(p => `<li>${esc(p)}</li>`).join("")}</ul></div>` : ""}
-  <a class="btn" href="#download">Download</a>
+  <a class="btn" href="/releases/${esc(release.slug)}/download">Download</a>
 </main>
 </body>
 </html>`;

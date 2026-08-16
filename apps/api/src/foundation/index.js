@@ -26,6 +26,30 @@ app.get("/releases/:slug", async (req, res) => {
   }
 });
 
+app.get("/releases/:slug/download", async (req, res) => {
+  try {
+    const release = await releases.getBySlug(req.params.slug);
+    if (release.status !== "PUBLISHED" || release.visibility === "PRIVATE") {
+      return res.status(404).json({ error: "not_found", message: "Release not found." });
+    }
+    if (!release.upload_id) {
+      return res.status(404).json({ error: "not_found", message: "Artifact not found." });
+    }
+    const upload = await uploads.get(release.upload_id);
+    if (!upload.storage_path) {
+      return res.status(404).json({ error: "not_found", message: "Artifact not found." });
+    }
+    const filename = (upload.original_filename || `${release.slug}.apk`).replace(/[^a-zA-Z0-9._-]/g, "_");
+    res.download(upload.storage_path, filename, (err) => {
+      if (err && !res.headersSent) {
+        res.status(404).json({ error: "not_found", message: "Artifact not found." });
+      }
+    });
+  } catch (err) {
+    res.status(404).json({ error: "not_found", message: "Release not found." });
+  }
+});
+
 app.use("/api/admin", router);
 
 async function initFoundation() {
