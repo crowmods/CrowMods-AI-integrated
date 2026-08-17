@@ -259,7 +259,7 @@ class PostgresRepository {
     const { rows } = await this.pool.query(
       `INSERT INTO releases (customer_id, upload_id, name, slug, description, version, version_code, package_name, status, visibility, created_by)
        VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11) RETURNING *`,
-      [customerId, uploadId, name, slug, description, version, versionCode, packageName, status, visibility, createdBy]
+      [customerId, uploadId, name, slug, description || "", version || "", versionCode, packageName, status, visibility, createdBy]
     );
     return rows[0];
   }
@@ -304,7 +304,7 @@ class PostgresRepository {
     const { rows } = await this.pool.query(
       `INSERT INTO release_versions (release_id, version, version_code, upload_id, changelog, created_by, metadata)
        VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *`,
-      [releaseId, version, versionCode, uploadId, changelog, createdBy, JSON.stringify(metadata)]
+      [releaseId, version, versionCode, uploadId, changelog || "", createdBy, JSON.stringify(metadata)]
     );
     return rows[0];
   }
