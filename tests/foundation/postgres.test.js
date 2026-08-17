@@ -11,6 +11,9 @@ test.before(async () => {
   if (!url) return;
   repo = new PostgresRepository(url);
   await repo.migrate();
+  await repo.pool.query(
+    "TRUNCATE users, sessions, password_resets, customers, uploads, scans, releases, release_versions, approvals, integrations, publishing_jobs, publishing_results, jobs, notifications, audit_logs RESTART IDENTITY CASCADE"
+  );
 });
 
 test.after(async () => {

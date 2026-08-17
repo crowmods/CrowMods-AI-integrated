@@ -6,7 +6,17 @@ const auth = require("../../apps/api/src/foundation/modules/auth/service");
 const releases = require("../../apps/api/src/foundation/modules/releases/service");
 
 async function freshRepo() {
-  setRepository(new MemoryRepository());
+  if (process.env.PG_TEST_URL) {
+    const { PostgresRepository } = require("../../apps/api/src/foundation/db/postgres");
+    const repo = new PostgresRepository(process.env.PG_TEST_URL);
+    await repo.migrate();
+    await repo.pool.query(
+      "TRUNCATE users, sessions, password_resets, customers, uploads, scans, releases, release_versions, approvals, integrations, publishing_jobs, publishing_results, jobs, notifications, audit_logs RESTART IDENTITY CASCADE"
+    );
+    setRepository(repo);
+  } else {
+    setRepository(new MemoryRepository());
+  }
   try {
     const { loginLimiter, passwordResetLimiter } = require("../../apps/api/src/foundation/routes/admin.routes");
     for (const limiter of [loginLimiter, passwordResetLimiter]) {
