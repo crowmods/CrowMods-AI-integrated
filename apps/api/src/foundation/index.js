@@ -20,7 +20,7 @@ app.get("/releases/:slug", async (req, res) => {
       return res.status(404).json({ error: "not_found", message: "Release not found." });
     }
     const upload = release.upload_id ? await uploads.get(release.upload_id) : null;
-    res.type("html").send(websitePreview(release, upload));
+    res.type("html").send(await websitePreview(release, upload));
   } catch (err) {
     res.status(404).json({ error: "not_found", message: "Release not found." });
   }

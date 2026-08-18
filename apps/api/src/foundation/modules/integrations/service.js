@@ -9,17 +9,39 @@ async function connect({ provider, name, config, targetId }, actorId, ip) {
   }
   const sanitized = {};
   for (const [k, v] of Object.entries(config || {})) {
-    if (v === undefined || v === "") continue;
+    if (v === undefined) continue;
+    if (provider === "website" && (k === "publicDomain" || k === "adminPanelUrl") && v !== "" && !isValidHttpUrl(String(v))) {
+      const err = new Error(`${k} must be a valid http(s) URL (e.g. https://mods.example.com)`);
+      err.status = 400;
+      throw err;
+    }
     sanitized[k] = String(v);
   }
-  const integration = await repo.createIntegration({
-    provider, name: name || provider, status: "CONNECTED", config: sanitized, targetId
-  });
+  const existing = (await repo.listIntegrations()).find(i => i.provider === provider);
+  const integration = existing
+    ? await repo.updateIntegration(existing.id, {
+        name: name || existing.name || provider,
+        status: "CONNECTED",
+        config: { ...(existing.config || {}), ...sanitized },
+        target_id: targetId ?? existing.target_id
+      })
+    : await repo.createIntegration({
+        provider, name: name || provider, status: "CONNECTED", config: sanitized, targetId
+      });
   await repo.createAuditLog({
     actorId, action: "INTEGRATION_CONNECTED", resource: "integration",
     resourceId: integration.id, ip, metadata: { provider }
   });
   return integration;
+}
+
+function isValidHttpUrl(value) {
+  try {
+    const u = new URL(value);
+    return u.protocol === "http:" || u.protocol === "https:";
+  } catch {
+    return false;
+  }
 }
 
 async function test(provider) {

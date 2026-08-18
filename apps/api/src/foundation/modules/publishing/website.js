@@ -1,13 +1,25 @@
 const { getRepository } = require("../../db");
 const { renderReleasePage } = require("./website-template");
 
+async function siteOptions() {
+  const repo = getRepository();
+  const integration = (await repo.listIntegrations()).find(i => i.provider === "website");
+  const config = integration?.config || {};
+  return {
+    publicDomain: String(config.publicDomain || ""),
+    adminPanelUrl: String(config.adminPanelUrl || config.adminUrl || "")
+  };
+}
+
 async function publish(release, upload) {
   const repo = getRepository();
-  const html = renderReleasePage(release, upload);
+  const options = await siteOptions();
+  const html = renderReleasePage(release, upload, options);
   const integration = (await repo.listIntegrations()).find(i => i.provider === "website");
   const target = integration?.target_id || release.slug;
+  const base = options.publicDomain ? options.publicDomain.replace(/\/+$/, "") : "";
   const metadata = {
-    url: `/releases/${release.slug}`,
+    url: base ? `${base}/releases/${release.slug}` : `/releases/${release.slug}`,
     htmlBytes: Buffer.byteLength(html),
     rendered: true
   };
@@ -21,8 +33,8 @@ async function publish(release, upload) {
   };
 }
 
-function preview(release, upload) {
-  return renderReleasePage(release, upload);
+async function preview(release, upload) {
+  return renderReleasePage(release, upload, await siteOptions());
 }
 
-module.exports = { publish, preview };
+module.exports = { publish, preview, siteOptions };

@@ -10,10 +10,18 @@ export default function SettingsPage() {
   const [toast, setToast] = useState("");
   const [tgForm, setTgForm] = useState({ botToken: "", chatId: "" });
   const [dcForm, setDcForm] = useState({ webhookUrl: "" });
+  const [siteForm, setSiteForm] = useState({ publicDomain: "", adminPanelUrl: "" });
   const [userForm, setUserForm] = useState({ email: "", name: "", password: "", role: "VIEWER" });
 
   const load = () => {
-    api("/integrations").then(r => setIntegrations(r.integrations)).catch(() => {});
+    api("/integrations").then(r => {
+      setIntegrations(r.integrations);
+      const ws = r.integrations.find(i => i.provider === "website");
+      if (ws) setSiteForm({
+        publicDomain: ws.config?.publicDomain || "",
+        adminPanelUrl: ws.config?.adminPanelUrl || ws.config?.adminUrl || ""
+      });
+    }).catch(() => {});
     api("/plans").then(r => setPlans(r.plans)).catch(() => {});
     api("/users").then(r => setUsers(r.users)).catch(() => {});
   };
@@ -32,6 +40,14 @@ export default function SettingsPage() {
     try {
       await api("/integrations", { method: "POST", body: { provider: "discord", name: "Discord", config: dcForm } });
       setToast("Discord integration connected.");
+      load();
+    } catch (err) { setToast(err.message); }
+  };
+
+  const saveSite = async () => {
+    try {
+      await api("/integrations", { method: "POST", body: { provider: "website", name: "Public Site", config: siteForm } });
+      setToast("Public site settings saved.");
       load();
     } catch (err) { setToast(err.message); }
   };
@@ -63,6 +79,18 @@ export default function SettingsPage() {
       <h1 className="page-title">Settings</h1>
 
       {toast && <div className="toast success">{toast}</div>}
+
+      <div className="card">
+        <h2 className="section-title">Public Site & Custom Domain</h2>
+        <p className="meta" style={{ marginBottom: 12 }}>
+          Your public release pages are served at <code>https://crowmods-ai-integrated.onrender.com/releases/&lt;slug&gt;</code>.
+          Point a custom domain at your API service (DNS CNAME to the onrender.com host) and set it below — release pages,
+          download links and share links then use your own domain.
+        </p>
+        <label className="field"><span>Custom public domain</span><input value={siteForm.publicDomain} onChange={e => setSiteForm({ ...siteForm, publicDomain: e.target.value })} placeholder="https://mods.example.com" /></label>
+        <label className="field"><span>Admin panel URL</span><input value={siteForm.adminPanelUrl} onChange={e => setSiteForm({ ...siteForm, adminPanelUrl: e.target.value })} placeholder="https://crowmods-ai-web.onrender.com/admin" /></label>
+        <button className="btn btn-block" onClick={saveSite}>Save Public Site Settings</button>
+      </div>
 
       <div className="card">
         <h2 className="section-title">Integrations</h2>

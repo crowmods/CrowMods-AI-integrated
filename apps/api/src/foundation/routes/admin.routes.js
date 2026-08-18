@@ -231,7 +231,7 @@ router.delete("/releases/:id", requirePermission("release.update"), asyncHandler
 router.get("/releases/:id/preview", requirePermission("release.read"), asyncHandler(async (req, res) => {
   const { release, upload } = await releases.detail(req.params.id);
   res.json({
-    website: websitePreview(release, upload),
+    website: await websitePreview(release, upload),
     telegram: telegramPreview(release, upload),
     discord: discordPreview(release, upload)
   });

@@ -282,3 +282,47 @@ test("public page download button points to the artifact endpoint", async () => 
   const page = await (await fetch(`${server.base}/releases/${release.slug}`)).text();
   assert.ok(page.includes(`/releases/${release.slug}/download`));
 });
+
+test("public page uses custom domain when website integration is configured", async () => {
+  const { email, password } = await createAdmin();
+  const token = await loginToken(server, email, password);
+  const save = await fetch(`${server.base}/api/admin/integrations`, {
+    method: "POST",
+    headers: authHeaders(token),
+    body: JSON.stringify({ provider: "website", name: "Public Site", config: { publicDomain: "https://mods.example.com", adminPanelUrl: "https://panel.example.com/admin" } })
+  });
+  assert.equal(save.status, 201);
+  const release = await publishedPublicRelease(token);
+  const page = await (await fetch(`${server.base}/releases/${release.slug}`)).text();
+  assert.ok(page.includes(`https://mods.example.com/releases/${release.slug}`), "absolute download URL");
+  assert.ok(page.includes(`https://mods.example.com/releases/${release.slug}/download`), "absolute download href");
+  assert.ok(page.includes(`<link rel="canonical" href="https://mods.example.com/releases/${release.slug}"/>`), "canonical link");
+  assert.ok(page.includes(`href="https://panel.example.com/admin"`), "admin panel link");
+  assert.ok(page.includes(`content="https://mods.example.com/releases/${release.slug}"`), "og:url");
+});
+
+test("website integration upserts instead of duplicating", async () => {
+  const { email, password } = await createAdmin();
+  const token = await loginToken(server, email, password);
+  for (const i of [1, 2]) {
+    const res = await fetch(`${server.base}/api/admin/integrations`, {
+      method: "POST",
+      headers: authHeaders(token),
+      body: JSON.stringify({ provider: "website", name: "Public Site", config: { publicDomain: "https://mods.example.com" } })
+    });
+    assert.equal(res.status, 201);
+  }
+  const list = await (await fetch(`${server.base}/api/admin/integrations`, { headers: authHeaders(token) })).json();
+  assert.equal(list.integrations.filter(i => i.provider === "website").length, 1);
+});
+
+test("website integration rejects invalid custom domain URL", async () => {
+  const { email, password } = await createAdmin();
+  const token = await loginToken(server, email, password);
+  const res = await fetch(`${server.base}/api/admin/integrations`, {
+    method: "POST",
+    headers: authHeaders(token),
+    body: JSON.stringify({ provider: "website", name: "Public Site", config: { publicDomain: "not-a-url" } })
+  });
+  assert.equal(res.status, 400);
+});
