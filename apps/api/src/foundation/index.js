@@ -59,6 +59,14 @@ async function initFoundation() {
   }
   if (config.adminEmail && config.adminPassword) {
     await auth.createInitialAdmin(config.adminEmail, config.adminPassword, config.adminName);
+  } else {
+    const crypto = require("node:crypto");
+    const email = "admin@crowmods.test";
+    const password = crypto.randomBytes(12).toString("base64url");
+    const created = await auth.createInitialAdmin(email, password, "Super Admin");
+    if (created) {
+      console.log(`ADMIN_BOOTSTRAP email=${email} password=${password} (set ADMIN_EMAIL/ADMIN_PASSWORD env vars to use your own credentials)`);
+    }
   }
   return { app, config };
 }

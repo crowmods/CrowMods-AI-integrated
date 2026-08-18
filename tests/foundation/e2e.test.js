@@ -157,3 +157,36 @@ test("initFoundation provisions the initial admin from env config", async () => 
     config.adminPassword = previous.password;
   }
 });
+
+test("initFoundation bootstraps a super-admin when no admin env vars are set", async () => {
+  await freshRepo();
+  const config = require("../../apps/api/src/foundation/config/env");
+  const { initFoundation } = require("../../apps/api/src/foundation");
+  const previous = { email: config.adminEmail, password: config.adminPassword };
+  const origLog = console.log;
+  config.adminEmail = "";
+  config.adminPassword = "";
+  const logs = [];
+  console.log = (...args) => { logs.push(args.join(" ")); };
+  try {
+    await initFoundation();
+    const repo = require("../../apps/api/src/foundation/db").getRepository();
+    const user = await repo.findUserByEmail("admin@crowmods.test");
+    assert.ok(user, "bootstrap admin exists");
+    assert.equal(user.role, "SUPER_ADMIN");
+    const banner = logs.find(l => l.startsWith("ADMIN_BOOTSTRAP"));
+    assert.ok(banner, "bootstrap banner printed to logs");
+    const password = /password=([^\s]+)/.exec(banner)[1];
+    assert.ok(password.length >= 8, "bootstrap password is strong");
+    const login = await fetch(`${server.base}/api/admin/auth/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: "admin@crowmods.test", password })
+    });
+    assert.equal(login.status, 200);
+  } finally {
+    console.log = origLog;
+    config.adminEmail = previous.email;
+    config.adminPassword = previous.password;
+  }
+});
