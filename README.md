@@ -37,6 +37,26 @@ API endpoints (phase gateway):
 Admin API lives under `/api/admin/*` (auth via Bearer token).
 Public site serves PUBLISHED + PUBLIC releases at `/releases/:slug`.
 
+## Public site, custom domain & admin link
+
+Public release pages are static HTML served by the API. Their behavior is
+configured from the admin panel under **Settings → Public Site & Custom
+Domain**, stored on the `website` integration:
+
+| Setting | Effect |
+| --- | --- |
+| `publicDomain` | e.g. `https://mods.example.com`. Point a DNS CNAME at the API host, then release pages, download links, canonical URLs and Open Graph tags render absolute URLs on your domain. When unset, relative `/releases/:slug` URLs are used. |
+| `adminPanelUrl` | e.g. `https://crowmods-ai-web.onrender.com/admin`. Adds an "Admin" link to the footer of every public release page. |
+
+Both values must be valid `http(s)` URLs (the API rejects anything else);
+clearing a field removes it. Repeated saves update the existing integration
+instead of creating duplicates.
+
+The admin panel is a PWA: it ships a web manifest (`/manifest.webmanifest`),
+SVG + 512px icons, an `apple-touch-icon.png`, and iOS/Android home-screen
+meta tags, so it can be installed ("Add to Home Screen" on iPhone/iPad,
+Chrome install prompt on Android/desktop).
+
 ## Environment
 
 | Variable | Purpose |
@@ -83,3 +103,9 @@ Two services from `render.yaml`:
 To confirm Postgres is in use after boot, check the admin panel's
 **System Health** page: `database` should read HEALTHY (DEGRADED means the
 in-memory repository is being used because `DATABASE_URL` is unset).
+
+If `ADMIN_EMAIL`/`ADMIN_PASSWORD` are unset, the API bootstraps
+`admin@crowmods.test` with a randomly generated password and prints
+`ADMIN_BOOTSTRAP email=... password=...` to its logs. With the in-memory
+repository this account (and its password) is recreated on every restart,
+so set the env vars (or `DATABASE_URL`) for stable credentials.
