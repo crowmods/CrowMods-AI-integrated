@@ -134,7 +134,7 @@ test("end-to-end foundation workflow", async () => {
 });
 
 test("initFoundation provisions the initial admin from env config", async () => {
-  freshRepo();
+  await freshRepo();
   const config = require("../../apps/api/src/foundation/config/env");
   const { initFoundation } = require("../../apps/api/src/foundation");
   const previous = { email: config.adminEmail, password: config.adminPassword };
