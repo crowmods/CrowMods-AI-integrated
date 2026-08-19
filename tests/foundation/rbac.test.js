@@ -39,6 +39,94 @@ test("OPERATOR cannot approve releases", async () => {
   assert.equal(res.status, 403);
 });
 
+test("admin can update another user's role and email", async () => {
+  const { email, password } = await createAdmin();
+  const adminToken = await loginToken(server, email, password);
+  const op = await createOperator(adminToken);
+
+  const res = await fetch(`${server.base}/api/admin/users/${op.id}`, {
+    method: "PATCH",
+    headers: authHeaders(adminToken),
+    body: JSON.stringify({ role: "SUPPORT", email: "op2@crowmods.test", name: "Operator Two" })
+  });
+  assert.equal(res.status, 200);
+  const { user } = await res.json();
+  assert.equal(user.role, "SUPPORT");
+  assert.equal(user.email, "op2@crowmods.test");
+  assert.equal(user.name, "Operator Two");
+});
+
+test("a super admin can demote another super admin while one remains", async () => {
+  const { email, password } = await createAdmin();
+  const adminToken = await loginToken(server, email, password);
+  const second = await (await fetch(`${server.base}/api/admin/users`, {
+    method: "POST",
+    headers: authHeaders(adminToken),
+    body: JSON.stringify({ email: "sa2@crowmods.test", name: "Second SA", password: "SecurePass123", role: "SUPER_ADMIN" })
+  })).json();
+  assert.equal(second.user.role, "SUPER_ADMIN");
+
+  const res = await fetch(`${server.base}/api/admin/users/${second.user.id}`, {
+    method: "PATCH",
+    headers: authHeaders(adminToken),
+    body: JSON.stringify({ role: "ADMIN" })
+  });
+  assert.equal(res.status, 200);
+  assert.equal((await res.json()).user.role, "ADMIN");
+});
+
+test("cannot change your own role or deactivate yourself", async () => {
+  const { email, password } = await createAdmin();
+  const adminToken = await loginToken(server, email, password);
+  const me = await (await fetch(`${server.base}/api/admin/users`, { headers: authHeaders(adminToken) })).json();
+  const myId = me.users.find(u => u.email === email).id;
+
+  const res = await fetch(`${server.base}/api/admin/users/${myId}`, {
+    method: "PATCH",
+    headers: authHeaders(adminToken),
+    body: JSON.stringify({ role: "VIEWER" })
+  });
+  assert.equal(res.status, 400);
+  const res2 = await fetch(`${server.base}/api/admin/users/${myId}`, {
+    method: "DELETE",
+    headers: authHeaders(adminToken)
+  });
+  assert.equal(res2.status, 400);
+});
+
+test("cannot assign a duplicate email", async () => {
+  const { email, password } = await createAdmin();
+  const adminToken = await loginToken(server, email, password);
+  const op = await createOperator(adminToken);
+
+  const res = await fetch(`${server.base}/api/admin/users/${op.id}`, {
+    method: "PATCH",
+    headers: authHeaders(adminToken),
+    body: JSON.stringify({ email })
+  });
+  assert.equal(res.status, 409);
+});
+
+test("deactivating a user revokes their login", async () => {
+  const { email, password } = await createAdmin();
+  const adminToken = await loginToken(server, email, password);
+  const op = await createOperator(adminToken);
+
+  const del = await fetch(`${server.base}/api/admin/users/${op.id}`, {
+    method: "DELETE",
+    headers: authHeaders(adminToken)
+  });
+  assert.equal(del.status, 200);
+  assert.equal((await del.json()).user.status, "INACTIVE");
+
+  const login = await fetch(`${server.base}/api/admin/auth/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email: "op@crowmods.test", password: "SecurePass123" })
+  });
+  assert.equal(login.status, 403);
+});
+
 test("OPERATOR can create uploads", async () => {
   const { email, password } = await createAdmin();
   const adminToken = await loginToken(server, email, password);

@@ -107,6 +107,100 @@ async function listUsers() {
   return users.map(serializeUser);
 }
 
+const VALID_ROLES = ["SUPER_ADMIN", "ADMIN", "OPERATOR", "SUPPORT", "VIEWER"];
+
+async function updateUser(id, fields, actorId) {
+  const repo = getRepository();
+  const user = await repo.findUserById(id);
+  if (!user) {
+    const err = new Error("User not found");
+    err.status = 404;
+    throw err;
+  }
+  const updates = {};
+  if (fields.name !== undefined) updates.name = String(fields.name).trim() || null;
+  if (fields.email !== undefined) {
+    const email = String(fields.email).trim().toLowerCase();
+    if (!email) {
+      const err = new Error("Email is required");
+      err.status = 400;
+      throw err;
+    }
+    const existing = await repo.findUserByEmail(email);
+    if (existing && existing.id !== id) {
+      const err = new Error("User already exists");
+      err.status = 409;
+      throw err;
+    }
+    updates.email = email;
+  }
+  if (fields.role !== undefined) {
+    if (!VALID_ROLES.includes(fields.role)) {
+      const err = new Error("Invalid role");
+      err.status = 400;
+      throw err;
+    }
+    updates.role = fields.role;
+  }
+  if (fields.status !== undefined) {
+    if (!["ACTIVE", "INACTIVE"].includes(fields.status)) {
+      const err = new Error("Invalid status");
+      err.status = 400;
+      throw err;
+    }
+    updates.status = fields.status;
+  }
+  if (actorId === id && (updates.role !== undefined || updates.status !== undefined)) {
+    const err = new Error("You cannot change your own role or status");
+    err.status = 400;
+    throw err;
+  }
+  const isSuper = user.role === "SUPER_ADMIN" && user.status === "ACTIVE";
+  const demoting = updates.role !== undefined && updates.role !== "SUPER_ADMIN";
+  const deactivating = updates.status === "INACTIVE";
+  if (isSuper && (demoting || deactivating) && countActiveSuperAdmins(await repo.listUsers()) <= 1) {
+    const err = new Error("Cannot demote or deactivate the last active super admin");
+    err.status = 400;
+    throw err;
+  }
+  const updated = await repo.updateUser(id, updates);
+  await repo.createAuditLog({
+    actorId, action: "USER_UPDATED", resource: "user", resourceId: id,
+    metadata: { changes: Object.keys(updates) }
+  });
+  return serializeUser(updated);
+}
+
+async function deactivateUser(id, actorId) {
+  const repo = getRepository();
+  const user = await repo.findUserById(id);
+  if (!user) {
+    const err = new Error("User not found");
+    err.status = 404;
+    throw err;
+  }
+  if (actorId === id) {
+    const err = new Error("You cannot deactivate your own account");
+    err.status = 400;
+    throw err;
+  }
+  if (user.role === "SUPER_ADMIN" && user.status === "ACTIVE" && countActiveSuperAdmins(await repo.listUsers()) <= 1) {
+    const err = new Error("Cannot deactivate the last active super admin");
+    err.status = 400;
+    throw err;
+  }
+  const updated = await repo.updateUser(id, { status: "INACTIVE" });
+  await repo.revokeUserSessions(id);
+  await repo.createAuditLog({
+    actorId, action: "USER_DEACTIVATED", resource: "user", resourceId: id
+  });
+  return serializeUser(updated);
+}
+
+function countActiveSuperAdmins(users) {
+  return users.filter(u => u.role === "SUPER_ADMIN" && u.status === "ACTIVE").length;
+}
+
 async function requestPasswordReset(email) {
   const repo = getRepository();
   const user = await repo.findUserByEmail(email);
@@ -159,5 +253,5 @@ async function resetPassword(token, newPassword) {
 
 module.exports = {
   login, logout, authenticateToken, createInitialAdmin, createUser, listUsers, serializeUser,
-  requestPasswordReset, resetPassword
+  requestPasswordReset, resetPassword, updateUser, deactivateUser, VALID_ROLES
 };

@@ -1,7 +1,7 @@
 const express = require("express");
 const rateLimit = require("express-rate-limit");
 const multer = require("multer");
-const { login, logout, authenticateToken, createUser, listUsers, requestPasswordReset, resetPassword } = require("../modules/auth/service");
+const { login, logout, authenticateToken, createUser, listUsers, updateUser, deactivateUser, requestPasswordReset, resetPassword } = require("../modules/auth/service");
 const { requirePermission } = require("../lib/rbac");
 const audit = require("../modules/audit/service");
 const notifications = require("../modules/notifications/service");
@@ -338,6 +338,28 @@ router.post("/users", requirePermission("user.manage"), asyncHandler(async (req,
     resource: "user", resourceId: user.id, ip: clientIp(req)
   });
   res.status(201).json({ user });
+}));
+
+router.patch("/users/:id", requirePermission("user.manage"), asyncHandler(async (req, res) => {
+  const b = req.body || {};
+  const user = await updateUser(req.params.id, {
+    email: b.email, name: b.name, role: b.role, status: b.status
+  }, req.user.id);
+  await audit.log({
+    actorId: req.user.id, actorEmail: req.user.email, action: "USER_UPDATED",
+    resource: "user", resourceId: user.id, ip: clientIp(req),
+    metadata: { changes: Object.keys(b).filter(k => ["email", "name", "role", "status"].includes(k)) }
+  });
+  res.json({ user });
+}));
+
+router.delete("/users/:id", requirePermission("user.manage"), asyncHandler(async (req, res) => {
+  const user = await deactivateUser(req.params.id, req.user.id);
+  await audit.log({
+    actorId: req.user.id, actorEmail: req.user.email, action: "USER_DEACTIVATED",
+    resource: "user", resourceId: user.id, ip: clientIp(req)
+  });
+  res.json({ user });
 }));
 
 module.exports = { router, authenticate, loginLimiter, passwordResetLimiter };

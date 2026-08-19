@@ -57,7 +57,7 @@ class PostgresRepository {
   }
 
   async updateUser(id, fields) {
-    const allowed = ["name", "password_hash", "role", "status", "must_change_password", "last_login_at"];
+    const allowed = ["email", "name", "password_hash", "role", "status", "must_change_password", "last_login_at"];
     return this._updateRow("users", id, fields, allowed);
   }
 

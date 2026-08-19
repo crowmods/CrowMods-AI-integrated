@@ -37,6 +37,17 @@ API endpoints (phase gateway):
 Admin API lives under `/api/admin/*` (auth via Bearer token).
 Public site serves PUBLISHED + PUBLIC releases at `/releases/:slug`.
 
+Public endpoints (no auth):
+- `GET /releases` — index of published public releases
+- `GET /releases/:slug` — release page (HTML)
+- `GET /releases/:slug/download` — artifact download
+- `GET /sitemap.xml`, `GET /robots.txt`, `GET /og-logo.png`
+
+Admin user management (role/email/status):
+- `GET /users`, `POST /users`, `PATCH /users/:id`, `DELETE /users/:id`
+- The API blocks changing your own role/status and deactivating yourself;
+  deactivated users lose sessions and cannot log in.
+
 ## Public site, custom domain & admin link
 
 Public release pages are static HTML served by the API. Their behavior is

@@ -52,6 +52,27 @@ export default function SettingsPage() {
     } catch (err) { setToast(err.message); }
   };
 
+  const setUserRole = async (user, role) => {
+    try {
+      await api(`/users/${user.id}`, { method: "PATCH", body: { role } });
+      setToast(`Role updated for ${user.email}.`);
+      load();
+    } catch (err) { setToast(err.message); }
+  };
+
+  const toggleUserStatus = async (user) => {
+    try {
+      if (user.status === "ACTIVE") {
+        await api(`/users/${user.id}`, { method: "DELETE" });
+        setToast(`${user.email} deactivated.`);
+      } else {
+        await api(`/users/${user.id}`, { method: "PATCH", body: { status: "ACTIVE" } });
+        setToast(`${user.email} reactivated.`);
+      }
+      load();
+    } catch (err) { setToast(err.message); }
+  };
+
   const test = async (provider) => {
     try {
       const r = await api(`/integrations/${provider}/test`, { method: "POST" });
@@ -131,7 +152,15 @@ export default function SettingsPage() {
               <div className="title">{u.name || u.email}</div>
               <div className="meta">{u.email}</div>
             </div>
-            <span className="badge badge-blue">{u.role}</span>
+            <div className="row">
+              <span className={`badge ${u.status === "ACTIVE" ? "badge-green" : "badge-gray"}`}>{u.status}</span>
+              <select value={u.role} onChange={e => setUserRole(u, e.target.value)} style={{ padding: 6, borderRadius: 8, border: "1px solid var(--border)", background: "var(--panel)", color: "var(--text)" }}>
+                {["SUPER_ADMIN", "ADMIN", "OPERATOR", "SUPPORT", "VIEWER"].map(r => <option key={r} value={r}>{r}</option>)}
+              </select>
+              <button className="btn btn-sm btn-secondary" onClick={() => toggleUserStatus(u)}>
+                {u.status === "ACTIVE" ? "Deactivate" : "Reactivate"}
+              </button>
+            </div>
           </div>
         ))}
         <div style={{ marginTop: 12 }}>
