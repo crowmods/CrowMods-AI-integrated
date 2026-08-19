@@ -373,3 +373,20 @@ test("missing public release returns HTML 404", async () => {
   assert.match(res.headers.get("content-type"), /text\/html/);
   assert.ok((await res.text()).includes("404"));
 });
+
+test("domain root serves the public index and favicon exists", async () => {
+  const { email, password } = await createAdmin();
+  const token = await loginToken(server, email, password);
+  const release = await publishedPublicRelease(token);
+  const root = await (await fetch(`${server.base}/`)).text();
+  assert.ok(root.includes("CrowMods Releases"), "root is the index");
+  assert.ok(root.includes(`/releases/${release.slug}`), "root lists the release");
+  const favicon = await fetch(`${server.base}/favicon.ico`);
+  assert.equal(favicon.status, 200);
+  assert.ok(favicon.headers.get("content-length") > 0);
+});
+
+test("sitemap includes the root URL", async () => {
+  const sitemap = await (await fetch(`${server.base}/sitemap.xml`)).text();
+  assert.ok(sitemap.includes("<loc>/</loc>"), "sitemap root entry");
+});

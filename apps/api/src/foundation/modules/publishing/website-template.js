@@ -26,6 +26,7 @@ function renderReleasePage(release, upload, options = {}) {
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="theme-color" content="#0b0f17"/>
+<link rel="icon" href="/favicon.ico"/>
 <title>${esc(release.name)}</title>
 <link rel="canonical" href="${esc(pageUrl)}"/>
 <meta property="og:type" content="website"/>
@@ -108,6 +109,7 @@ function renderReleaseIndex(releases, options = {}) {
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="theme-color" content="#0b0f17"/>
+<link rel="icon" href="/favicon.ico"/>
 <title>CrowMods Releases</title>
 <link rel="canonical" href="${esc(origin ? origin + "/releases" : "/releases")}"/>
 <meta property="og:type" content="website"/>

@@ -23,6 +23,10 @@ app.get("/og-logo.png", (_req, res) => {
   res.sendFile(path.join(__dirname, "assets", "og-logo.png"));
 });
 
+app.get("/favicon.ico", (_req, res) => {
+  res.sendFile(path.join(__dirname, "assets", "favicon.png"));
+});
+
 app.get("/sitemap.xml", async (req, res) => {
   try {
     const all = await releases.list({ limit: 500, status: "PUBLISHED" });
@@ -36,12 +40,22 @@ app.get("/sitemap.xml", async (req, res) => {
     }).join("\n");
     res.type("application/xml").send(`<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>${base}/</loc></url>
   <url><loc>${base}/releases</loc></url>
 ${urls}
 </urlset>
 `);
   } catch {
     res.type("application/xml").send(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n</urlset>\n`);
+  }
+});
+
+app.get("/", async (_req, res) => {
+  try {
+    const all = await releases.list({ limit: 500, status: "PUBLISHED" });
+    res.type("html").send(renderReleaseIndex(all, await siteOptions()));
+  } catch {
+    res.type("html").send(renderReleaseIndex([], await siteOptions()));
   }
 });
 
@@ -93,7 +107,7 @@ app.get("/releases/:slug/download", async (req, res) => {
 
 function notFoundPage() {
   return `<!doctype html>
-<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="theme-color" content="#0b0f17"/><title>Not Found</title>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="theme-color" content="#0b0f17"/><link rel="icon" href="/favicon.ico"/><title>Not Found</title>
 <style>body{margin:0;font-family:system-ui,sans-serif;background:#0b0f17;color:#e8edf6;min-height:100vh;display:flex;align-items:center;justify-content:center}main{text-align:center;padding:32px}h1{font-size:64px;margin:0;color:#4f8cff}a{color:#8b96ad;text-decoration:none}a:hover{color:#e8edf6}</style></head>
 <body><main><h1>404</h1><p>Release not found.</p><a href="/releases">&larr; All releases</a></main></body></html>`;
 }

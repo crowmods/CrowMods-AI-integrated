@@ -38,10 +38,11 @@ Admin API lives under `/api/admin/*` (auth via Bearer token).
 Public site serves PUBLISHED + PUBLIC releases at `/releases/:slug`.
 
 Public endpoints (no auth):
-- `GET /releases` — index of published public releases
+- `GET /` and `GET /releases` — index of published public releases
+  (a custom domain pointed at the API serves this as its homepage)
 - `GET /releases/:slug` — release page (HTML)
 - `GET /releases/:slug/download` — artifact download
-- `GET /sitemap.xml`, `GET /robots.txt`, `GET /og-logo.png`
+- `GET /sitemap.xml`, `GET /robots.txt`, `GET /og-logo.png`, `GET /favicon.ico`
 
 Admin user management (role/email/status):
 - `GET /users`, `POST /users`, `PATCH /users/:id`, `DELETE /users/:id`
