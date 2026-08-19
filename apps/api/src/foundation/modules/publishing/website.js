@@ -7,7 +7,9 @@ async function siteOptions() {
   const config = integration?.config || {};
   return {
     publicDomain: String(config.publicDomain || ""),
-    adminPanelUrl: String(config.adminPanelUrl || config.adminUrl || "")
+    adminPanelUrl: String(config.adminPanelUrl || config.adminUrl || ""),
+    siteName: String(config.siteName || "CrowMods"),
+    siteDescription: String(config.siteDescription || "")
   };
 }
 

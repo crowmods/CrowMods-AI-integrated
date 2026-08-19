@@ -10,6 +10,8 @@ function renderReleasePage(release, upload, options = {}) {
   const pageUrl = base ? `${base}/releases/${encodeURIComponent(release.slug)}` : `/releases/${encodeURIComponent(release.slug)}`;
   const downloadUrl = base ? `${base}/releases/${encodeURIComponent(release.slug)}/download` : `/releases/${encodeURIComponent(release.slug)}/download`;
   const adminPanelUrl = String(options.adminPanelUrl || "").replace(/\/+$/, "");
+  const siteName = String(options.siteName || "CrowMods");
+  const siteDescription = String(options.siteDescription || "");
 
   const permissions = manifest.permissions || [];
   const meta = [
@@ -27,10 +29,12 @@ function renderReleasePage(release, upload, options = {}) {
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="theme-color" content="#0b0f17"/>
 <link rel="icon" href="/favicon.ico"/>
-<title>${esc(release.name)}</title>
+<title>${esc(release.name)} — ${esc(siteName)}</title>
 <link rel="canonical" href="${esc(pageUrl)}"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="${esc(release.name)}"/>
+<meta property="og:site_name" content="${esc(siteName)}"/>
+<meta property="og:description" content="${esc(release.description || siteDescription)}"/>
 <meta property="og:url" content="${esc(pageUrl)}"/>
 <meta property="og:image" content="${esc(base ? base + "/og-logo.png" : "/og-logo.png")}"/>
 <meta name="twitter:card" content="summary"/>
@@ -67,7 +71,7 @@ function renderReleasePage(release, upload, options = {}) {
   <a class="btn" href="${esc(downloadUrl)}">Download</a>
 </main>
 <footer>
-  <span>${esc(release.name)}</span>
+  <span>${esc(siteName)}</span>
   ${adminPanelUrl ? `<a href="${esc(adminPanelUrl)}" rel="nofollow">Admin</a>` : ""}
 </footer>
 </body>
@@ -93,6 +97,8 @@ function renderReleaseIndex(releases, options = {}) {
   const base = String(options.publicDomain || "").replace(/\/+$/, "");
   const adminPanelUrl = String(options.adminPanelUrl || "").replace(/\/+$/, "");
   const origin = base || "";
+  const siteName = String(options.siteName || "CrowMods");
+  const siteDescription = String(options.siteDescription || "");
   const publicReleases = (releases || []).filter(r => r.status === "PUBLISHED" && r.visibility !== "PRIVATE");
   const cards = publicReleases.map(r => {
     const url = `${origin}/releases/${encodeURIComponent(r.slug)}`;
@@ -110,10 +116,12 @@ function renderReleaseIndex(releases, options = {}) {
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="theme-color" content="#0b0f17"/>
 <link rel="icon" href="/favicon.ico"/>
-<title>CrowMods Releases</title>
+<title>${esc(siteName)}</title>
 <link rel="canonical" href="${esc(origin ? origin + "/releases" : "/releases")}"/>
 <meta property="og:type" content="website"/>
-<meta property="og:title" content="CrowMods Releases"/>
+<meta property="og:title" content="${esc(siteName)}"/>
+<meta property="og:site_name" content="${esc(siteName)}"/>
+<meta property="og:description" content="${esc(siteDescription)}"/>
 <meta property="og:url" content="${esc(origin ? origin + "/releases" : "/releases")}"/>
 <meta name="twitter:card" content="summary"/>
 <style>
@@ -137,13 +145,13 @@ function renderReleaseIndex(releases, options = {}) {
 <body>
 <main>
   <header>
-    <h1>CrowMods Releases</h1>
-    <p>${esc(publicReleases.length)} published release${publicReleases.length === 1 ? "" : "s"}</p>
+    <h1>${esc(siteName)}</h1>
+    <p>${esc(siteDescription || `${publicReleases.length} published release${publicReleases.length === 1 ? "" : "s"}`)}</p>
   </header>
   ${cards || `<div class="empty">No public releases yet.</div>`}
 </main>
 <footer>
-  <span>CrowMods</span>
+  <span>${esc(siteName)}</span>
   ${adminPanelUrl ? `<a href="${esc(adminPanelUrl)}" rel="nofollow">Admin</a>` : ""}
 </footer>
 </body>

@@ -354,6 +354,36 @@ test("public index uses custom domain absolute URLs", async () => {
   assert.ok(index.includes(`https://mods.example.com/releases/${release.slug}`), "absolute card URL");
 });
 
+test("public index uses configured site name and description", async () => {
+  const { email, password } = await createAdmin();
+  const token = await loginToken(server, email, password);
+  await fetch(`${server.base}/api/admin/integrations`, {
+    method: "POST",
+    headers: authHeaders(token),
+    body: JSON.stringify({ provider: "website", name: "Public Site", config: { siteName: "ModHub", siteDescription: "Fresh mods daily" } })
+  });
+  const index = await (await fetch(`${server.base}/releases`)).text();
+  assert.ok(index.includes("<title>ModHub</title>"), "branded title");
+  assert.ok(index.includes("<h1>ModHub</h1>"), "branded heading");
+  assert.ok(index.includes("Fresh mods daily"), "branded description");
+  assert.ok(index.includes('<meta property="og:site_name" content="ModHub"/>'), "og:site_name");
+});
+
+test("release page is branded with site name and og metadata", async () => {
+  const { email, password } = await createAdmin();
+  const token = await loginToken(server, email, password);
+  await fetch(`${server.base}/api/admin/integrations`, {
+    method: "POST",
+    headers: authHeaders(token),
+    body: JSON.stringify({ provider: "website", name: "Public Site", config: { siteName: "ModHub", siteDescription: "Fresh mods daily" } })
+  });
+  const release = await publishedPublicRelease(token);
+  const page = await (await fetch(`${server.base}/releases/${release.slug}`)).text();
+  assert.ok(page.includes(`<title>${release.name} — ModHub</title>`), "branded page title");
+  assert.ok(page.includes('<meta property="og:site_name" content="ModHub"/>'), "og:site_name on page");
+  assert.ok(page.includes('<footer>\n  <span>ModHub</span>'), "branded footer");
+});
+
 test("sitemap lists published releases and robots.txt allows crawl", async () => {
   const { email, password } = await createAdmin();
   const token = await loginToken(server, email, password);
@@ -379,7 +409,7 @@ test("domain root serves the public index and favicon exists", async () => {
   const token = await loginToken(server, email, password);
   const release = await publishedPublicRelease(token);
   const root = await (await fetch(`${server.base}/`)).text();
-  assert.ok(root.includes("CrowMods Releases"), "root is the index");
+  assert.ok(root.includes("<h1>CrowMods</h1>"), "root is the index");
   assert.ok(root.includes(`/releases/${release.slug}`), "root lists the release");
   const favicon = await fetch(`${server.base}/favicon.ico`);
   assert.equal(favicon.status, 200);

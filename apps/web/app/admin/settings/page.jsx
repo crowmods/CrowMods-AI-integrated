@@ -10,7 +10,7 @@ export default function SettingsPage() {
   const [toast, setToast] = useState("");
   const [tgForm, setTgForm] = useState({ botToken: "", chatId: "" });
   const [dcForm, setDcForm] = useState({ webhookUrl: "" });
-  const [siteForm, setSiteForm] = useState({ publicDomain: "", adminPanelUrl: "" });
+  const [siteForm, setSiteForm] = useState({ publicDomain: "", adminPanelUrl: "", siteName: "CrowMods", siteDescription: "" });
   const [userForm, setUserForm] = useState({ email: "", name: "", password: "", role: "VIEWER" });
 
   const load = () => {
@@ -19,7 +19,9 @@ export default function SettingsPage() {
       const ws = r.integrations.find(i => i.provider === "website");
       if (ws) setSiteForm({
         publicDomain: ws.config?.publicDomain || "",
-        adminPanelUrl: ws.config?.adminPanelUrl || ws.config?.adminUrl || ""
+        adminPanelUrl: ws.config?.adminPanelUrl || ws.config?.adminUrl || "",
+        siteName: ws.config?.siteName || "CrowMods",
+        siteDescription: ws.config?.siteDescription || ""
       });
     }).catch(() => {});
     api("/plans").then(r => setPlans(r.plans)).catch(() => {});
@@ -109,6 +111,8 @@ export default function SettingsPage() {
           download links and share links then use your own domain.
         </p>
         <label className="field"><span>Custom public domain</span><input value={siteForm.publicDomain} onChange={e => setSiteForm({ ...siteForm, publicDomain: e.target.value })} placeholder="https://mods.example.com" /></label>
+        <label className="field"><span>Site name</span><input value={siteForm.siteName} onChange={e => setSiteForm({ ...siteForm, siteName: e.target.value })} placeholder="CrowMods" /></label>
+        <label className="field"><span>Site description</span><input value={siteForm.siteDescription} onChange={e => setSiteForm({ ...siteForm, siteDescription: e.target.value })} placeholder="Published mods and app downloads" /></label>
         <label className="field"><span>Admin panel URL</span><input value={siteForm.adminPanelUrl} onChange={e => setSiteForm({ ...siteForm, adminPanelUrl: e.target.value })} placeholder="https://crowmods-ai-web.onrender.com/admin" /></label>
         <div className="row" style={{ gap: 8, flexWrap: "wrap" }}>
           <button className="btn btn-block" style={{ flex: 1 }} onClick={saveSite}>Save Public Site Settings</button>
