@@ -118,7 +118,7 @@ async function updateUser(id, fields, actorId) {
     throw err;
   }
   const updates = {};
-  if (fields.name !== undefined) updates.name = String(fields.name).trim() || null;
+  if (fields.name !== undefined) updates.name = String(fields.name).trim() || "";
   if (fields.email !== undefined) {
     const email = String(fields.email).trim().toLowerCase();
     if (!email) {

@@ -56,6 +56,20 @@ test("admin can update another user's role and email", async () => {
   assert.equal(user.name, "Operator Two");
 });
 
+test("clearing a user's name is allowed (empty string, not null)", async () => {
+  const { email, password } = await createAdmin();
+  const adminToken = await loginToken(server, email, password);
+  const op = await createOperator(adminToken);
+
+  const res = await fetch(`${server.base}/api/admin/users/${op.id}`, {
+    method: "PATCH",
+    headers: authHeaders(adminToken),
+    body: JSON.stringify({ name: "" })
+  });
+  assert.equal(res.status, 200);
+  assert.equal((await res.json()).user.name, "");
+});
+
 test("a super admin can demote another super admin while one remains", async () => {
   const { email, password } = await createAdmin();
   const adminToken = await loginToken(server, email, password);
