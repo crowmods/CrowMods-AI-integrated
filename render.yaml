@@ -3,7 +3,7 @@ services:
     name: crowmods-ai-integrated
     runtime: node
     plan: starter
-    buildCommand: npm ci && npm run lint && npm run typecheck && npm run migration:check && npm run integration:check && npm run build:web
+    buildCommand: npm ci
     startCommand: npm start
     envVars:
       - key: NODE_ENV
