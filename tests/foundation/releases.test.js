@@ -326,3 +326,50 @@ test("website integration rejects invalid custom domain URL", async () => {
   });
   assert.equal(res.status, 400);
 });
+
+test("public index lists published releases with admin link", async () => {
+  const { email, password } = await createAdmin();
+  const token = await loginToken(server, email, password);
+  await fetch(`${server.base}/api/admin/integrations`, {
+    method: "POST",
+    headers: authHeaders(token),
+    body: JSON.stringify({ provider: "website", name: "Public Site", config: { adminPanelUrl: "https://panel.example.com/admin" } })
+  });
+  const release = await publishedPublicRelease(token);
+  const index = await (await fetch(`${server.base}/releases`)).text();
+  assert.ok(index.includes(`<a class="card" href="/releases/${release.slug}">`), "release card on index");
+  assert.ok(index.includes(`href="https://panel.example.com/admin"`), "admin link on index");
+});
+
+test("public index uses custom domain absolute URLs", async () => {
+  const { email, password } = await createAdmin();
+  const token = await loginToken(server, email, password);
+  await fetch(`${server.base}/api/admin/integrations`, {
+    method: "POST",
+    headers: authHeaders(token),
+    body: JSON.stringify({ provider: "website", name: "Public Site", config: { publicDomain: "https://mods.example.com" } })
+  });
+  const release = await publishedPublicRelease(token);
+  const index = await (await fetch(`${server.base}/releases`)).text();
+  assert.ok(index.includes(`https://mods.example.com/releases/${release.slug}`), "absolute card URL");
+});
+
+test("sitemap lists published releases and robots.txt allows crawl", async () => {
+  const { email, password } = await createAdmin();
+  const token = await loginToken(server, email, password);
+  const release = await publishedPublicRelease(token);
+  const sitemap = await (await fetch(`${server.base}/sitemap.xml`)).text();
+  assert.ok(sitemap.includes(`<loc>/releases/${release.slug}</loc>`), "sitemap entry");
+  const robots = await (await fetch(`${server.base}/robots.txt`)).text();
+  assert.ok(robots.includes("Allow: /"), "robots allows crawl");
+  const og = await fetch(`${server.base}/og-logo.png`);
+  assert.equal(og.status, 200);
+  assert.match(og.headers.get("content-type"), /image\/png/);
+});
+
+test("missing public release returns HTML 404", async () => {
+  const res = await fetch(`${server.base}/releases/does-not-exist`);
+  assert.equal(res.status, 404);
+  assert.match(res.headers.get("content-type"), /text\/html/);
+  assert.ok((await res.text()).includes("404"));
+});
