@@ -120,3 +120,11 @@ If `ADMIN_EMAIL`/`ADMIN_PASSWORD` are unset, the API bootstraps
 `ADMIN_BOOTSTRAP email=... password=...` to its logs. With the in-memory
 repository this account (and its password) is recreated on every restart,
 so set the env vars (or `DATABASE_URL`) for stable credentials.
+
+To restore a known admin password against a running API (no Render log access
+needed), use the included helper:
+
+```bash
+node scripts/reset-admin.js   # sets admin@crowmods.test / admin123
+# CROWMODS_BASE_URL, CROWMODS_ADMIN_EMAIL, CROWMODS_ADMIN_PASSWORD override defaults
+```

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { api } from "../lib";
+import { api, API } from "../lib";
 
 export default function SettingsPage() {
   const [integrations, setIntegrations] = useState([]);
@@ -110,7 +110,10 @@ export default function SettingsPage() {
         </p>
         <label className="field"><span>Custom public domain</span><input value={siteForm.publicDomain} onChange={e => setSiteForm({ ...siteForm, publicDomain: e.target.value })} placeholder="https://mods.example.com" /></label>
         <label className="field"><span>Admin panel URL</span><input value={siteForm.adminPanelUrl} onChange={e => setSiteForm({ ...siteForm, adminPanelUrl: e.target.value })} placeholder="https://crowmods-ai-web.onrender.com/admin" /></label>
-        <button className="btn btn-block" onClick={saveSite}>Save Public Site Settings</button>
+        <div className="row" style={{ gap: 8, flexWrap: "wrap" }}>
+          <button className="btn btn-block" style={{ flex: 1 }} onClick={saveSite}>Save Public Site Settings</button>
+          <a className="btn btn-block" style={{ flex: 1, background: "var(--panel)", border: "1px solid var(--border)", color: "var(--text)" }} href={`${(siteForm.publicDomain || API).replace(/\/+$/, "")}/releases`} target="_blank" rel="noopener noreferrer">View Public Releases</a>
+        </div>
       </div>
 
       <div className="card">
