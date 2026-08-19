@@ -129,3 +129,10 @@ needed), use the included helper:
 node scripts/reset-admin.js   # sets admin@crowmods.test / admin123
 # CROWMODS_BASE_URL, CROWMODS_ADMIN_EMAIL, CROWMODS_ADMIN_PASSWORD override defaults
 ```
+
+Smoke-test a running deployment (health, public site, auth, phase gateway):
+
+```bash
+bash scripts/verify-live.sh
+# BASE_URL, ADMIN_EMAIL, ADMIN_PASS overrides; run reset-admin.js first if needed
+```
